@@ -1,36 +1,31 @@
 {
   "meta": {
-    "title": "Erklæring om ansvarsrett",
-    "footer": "Your footer here!"
+    "title": "Hvor stort kan du bygge?"
   },
   "schema": [
     {
-
       "id": "page1",
       "type": "Page",
-      "heading": "Informasjon om ditt hus",
-      "lead":
-      "<p>En fancy lead.</p>",
+      "heading": "Hvor mye av eiendommen din er allerede bebygd?",
       "children": [
         {
-          "id": "companytype",
-          "property": "companytype",
-          "type": "Radio",
-          "heading": "Hvem representerer du?",
-          "options": [
-            {
-              "id": "companytype.norwegian",
-              "type": "Answer",
-              "heading": "Et norsk firma",
-              "value": "norwegian"
-            },
-            {
-              "id": "companytype.foreign",
-              "type": "Answer",
-              "heading": "Et utenlandsk firma",
-              "value": "foreign"
-            }
-          ]
+          "id": "property.area",
+          "property": "property.area",
+          "type": "Number",
+          "heading": "Areal bolig?"
+        }
+      ]
+    },
+    {
+      "id": "Page2",
+      "type": "Page",
+      "heading": "Hvor mye av dagens bebyggelse skal rives?",
+      "children": [
+        {
+          "id": "area.demolish",
+          "property": "area.demolish",
+          "type": "Number",
+          "heading": "Areal som skal rives"
         }
       ]
     },
@@ -39,10 +34,8 @@
       "type": "Result",
       "heading": "Resultatsiden heading",
       "errorheading": "Error heading",
-      "lead":
-      "<p>Fancy result lead</p>",
-      "errorlead":
-      "Fancy error lead.",
+      "lead": "<p>Fancy result lead</p>",
+      "errorlead": "Fancy error lead.",
       "exporter": "dataExport"
     }
   ]
