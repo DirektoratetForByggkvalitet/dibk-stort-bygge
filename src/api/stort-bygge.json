@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "Erklæring om ansvarsrett",
+    "footer": "Your footer here!"
+  },
+  "schema": [
+    {
+
+      "id": "page1",
+      "type": "Page",
+      "heading": "Informasjon om ditt hus",
+      "lead":
+      "<p>En fancy lead.</p>",
+      "children": [
+        {
+          "id": "companytype",
+          "property": "companytype",
+          "type": "Radio",
+          "heading": "Hvem representerer du?",
+          "options": [
+            {
+              "id": "companytype.norwegian",
+              "type": "Answer",
+              "heading": "Et norsk firma",
+              "value": "norwegian"
+            },
+            {
+              "id": "companytype.foreign",
+              "type": "Answer",
+              "heading": "Et utenlandsk firma",
+              "value": "foreign"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hooray",
+      "type": "Result",
+      "heading": "Resultatsiden heading",
+      "errorheading": "Error heading",
+      "lead":
+      "<p>Fancy result lead</p>",
+      "errorlead":
+      "Fancy error lead.",
+      "exporter": "dataExport"
+    }
+  ]
+}

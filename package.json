@@ -2,15 +2,43 @@
   "name": "dibk-stort-bygge",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
-  },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=8080 react-scripts start",
+    "dev": "npm start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "npm run lint:js",
+    "lint:js": "eslint . --ext .jsx,.js --ignore-pattern build",
+    "deploy": "npm run build && firebase deploy",
+    "eject": "react-scripts eject",
+    "validate": "losen validate src/api/ansvarsrett.json"
+  },
+  "dependencies": {
+    "lodash.get": "^4.4.2",
+    "losen": "^0.19.1",
+    "prop-types": "^15.6.0",
+    "react": "^15.6.1",
+    "react-autobind": "^1.0.6",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
+    "redux-persist": "^4.10.1",
+    "styled-components": "^2.2.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "rules": {
+      "react/forbid-prop-types": 0,
+      "react/jsx-filename-extension": 0
+    }
   }
 }
