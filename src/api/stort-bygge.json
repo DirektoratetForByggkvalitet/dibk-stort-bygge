@@ -22,10 +22,18 @@
       "heading": "Hvor mye av dagens bebyggelse skal rives?",
       "children": [
         {
-          "id": "area.demolish",
-          "property": "area.demolish",
+          "id": "arealBebyggelseSomSkalRives",
+          "property": "arealBebyggelseSomSkalRives",
           "type": "Number",
-          "heading": "Areal som skal rives"
+          "heading": "Areal som skal rives",
+          "validator": {
+            "test": {
+              "field": "arealBebyggelseSomSkalRives",
+              "operator": "lte",
+              "value": { "field": "property.area" }
+            },
+            "error": "Areal som skal rives må være mindre enn bebygget areal"
+          }
         }
       ]
     },
