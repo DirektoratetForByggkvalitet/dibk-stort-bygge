@@ -6,13 +6,23 @@
     {
       "id": "page1",
       "type": "Page",
-      "heading": "Hvor mye av eiendommen din er allerede bebygd?",
+      "heading": "Om eiendommen",
       "children": [
         {
-          "id": "property.area",
-          "property": "property.area",
+          "id": "propertyArea",
+          "property": "propertyArea",
           "type": "Number",
-          "heading": "Areal bolig?"
+          "heading": "Hvor stor er eiendommen?",
+          "minimum": 0,
+          "text":
+            "<p>Arealet på eiendommen finner du i et matrikkelbrev (tidligere ble dette kalt målebrev). Matrikkelbrev får du fra kommunen. Du kan <a href=\"http://www.seeiendom.no/\">også se eiendommens areal på Kartverkets nettsted www.seeiendom.no</a></p>"
+        },
+        {
+          "id": "nonSettlementArea",
+          "property": "nonSettlementArea",
+          "type": "Number",
+          "heading": "Hvor stor del av eiendommen er regulert til noe annet enn bebyggelse?",
+          "minimum": 0
         }
       ]
     },
@@ -30,7 +40,7 @@
             "test": {
               "field": "arealBebyggelseSomSkalRives",
               "operator": "lte",
-              "value": { "field": "property.area" }
+              "value": { "field": "propertyArea" }
             },
             "error": "Areal som skal rives må være mindre enn bebygget areal"
           }
