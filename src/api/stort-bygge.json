@@ -54,7 +54,18 @@
       "errorheading": "Error heading",
       "lead": "<p>Fancy result lead</p>",
       "errorlead": "Fancy error lead.",
-      "exporter": "dataExport"
+      "exporter": "dataExport",
+      "children": [
+        {
+          "id": "somesum",
+          "property": "somesum",
+          "type": "Sum",
+          "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
+          "heading": "SUM",
+          "optional": true,
+          "text": "Dette er en sum av noe slag"
+        }
+      ]
     }
   ]
 }
