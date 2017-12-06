@@ -252,26 +252,26 @@
         "Parkeringsplasser som ligger på terreng (altså ikke i garasje) blir tatt med i grad av utnytting.<p>Du finner som regel kravene som gjelder for din eiendom i planbestemmelsen du har funnet fram tidligere: Enten reguleringsplanen eller kommuneplanen. Du kan også sjekke om kommunen har en parkeringsnorm.</p>",
       "children": [
         {
-          "id": "tempparking",
-          "property": "tempparking",
+          "id": "requiredParkingSpots",
+          "property": "requiredParkingSpots",
           "type": "Number",
           "heading": "Hvor mange parkeringsplasser kreves totalt på eiendommen?",
           "minimum": 0
         },
         {
-          "id": "tempparkingradio",
+          "id": "minimumParkinglotsForPlan",
           "property": "tempparkingradio",
           "type": "Radio",
           "heading": "Har reguleringsplanen krav til minimum antall parkeringsplasser på terreng?",
           "options": [
             {
-              "id": "tempparkingradio.yes",
+              "id": "minimumParkinglotsForPlan.yes",
               "type": "Answer",
               "heading": "Ja",
               "value": "yes"
             },
             {
-              "id": "tempparkingradio.no",
+              "id": "minimumParkinglotsForPlan.no",
               "type": "Answer",
               "heading": "Nei",
               "value": "no"
@@ -283,14 +283,14 @@
           "branches": [
             {
               "test": {
-                "field": "tempparkingradio",
+                "field": "requiredParkingSpots",
                 "operator": "eq",
                 "value": "yes"
               },
               "children": [
                 {
-                  "id": "tempnumberofparking",
-                  "property": "tempnumberofparking",
+                  "id": "requiredParkingSpotsTerrain",
+                  "property": "requiredParkingSpotsTerrain",
                   "type": "Number",
                   "heading": "Hvor mange parkeringsplasser på terreng kreves?",
                   "minumum": 0
@@ -322,8 +322,8 @@
           ]
         },
         {
-          "id": "tempplasser",
-          "property": "tempplasser",
+          "id": "numberOfParkinglotsInCarport",
+          "property": "numberOfParkinglotsInCarport",
           "type": "Number",
           "heading": "Antall parkeringsplasser i garasje/carport",
           "minimum": 0
