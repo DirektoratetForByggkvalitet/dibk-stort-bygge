@@ -4,6 +4,140 @@
   },
   "schema": [
     {
+      "id": "start",
+      "type": "Page",
+      "heading": "Er eiendommen regulert?",
+      "children": [
+        {
+          "id": "regulation",
+          "property": "regulation",
+          "type": "Radio",
+          "heading": "Er eiendommen regulert?",
+          "text": "Fant du en reguleringsplan hos kommunen, er eiendommen regulert.",
+          "options": [
+            {
+              "id": "regulation.yes",
+              "type": "Answer",
+              "heading": "Ja, eiendommen er regulert.",
+              "value": "yes"
+            },
+            {
+              "id": "regulation.no",
+              "type": "Answer",
+              "heading": "Nei, eiendommen er ikke regulert.",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "field": "regulation",
+                "operator": "eq",
+                "value": "yes"
+              },
+              "children": [
+                {
+                  "id": "finneskommuneplanen",
+                  "property": "finneskommuneplanen",
+                  "type": "Radio",
+                  "heading":
+                    "Er det bestemmelser i kommuneplanen eller -delplanen som sier noe om tillatt grad av utnytting?",
+                  "options": [
+                    {
+                      "id": "finneskommuneplanen.yes",
+                      "type": "Answer",
+                      "heading": "Ja",
+                      "value": "yes"
+                    },
+                    {
+                      "id": "finneskommuneplanen.no",
+                      "type": "Answer",
+                      "heading": "Nei",
+                      "value": "no"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kommuneplanen",
+          "property": "kommuneplanen",
+          "type": "Radio",
+          "heading": "Hvordan defineres grad av utnytting i kommuneplanen?",
+          "text": "Fant du en reguleringsplan hos kommunen, er eiendommen regulert.",
+          "options": [
+            {
+              "id": "kommuneplanen.bya",
+              "type": "Answer",
+              "heading": "BYA",
+              "value": "bya"
+            },
+            {
+              "id": "kommuneplanen.pbya",
+              "type": "Answer",
+              "heading": "%BYA",
+              "value": "pbya"
+            },
+            {
+              "id": "kommuneplanen.bra",
+              "type": "Answer",
+              "heading": "BRA",
+              "value": "bra"
+            },
+            {
+              "id": "kommuneplanen.pbra",
+              "type": "Answer",
+              "heading": "%BRA",
+              "value": "pbra"
+            },
+            {
+              "id": "kommuneplanen.tbra",
+              "type": "Answer",
+              "heading": "T-BRA",
+              "value": "tbra"
+            },
+            {
+              "id": "kommuneplanen.ptu",
+              "type": "Answer",
+              "heading": "%TU",
+              "value": "ptu"
+            },
+            {
+              "id": "kommuneplanen.none",
+              "type": "Answer",
+              "heading": "Ingen av disse",
+              "value": "none"
+            }
+          ]
+        },
+        {
+          "id": "someerror",
+          "type": "Error",
+          "simple": true,
+          "children": [
+            {
+              "id": "insufficientKommuneplanen",
+              "type": "Text",
+              "warning": true,
+              "heading":
+                "Beklager, da kan du ikke bruke denne veilederen. Ta kontakt med kommunen din, så hjelper de deg videre."
+            },
+            {
+              "id": "failedButCanGoOn",
+              "type": "Text",
+              "text":
+                "Hvordan burde denne feilmeldingen fungere? Det må vi få avklart. Skal vi skru av veien videre når man får den?"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "page1",
       "type": "Page",
       "heading": "Om eiendommen",
@@ -37,8 +171,8 @@
         "Du skal måle areal i BYA. Det betyr bebygd areal.<p>Vi må finne en løsning for \"Hva er bebygd areal?\" lenken. Skal vi lage en egen side?",
       "children": [
         {
-          "id": "arealBebyggelseSomSkalRives",
-          "property": "arealBebyggelseSomSkalRives",
+          "id": "areaToBeDemolished",
+          "property": "areaToBeDemolished",
           "type": "Group",
           "simple": true,
           "children": [
