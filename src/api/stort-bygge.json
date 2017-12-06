@@ -22,12 +22,60 @@
           "property": "nonSettlementArea",
           "type": "Number",
           "heading": "Hvor stor del av eiendommen er regulert til noe annet enn bebyggelse?",
-          "minimum": 0
+          "minimum": 0,
+          "summary": "Hva er byggeområde?",
+          "details":
+            "<p>Når du skal beregne grad av utnytting, skal du bare bruke arealet som er regulert til byggeområde. Du skal ikke ta med deler av eiendommen som er regulert til for eksempel:</p><ul><li>felles adkomstvei</li><li>gang- og sykkelvei</li><li>friområde</li><li>grøntareal</li><li>fellesområder</li></ul><img src=\"/img/figur_01.png\" alt=\"Utsnitt av kart\"><h3>Dette kartet er bare et eksempel!</h3><ul><li>BLÅ: Eiendommens grenser</li><li>GRÅ: Vei og felles adkomst</li><li>GRØNN: Friområde</li><li>GUL: Byggeområde</li></ul><p>Du skal altså måle alt bortsett fra det gule området.</p><p>Sjekk din eiendom i reguleringsplan eller kommuneplan. Mål <strong>alle</strong> areal som <strong>ikke</strong> er regulert til byggeområde.</p>"
         }
       ]
     },
     {
       "id": "Page2",
+      "type": "Page",
+      "heading": "Hvor mye av eiendommen din er allerede bebygd?",
+      "lead":
+        "Du skal måle areal i BYA. Det betyr bebygd areal.<p>Vi må finne en løsning for \"Hva er bebygd areal?\" lenken. Skal vi lage en egen side?",
+      "children": [
+        {
+          "id": "arealBebyggelseSomSkalRives",
+          "property": "arealBebyggelseSomSkalRives",
+          "type": "Group",
+          "simple": true,
+          "children": [
+            {
+              "id": "tempBYA",
+              "property": "tempBYA",
+              "type": "Number",
+              "heading": "Areal bolig i BYA?",
+              "minimum": 0
+            },
+            {
+              "id": "tempgarasje",
+              "property": "tempgarasje",
+              "type": "Number",
+              "heading": "Areal frittstående garasje",
+              "minimum": 0
+            },
+            {
+              "id": "tempfrittstaaend",
+              "property": "tempfrittstaaend",
+              "type": "Number",
+              "heading": "Areal frittstående bod/uthus/dukkehus",
+              "minimum": 0
+            },
+            {
+              "id": "tempkonstruksjon",
+              "property": "tempkonstruksjon",
+              "type": "Number",
+              "heading": "Areal for annen frittstående konstruksjon",
+              "minimum": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Page3",
       "type": "Page",
       "heading": "Hvor mye av dagens bebyggelse skal rives?",
       "children": [
@@ -44,6 +92,107 @@
             },
             "error": "Areal som skal rives må være mindre enn bebygget areal"
           }
+        }
+      ]
+    },
+    {
+      "id": "Page4",
+      "type": "Page",
+      "heading": "Hvor stort blir det nye du skal bygge?",
+      "lead": "Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.",
+      "children": [
+        {
+          "id": "tempebygd",
+          "property": "tempebygd",
+          "type": "Number",
+          "heading": "Areal",
+          "minimum": 0
+        }
+      ]
+    },
+    {
+      "id": "Page5",
+      "type": "Page",
+      "heading": "Hvor stort parkeringsareal må du ha?",
+      "lead":
+        "Parkeringsplasser som ligger på terreng (altså ikke i garasje) blir tatt med i grad av utnytting.<p>Du finner som regel kravene som gjelder for din eiendom i planbestemmelsen du har funnet fram tidligere: Enten reguleringsplanen eller kommuneplanen. Du kan også sjekke om kommunen har en parkeringsnorm.</p>",
+      "children": [
+        {
+          "id": "tempparking",
+          "property": "tempparking",
+          "type": "Number",
+          "heading": "Hvor mange parkeringsplasser kreves totalt på eiendommen?",
+          "minimum": 0
+        },
+        {
+          "id": "tempparkingradio",
+          "property": "tempparkingradio",
+          "type": "Radio",
+          "heading": "Har reguleringsplanen krav til minimum antall parkeringsplasser på terreng?",
+          "options": [
+            {
+              "id": "tempparkingradio.yes",
+              "type": "Answer",
+              "heading": "Ja",
+              "value": "yes"
+            },
+            {
+              "id": "tempparkingradio.no",
+              "type": "Answer",
+              "heading": "Nei",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "field": "tempparkingradio",
+                "operator": "eq",
+                "value": "yes"
+              },
+              "children": [
+                {
+                  "id": "tempnumberofparking",
+                  "property": "tempnumberofparking",
+                  "type": "Number",
+                  "heading": "Hvor mange parkeringsplasser på terreng kreves?",
+                  "minumum": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "field": "tempnumberofparking",
+                "operator": "gt",
+                "value": 0
+              },
+              "children": [
+                {
+                  "id": "tempnumberofparking",
+                  "property": "responsiblefirm",
+                  "type": "Number",
+                  "heading":
+                    "Sier parkeringsreglene for din eiendom noe om hvor stor hver parkeringsplass må være? Hvis det ikke står noe, er det 18 m2.",
+                  "minumum": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tempplasser",
+          "property": "tempplasser",
+          "type": "Number",
+          "heading": "Antall parkeringsplasser i garasje/carport",
+          "minimum": 0
         }
       ]
     },
