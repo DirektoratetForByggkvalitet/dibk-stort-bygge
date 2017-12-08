@@ -553,6 +553,15 @@
               "minimum": 0
             }
           ]
+        },
+        {
+          "id": "bebygdssum",
+          "property": "bebygdsum",
+          "type": "Sum",
+          "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
+          "optional": true,
+          "text": "Totalt areal som allerede er bebygd",
+          "unit": "m<sup>2</sup>"
         }
       ]
     },
@@ -678,9 +687,8 @@
           "property": "parkeringsum",
           "type": "Sum",
           "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
-          "heading": "Totalt parkeringsareal",
           "optional": true,
-          "text": "Du trenger et parkeringsareal på",
+          "text": "Du må ha et parkeringsareal på",
           "unit": "m<sup>2</sup>"
         }
       ]
