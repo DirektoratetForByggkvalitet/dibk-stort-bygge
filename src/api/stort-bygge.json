@@ -353,11 +353,33 @@
           ]
         },
         {
-          "id": "utilizationArea",
-          "property": "utilizationArea",
-          "type": "Number",
-          "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
-          "minimum": 0
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "required"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "required"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "utilizationArea",
+                  "property": "utilizationArea",
+                  "type": "Number",
+                  "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
+                  "minimum": 0
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "someerror",
