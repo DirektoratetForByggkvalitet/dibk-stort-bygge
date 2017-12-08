@@ -61,6 +61,38 @@
                   ]
                 }
               ]
+            },
+            {
+              "test": {
+                "field": "regulation",
+                "operator": "eq",
+                "value": "no"
+              },
+              "children": [
+                {
+                  "id": "reguleringsplanen",
+                  "property": "reguleringsplanen",
+                  "type": "Radio",
+                  "heading":
+                    "Står det noe i kommuneplanen eller delplanen om at den gjelder foran reguleringsplanen?",
+                  "text":
+                    "Hvis reguleringsplanen er vedtatt senere enn kommuneplanen/-delplanen, er det reguleringsplanen som gjelder, og du kan svare nei.",
+                  "options": [
+                    {
+                      "id": "finneskommuneplanen.yes",
+                      "type": "Answer",
+                      "heading": "Ja, den gjelder foran reguleringsplanen",
+                      "value": "yes"
+                    },
+                    {
+                      "id": "finneskommuneplanen.no",
+                      "type": "Answer",
+                      "heading": "Nei, det står ingenting om det",
+                      "value": "no"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -218,6 +250,8 @@
           "property": "arealBebyggelseSomSkalRives",
           "type": "Number",
           "heading": "Areal som skal rives",
+          "text":
+            "Du skal måle areal som skal rives i TODO VARIABEL HER BRA. Det betyr bruksareal.",
           "validator": {
             "test": {
               "field": "arealBebyggelseSomSkalRives",
@@ -226,20 +260,13 @@
             },
             "error": "Areal som skal rives må være mindre enn bebygget areal"
           }
-        }
-      ]
-    },
-    {
-      "id": "Page4",
-      "type": "Page",
-      "heading": "Hvor stort blir det nye du skal bygge?",
-      "lead": "Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.",
-      "children": [
+        },
         {
           "id": "tempebygd",
           "property": "tempebygd",
           "type": "Number",
-          "heading": "Areal",
+          "heading": "Hvor stort blir det nye du skal bygge?",
+          "text": "Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.",
           "minimum": 0
         }
       ]
@@ -247,9 +274,11 @@
     {
       "id": "Page5",
       "type": "Page",
-      "heading": "Hvor stort parkeringsareal må du ha?",
+      "heading": "Parkering",
       "lead":
         "Parkeringsplasser som ligger på terreng (altså ikke i garasje) blir tatt med i grad av utnytting.<p>Du finner som regel kravene som gjelder for din eiendom i planbestemmelsen du har funnet fram tidligere: Enten reguleringsplanen eller kommuneplanen. Du kan også sjekke om kommunen har en parkeringsnorm.</p>",
+      "details": "some text",
+      "summary": "other text",
       "children": [
         {
           "id": "requiredParkingSpots",
