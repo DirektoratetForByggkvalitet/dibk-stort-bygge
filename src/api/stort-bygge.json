@@ -413,6 +413,7 @@
           "property": "propertyArea",
           "type": "Number",
           "heading": "Hvor stor er eiendommen?",
+          "unit": "m<sup>2</sup>",
           "minimum": 0,
           "text":
             "<p>Arealet på eiendommen finner du i et matrikkelbrev (tidligere ble dette kalt målebrev). Matrikkelbrev får du fra kommunen. Du kan <a href=\"http://www.seeiendom.no/\">også se eiendommens areal på Kartverkets nettsted www.seeiendom.no</a></p>"
