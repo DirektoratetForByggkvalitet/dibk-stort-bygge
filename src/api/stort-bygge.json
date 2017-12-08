@@ -245,6 +245,121 @@
           ]
         },
         {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "eq",
+                    "value": "bya"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "eq",
+                    "value": "pbya"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "eq",
+                    "value": "tbra"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "eq",
+                    "value": "ptu"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "regulationTime",
+                  "property": "regulationTime",
+                  "type": "Radio",
+                  "heading": "Når er reguleringsplanen vedtatt?",
+                  "options": [
+                    {
+                      "id": "regulationTime.before",
+                      "type": "Answer",
+                      "heading": "Før 1.7.1997",
+                      "value": "before"
+                    },
+                    {
+                      "id": "regulationTime.after",
+                      "type": "Answer",
+                      "heading": "Etter 1.7.1997",
+                      "value": "after"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "bya"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "pbya"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "tbra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "ptu"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "regulationTime",
+                  "property": "regulationTime",
+                  "type": "Radio",
+                  "heading": "Når er kommuneplanen vedtatt?",
+                  "options": [
+                    {
+                      "id": "regulationTime.before",
+                      "type": "Answer",
+                      "heading": "Før 1.7.1997",
+                      "value": "before"
+                    },
+                    {
+                      "id": "regulationTime.after",
+                      "type": "Answer",
+                      "heading": "Etter 1.7.1997",
+                      "value": "after"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "utilizationArea",
+          "property": "utilizationArea",
+          "type": "Number",
+          "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
+          "minimum": 0
+        },
+        {
           "id": "someerror",
           "type": "Error",
           "simple": true,
