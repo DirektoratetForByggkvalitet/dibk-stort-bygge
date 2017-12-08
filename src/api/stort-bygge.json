@@ -247,50 +247,6 @@
                 "type": "and",
                 "clauses": [
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "brasss"
-                  },
-                  {
-                    "field": "kommuneplanen",
-                    "operator": "neq",
-                    "value": "pbra"
-                  }
-                ]
-              },
-              "children": [
-                {
-                  "id": "regulationTime",
-                  "property": "regulationTime",
-                  "type": "Radio",
-                  "heading": "Når er kommuneplanen vedtatt?",
-                  "options": [
-                    {
-                      "id": "regulationTime.before",
-                      "type": "Answer",
-                      "heading": "Før 1.7.1997",
-                      "value": "before"
-                    },
-                    {
-                      "id": "regulationTime.after",
-                      "type": "Answer",
-                      "heading": "Etter 1.7.1997",
-                      "value": "after"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "Branch",
-          "branches": [
-            {
-              "test": {
-                "type": "and",
-                "clauses": [
-                  {
                     "field": "regulation",
                     "operator": "eq",
                     "value": "no"
@@ -394,6 +350,60 @@
                       "type": "Text",
                       "text":
                         "Hvordan burde denne feilmeldingen fungere? Det må vi få avklart. Skal vi skru av veien videre når man får den?"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "and",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "neq",
+                    "value": "bra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "neq",
+                    "value": "pbra"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "neq",
+                    "value": "pbra"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "neq",
+                    "value": "pbra"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "regulationTime",
+                  "property": "regulationTime",
+                  "type": "Radio",
+                  "heading": "Når er kommuneplanen vedtatt?",
+                  "options": [
+                    {
+                      "id": "regulationTime.before",
+                      "type": "Answer",
+                      "heading": "Før 1.7.1997",
+                      "value": "before"
+                    },
+                    {
+                      "id": "regulationTime.after",
+                      "type": "Answer",
+                      "heading": "Etter 1.7.1997",
+                      "value": "after"
                     }
                   ]
                 }
