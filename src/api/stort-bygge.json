@@ -70,8 +70,8 @@
               },
               "children": [
                 {
-                  "id": "reguleringsplanen",
-                  "property": "reguleringsplanen",
+                  "id": "isreguleringsplanen",
+                  "property": "isreguleringsplanen",
                   "type": "Radio",
                   "heading":
                     "Står det noe i kommuneplanen eller delplanen om at den gjelder foran reguleringsplanen?",
@@ -79,13 +79,13 @@
                     "Hvis reguleringsplanen er vedtatt senere enn kommuneplanen/-delplanen, er det reguleringsplanen som gjelder, og du kan svare nei.",
                   "options": [
                     {
-                      "id": "finneskommuneplanen.yes",
+                      "id": "isreguleringsplanen.yes",
                       "type": "Answer",
                       "heading": "Ja, den gjelder foran reguleringsplanen",
                       "value": "yes"
                     },
                     {
-                      "id": "finneskommuneplanen.no",
+                      "id": "isreguleringsplanen.no",
                       "type": "Answer",
                       "heading": "Nei, det står ingenting om det",
                       "value": "no"
@@ -97,53 +97,150 @@
           ]
         },
         {
-          "id": "kommuneplanen",
-          "property": "kommuneplanen",
-          "type": "Radio",
-          "heading": "Hvordan defineres grad av utnytting i kommuneplanen?",
-          "text": "Fant du en reguleringsplan hos kommunen, er eiendommen regulert.",
-          "options": [
+          "type": "Branch",
+          "branches": [
             {
-              "id": "kommuneplanen.bya",
-              "type": "Answer",
-              "heading": "BYA",
-              "value": "bya"
-            },
+              "test": {
+                "type": "and",
+                "clauses": [
+                  {
+                    "field": "isreguleringsplanen",
+                    "operator": "eq",
+                    "value": "no"
+                  },
+                  {
+                    "field": "regulation",
+                    "operator": "eq",
+                    "value": "no"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "reguleringsplanen",
+                  "property": "reguleringsplanen",
+                  "type": "Radio",
+                  "heading": "Hvordan defineres grad av utnytting i reguleringsplanen?",
+                  "options": [
+                    {
+                      "id": "reguleringsplanen.bya",
+                      "type": "Answer",
+                      "heading": "BYA",
+                      "value": "bya"
+                    },
+                    {
+                      "id": "reguleringsplanen.pbya",
+                      "type": "Answer",
+                      "heading": "%BYA",
+                      "value": "pbya"
+                    },
+                    {
+                      "id": "reguleringsplanen.bra",
+                      "type": "Answer",
+                      "heading": "BRA",
+                      "value": "bra"
+                    },
+                    {
+                      "id": "reguleringsplanen.pbra",
+                      "type": "Answer",
+                      "heading": "%BRA",
+                      "value": "pbra"
+                    },
+                    {
+                      "id": "reguleringsplanen.tbra",
+                      "type": "Answer",
+                      "heading": "T-BRA",
+                      "value": "tbra"
+                    },
+                    {
+                      "id": "reguleringsplanen.ptu",
+                      "type": "Answer",
+                      "heading": "%TU",
+                      "value": "ptu"
+                    },
+                    {
+                      "id": "reguleringsplanen.none",
+                      "type": "Answer",
+                      "heading": "Ingen av disse",
+                      "value": "none"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
             {
-              "id": "kommuneplanen.pbya",
-              "type": "Answer",
-              "heading": "%BYA",
-              "value": "pbya"
-            },
-            {
-              "id": "kommuneplanen.bra",
-              "type": "Answer",
-              "heading": "BRA",
-              "value": "bra"
-            },
-            {
-              "id": "kommuneplanen.pbra",
-              "type": "Answer",
-              "heading": "%BRA",
-              "value": "pbra"
-            },
-            {
-              "id": "kommuneplanen.tbra",
-              "type": "Answer",
-              "heading": "T-BRA",
-              "value": "tbra"
-            },
-            {
-              "id": "kommuneplanen.ptu",
-              "type": "Answer",
-              "heading": "%TU",
-              "value": "ptu"
-            },
-            {
-              "id": "kommuneplanen.none",
-              "type": "Answer",
-              "heading": "Ingen av disse",
-              "value": "none"
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "isreguleringsplanen",
+                    "operator": "eq",
+                    "value": "yes"
+                  },
+                  {
+                    "field": "regulation",
+                    "operator": "eq",
+                    "value": "yes"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "kommuneplanen",
+                  "property": "kommuneplanen",
+                  "type": "Radio",
+                  "heading": "Hvordan defineres grad av utnytting i kommuneplanen?",
+                  "options": [
+                    {
+                      "id": "kommuneplanen.bya",
+                      "type": "Answer",
+                      "heading": "BYA",
+                      "value": "bya"
+                    },
+                    {
+                      "id": "kommuneplanen.pbya",
+                      "type": "Answer",
+                      "heading": "%BYA",
+                      "value": "pbya"
+                    },
+                    {
+                      "id": "kommuneplanen.bra",
+                      "type": "Answer",
+                      "heading": "BRA",
+                      "value": "bra"
+                    },
+                    {
+                      "id": "kommuneplanen.pbra",
+                      "type": "Answer",
+                      "heading": "%BRA",
+                      "value": "pbra"
+                    },
+                    {
+                      "id": "kommuneplanen.tbra",
+                      "type": "Answer",
+                      "heading": "T-BRA",
+                      "value": "tbra"
+                    },
+                    {
+                      "id": "kommuneplanen.ptu",
+                      "type": "Answer",
+                      "heading": "%TU",
+                      "value": "ptu"
+                    },
+                    {
+                      "id": "kommuneplanen.none",
+                      "type": "Answer",
+                      "heading": "Ingen av disse",
+                      "value": "none"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
