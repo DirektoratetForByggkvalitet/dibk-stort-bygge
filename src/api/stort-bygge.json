@@ -578,15 +578,6 @@
               "type": "Answer",
               "heading": "Nei",
               "value": "no"
-            },
-            {
-              "id": "parkeringssum",
-              "property": "parkeringsum",
-              "type": "Sum",
-              "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
-              "heading": "SUM",
-              "optional": true,
-              "text": "Dette er en sum av noe slag"
             }
           ]
         },
@@ -639,6 +630,15 @@
           "type": "Number",
           "heading": "Antall parkeringsplasser i garasje/carport",
           "minimum": 0
+        },
+        {
+          "id": "parkeringssum",
+          "property": "parkeringsum",
+          "type": "Sum",
+          "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
+          "heading": "SUM",
+          "optional": true,
+          "text": "Dette er en sum av noe slag"
         }
       ]
     },
@@ -648,7 +648,8 @@
       "heading": "Resultatsiden heading",
       "errorheading": "Du har ikke svart på alle spørsmålene",
       "lead": "Fancy result lead",
-      "errorlead": "Vi kan ikke gi deg et ordentlig resultat før du har svart på alle spørsmålene i veiviseren. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.",
+      "errorlead":
+        "Vi kan ikke gi deg et ordentlig resultat før du har svart på alle spørsmålene i veiviseren. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.",
       "exporter": "dataExport",
       "children": [
         {
