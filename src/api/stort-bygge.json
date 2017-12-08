@@ -375,14 +375,8 @@
                     "value": "pbra"
                   },
                   {
-                    "field": "reguleringsplanen",
-                    "operator": "neq",
-                    "value": "pbra"
-                  },
-                  {
-                    "field": "reguleringsplanen",
-                    "operator": "neq",
-                    "value": "pbra"
+                    "field": "kommuneplanen",
+                    "operator": "required"
                   }
                 ]
               },
@@ -392,6 +386,54 @@
                   "property": "regulationTime",
                   "type": "Radio",
                   "heading": "Når er kommuneplanen vedtatt?",
+                  "options": [
+                    {
+                      "id": "regulationTime.before",
+                      "type": "Answer",
+                      "heading": "Før 1.7.1997",
+                      "value": "before"
+                    },
+                    {
+                      "id": "regulationTime.after",
+                      "type": "Answer",
+                      "heading": "Etter 1.7.1997",
+                      "value": "after"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "and",
+                "clauses": [
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "neq",
+                    "value": "pbra"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "neq",
+                    "value": "pbra"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "required"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "regulationTime",
+                  "property": "regulationTime",
+                  "type": "Radio",
+                  "heading": "Når er reguleringsplanen vedtatt?",
                   "options": [
                     {
                       "id": "regulationTime.before",
