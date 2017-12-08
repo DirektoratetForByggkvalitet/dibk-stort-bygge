@@ -383,6 +383,19 @@
                     "field": "reguleringsplanen",
                     "operator": "neq",
                     "value": "pbra"
+                  },
+                  {
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "required"
+                      },
+                      {
+                        "field": "reguleringsplanen",
+                        "operator": "required"
+                      }
+                    ]
                   }
                 ]
               },
