@@ -43,7 +43,7 @@ export const IntroMain = styled.main`
     margin: 1.8em 0 3em 4em;
     padding: 0;
   }
-  ol li {
+  ol > li {
     counter-increment: step;
     position: relative;
     margin-bottom: 1.6em;
