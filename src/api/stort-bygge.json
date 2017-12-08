@@ -458,17 +458,8 @@
           "branches": [
             {
               "test": {
-                "type": "or",
-                "clauses": [
-                  {
-                    "field": "kommuneplanen",
-                    "operator": "required"
-                  },
-                  {
-                    "field": "reguleringsplanen",
-                    "operator": "required"
-                  }
-                ]
+                "field": "kommuneplanen",
+                "operator": "required"
               },
               "children": [
                 {
@@ -476,6 +467,27 @@
                   "property": "utilizationArea",
                   "type": "Number",
                   "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "field": "reguleringsplanen",
+                "operator": "required"
+              },
+              "children": [
+                {
+                  "id": "utilizationArea",
+                  "property": "utilizationArea",
+                  "type": "Number",
+                  "heading": "Hva er tillatt grad av utnytting i reguleringsplanen?",
                   "minimum": 0
                 }
               ]
