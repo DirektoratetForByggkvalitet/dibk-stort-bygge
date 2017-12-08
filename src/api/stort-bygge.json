@@ -636,9 +636,10 @@
           "property": "parkeringsum",
           "type": "Sum",
           "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
-          "heading": "SUM",
+          "heading": "Totalt parkeringsareal",
           "optional": true,
-          "text": "Dette er en sum av noe slag"
+          "text": "Du trenger et parkeringsareal på",
+          "unit": "m<sup>2</sup>"
         }
       ]
     },
@@ -659,7 +660,8 @@
           "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
           "heading": "SUM",
           "optional": true,
-          "text": "Dette er en sum av noe slag"
+          "text": "Dette er en sum av noe slag",
+          "unit": "m<sup>2</sup>"
         }
       ]
     }
