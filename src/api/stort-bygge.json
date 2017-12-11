@@ -714,6 +714,18 @@
       "errorlead":
         "Vi kan ikke gi deg et ordentlig resultat før du har svart på alle spørsmålene i veiviseren. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.",
       "exporter": "dataExport",
+      "beforeResult": [
+        {
+          "id": "resultsum",
+          "property": "somesum",
+          "type": "Sum",
+          "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
+          "heading": "SUM",
+          "optional": true,
+          "text": "Dette er en sum av noe slag",
+          "unit": "m<sup>2</sup>"
+        }
+      ],
       "children": [
         {
           "id": "somesum",

@@ -4223,9 +4223,9 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3
   dependencies:
     js-tokens "^3.0.0"
 
-losen@^0.19.1:
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/losen/-/losen-0.19.1.tgz#a1349ab9a5a74a8052dbbc72bd1da179727a8f77"
+losen@^0.20.5:
+  version "0.20.6"
+  resolved "https://registry.yarnpkg.com/losen/-/losen-0.20.6.tgz#70115da3f4d87413d1ab4232d067d5b81268ca57"
   dependencies:
     babel-polyfill "^6.26.0"
     chalk "^2.1.0"
