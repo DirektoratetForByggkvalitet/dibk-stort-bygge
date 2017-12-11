@@ -614,15 +614,17 @@
       "heading": "Parkering",
       "lead":
         "Parkeringsplasser som ligger på terreng (altså ikke i garasje) blir tatt med i grad av utnytting.<p>Du finner som regel kravene som gjelder for din eiendom i planbestemmelsen du har funnet fram tidligere: Enten reguleringsplanen eller kommuneplanen. Du kan også sjekke om kommunen har en parkeringsnorm.</p>",
-      "details": "some text",
-      "summary": "other text",
+      "summary": "Viktig info om krav til parkering",
+      "details":
+        "<p>Det er varierende hvilke krav det er til minimum parkeringsplass på en eiendom. Det er derfor viktig at du sjekker bestemmelsene i din kommune nøye.</p><p>Noen kommuner har spesialbestemmelser om parkering som sier at ikke all parkering på terreng skal regnes med, eller at noe parkering bestandig må regnes med.</p><p>Du finner som regel kravene som gjelder for din eiendom i planbestemmelsen du har funnet fram tidligere: Enten reguleringsplanen eller kommuneplanen. Du kan også sjekke om kommunen har en parkeringsnorm som er gjeldende om du ikke finner noe her.</p><p>Det er veldig viktig at du leser dokumentene svært nøye. Kommunen din kan ha helt spesielle bestemmelser du selv må fortelle denne veilederen om for å få riktig resultat.</p><p>Typisk kreves det to biloppstillingsplasser per boenhet for eneboliger og tomannsboliger. Disse er ofte definert til 18 m<sup>2</sup>. Det er dog så store variasjoner at du må sjekke nøye med din kommune før du bruker disse verdiene.</p>",
       "children": [
         {
           "id": "requiredParkingSpots",
           "property": "requiredParkingSpots",
           "type": "Number",
           "heading": "Hvor mange parkeringsplasser kreves totalt på eiendommen?",
-          "minimum": 0
+          "minimum": 0,
+          "unit": "stk"
         },
         {
           "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
@@ -649,7 +651,7 @@
           "branches": [
             {
               "test": {
-                "field": "requiredParkingSpots",
+                "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                 "operator": "eq",
                 "value": "yes"
               },
@@ -670,18 +672,18 @@
           "branches": [
             {
               "test": {
-                "field": "tempnumberofparking",
-                "operator": "gt",
-                "value": 0
+                "field": "requiredParkingSpots",
+                "operator": "required"
               },
               "children": [
                 {
-                  "id": "tempnumberofparking",
-                  "property": "responsiblefirm",
+                  "id": "parkingPlaceArea",
+                  "property": "parkingPlaceArea",
                   "type": "Number",
                   "heading":
                     "Sier parkeringsreglene for din eiendom noe om hvor stor hver parkeringsplass må være? Hvis det ikke står noe, er det 18 m2.",
-                  "minumum": 0
+                  "minumum": 0,
+                  "unit": "m<sup>2</sup>"
                 }
               ]
             }
@@ -692,23 +694,88 @@
           "property": "numberOfParkinglotsInCarport",
           "type": "Number",
           "heading": "Antall parkeringsplasser i garasje/carport",
-          "minimum": 0
+          "minimum": 0,
+          "unit": "stk"
         },
         {
           "type": "Branch",
           "branches": [
             {
               "test": {
-                "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
-                "operator": "eq",
-                "value": "no"
+                "type": "and",
+                "clauses": [
+                  {
+                    "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                    "operator": "eq",
+                    "value": "no"
+                  },
+                  {
+                    "field": "numberOfParkinglotsInCarport",
+                    "operator": "lt",
+                    "value": {
+                      "field": "requiredParkingSpots"
+                    }
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "numberOfParkinglotsInCarportToFew",
+                  "type": "Error",
+                  "simple": true,
+                  "children": [
+                    {
+                      "id": "numberOfParkinglotsInCarportToFewText",
+                      "type": "Text",
+                      "warning": true,
+                      "variables": true,
+                      "text":
+                        "Det totale  parkeringskravet er ikke dekket. Det er lagt manglende parkeringsplasser for å oppfylle minstekravet på din eiendom."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "and",
+                "clauses": [
+                  {
+                    "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                    "operator": "eq",
+                    "value": "no"
+                  },
+                  {
+                    "field": "requiredParkingSpots",
+                    "operator": "required"
+                  },
+                  {
+                    "field": "numberOfParkinglotsInCarport",
+                    "operator": "required"
+                  },
+                  {
+                    "field": "parkingPlaceArea",
+                    "operator": "required"
+                  }
+                ]
               },
               "children": [
                 {
                   "id": "parkeringssum",
                   "property": "parkeringsum",
                   "type": "Sum",
-                  "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
+                  "values": [
+                    "requiredParkingSpots",
+                    "numberOfParkinglotsInCarport",
+                    "parkingPlaceArea"
+                  ],
+                  "operations": ["+", "-", "*"],
+                  "minimum": 0,
                   "optional": true,
                   "text": "Du må ha et parkeringsareal på:",
                   "unit": "m<sup>2</sup>",
@@ -725,22 +792,50 @@
           "branches": [
             {
               "test": {
-                "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
-                "operator": "eq",
-                "value": "yes"
+                "type": "and",
+                "clauses": [
+                  {
+                    "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                    "operator": "eq",
+                    "value": "yes"
+                  },
+                  {
+                    "field": "requiredParkingSpots",
+                    "operator": "required"
+                  },
+                  {
+                    "field": "numberOfParkinglotsInCarport",
+                    "operator": "required"
+                  },
+                  {
+                    "field": "parkingPlaceArea",
+                    "operator": "required"
+                  },
+                  {
+                    "field": "requiredParkingSpotsTerrain",
+                    "operator": "required"
+                  }
+                ]
               },
               "children": [
                 {
                   "id": "parkeringssum",
                   "property": "parkeringsum",
                   "type": "Sum",
-                  "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
+                  "values": [
+                    "requiredParkingSpots",
+                    "numberOfParkinglotsInCarport",
+                    "requiredParkingSpotsTerrain",
+                    "parkingPlaceArea"
+                  ],
+                  "operations": ["+", "-", "-", "*"],
                   "optional": true,
                   "text": "Du må ha et parkeringsareal på:",
                   "unit": "m<sup>2</sup>",
+                  "minimum": 0,
                   "summary": "Beskrivelse av utregning",
                   "details":
-                    "<p>Hvor stort parkeringsareal du må ha er produktet av hvor stor hver parkeringsplass må være det tallet som er støst av antall parkeringsplasser som kreves på terreng og antall parkeringsplasser som kreves totalt på eiendommen monus antall parkeringsplaser i garasje/carport. Hvis ver parkeringsplass må være 10m2, det kreves 5 parkeringsplasser, du har 2 i garasje/carport, men det kreves 4 parkeringsplasser på terreng, vil det påkrevde arealet være 4*10 m<sup>2</sup> = 40 m<sup>2</sup>, fordi 4 er større enn 5-2. Hvis det derimot kreves 2 parkeringsplasser på terreng, vil det påkrevde arealet være (5-2)*10 m<sup>2</sup> =30 m<sup>2</sup>, fordi 5-2 er større enn 2. </p>"
+                    "<p>Hvor stort parkeringsareal du må ha er produktet av hvor stor hver parkeringsplass må være, det tallet som er støst av antall parkeringsplasser som kreves på terreng og antall parkeringsplasser som kreves totalt på eiendommen minus antall parkeringsplaser i garasje/carport. Hvis hver parkeringsplass må være 10 m<sup>2</sup>, det kreves 5 parkeringsplasser, du har 2 i garasje/carport, men det kreves 4 parkeringsplasser på terreng, vil det påkrevde arealet være 4*10 m<sup>2</sup> = 40 m<sup>2</sup>, fordi 4 er større enn 5-2. Hvis det derimot kreves 2 parkeringsplasser på terreng, vil det påkrevde arealet være (5-2)*10 m<sup>2</sup> =30 m<sup>2</sup>, fordi 5-2 er større enn 2. </p>"
                 }
               ]
             }
