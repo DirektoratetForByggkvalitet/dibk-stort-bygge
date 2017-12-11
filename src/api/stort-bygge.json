@@ -851,7 +851,9 @@
           "values": ["propertyArea"],
           "heading": "Tillat utnyttingsgrad",
           "optional": true,
-          "unit": "m<sup>2</sup>"
+          "unit": "m<sup>2</sup>",
+          "summary": "Tillat grad av utnytting",
+          "details": "Tillat grad av utnytting"
         },
         {
           "id": "bruktAreal",
