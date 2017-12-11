@@ -625,19 +625,19 @@
           "minimum": 0
         },
         {
-          "id": "minimumParkinglotsForPlan",
-          "property": "tempparkingradio",
+          "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+          "property": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
           "type": "Radio",
           "heading": "Har reguleringsplanen krav til minimum antall parkeringsplasser på terreng?",
           "options": [
             {
-              "id": "minimumParkinglotsForPlan.yes",
+              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.yes",
               "type": "Answer",
               "heading": "Ja",
               "value": "yes"
             },
             {
-              "id": "minimumParkinglotsForPlan.no",
+              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.no",
               "type": "Answer",
               "heading": "Nei",
               "value": "no"
@@ -695,13 +695,56 @@
           "minimum": 0
         },
         {
-          "id": "parkeringssum",
-          "property": "parkeringsum",
-          "type": "Sum",
-          "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
-          "optional": true,
-          "text": "Du må ha et parkeringsareal på",
-          "unit": "m<sup>2</sup>"
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                "operator": "eq",
+                "value": "no"
+              },
+              "children": [
+                {
+                  "id": "parkeringssum",
+                  "property": "parkeringsum",
+                  "type": "Sum",
+                  "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
+                  "optional": true,
+                  "text": "Du må ha et parkeringsareal på:",
+                  "unit": "m<sup>2</sup>",
+                  "summary": "Beskrivelse av utregning",
+                  "details":
+                    "<p>Hvor stort parkeringsareal du må ha er produktet av hvor stor hver parkeringsplass må være og antall parkeringsplasser som kreves totalt på eiendommen minus antall parkeringsplasser i garasje/carport. Hvis det kreves 5 parkeringsplasser, du har 2 i garasje/carport og hver parkeringsplass må være 10 m<sup>2</sup>, vil det påkrevde parkeringsarealet være (5-2)*10 m<sup>2</sup> = 30 m<sup>2</sup>.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                "operator": "eq",
+                "value": "yes"
+              },
+              "children": [
+                {
+                  "id": "parkeringssum",
+                  "property": "parkeringsum",
+                  "type": "Sum",
+                  "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
+                  "optional": true,
+                  "text": "Du må ha et parkeringsareal på:",
+                  "unit": "m<sup>2</sup>",
+                  "summary": "Beskrivelse av utregning",
+                  "details":
+                    "<p>Hvor stort parkeringsareal du må ha er produktet av hvor stor hver parkeringsplass må være det tallet som er støst av antall parkeringsplasser som kreves på terreng og antall parkeringsplasser som kreves totalt på eiendommen monus antall parkeringsplaser i garasje/carport. Hvis ver parkeringsplass må være 10m2, det kreves 5 parkeringsplasser, du har 2 i garasje/carport, men det kreves 4 parkeringsplasser på terreng, vil det påkrevde arealet være 4*10 m<sup>2</sup> = 40 m<sup>2</sup>, fordi 4 er større enn 5-2. Hvis det derimot kreves 2 parkeringsplasser på terreng, vil det påkrevde arealet være (5-2)*10 m<sup>2</sup> =30 m<sup>2</sup>, fordi 5-2 er større enn 2. </p>"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
