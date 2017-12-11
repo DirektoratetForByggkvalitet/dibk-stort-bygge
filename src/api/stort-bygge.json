@@ -565,15 +565,6 @@
               "minimum": 0
             }
           ]
-        },
-        {
-          "id": "bebygdssum",
-          "property": "bebygdsum",
-          "type": "Sum",
-          "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
-          "optional": true,
-          "text": "Totalt areal som allerede er bebygd",
-          "unit": "m<sup>2</sup>"
         }
       ]
     },
@@ -777,7 +768,7 @@
                   "operations": ["+", "-", "*"],
                   "minimum": 0,
                   "optional": true,
-                  "text": "Du må ha et parkeringsareal på:",
+                  "heading": "Du må ha et parkeringsareal på:",
                   "unit": "m<sup>2</sup>",
                   "summary": "Beskrivelse av utregning",
                   "details":
@@ -830,7 +821,7 @@
                   ],
                   "operations": ["+", "-", "-", "*"],
                   "optional": true,
-                  "text": "Du må ha et parkeringsareal på:",
+                  "heading": "Du må ha et parkeringsareal på:",
                   "unit": "m<sup>2</sup>",
                   "minimum": 0,
                   "summary": "Beskrivelse av utregning",
@@ -854,13 +845,30 @@
       "exporter": "dataExport",
       "beforeResult": [
         {
-          "id": "resultsum",
-          "property": "somesum",
+          "id": "utnyttingsgrad",
+          "property": "utnyttingsgrad",
           "type": "Sum",
-          "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
-          "heading": "SUM",
+          "values": ["propertyArea"],
+          "heading": "Tillat utnyttingsgrad",
           "optional": true,
-          "text": "Dette er en sum av noe slag",
+          "unit": "m<sup>2</sup>"
+        },
+        {
+          "id": "bruktAreal",
+          "property": "bruktAreal",
+          "type": "Sum",
+          "values": ["propertyArea"],
+          "heading": "bruktAreal",
+          "optional": true,
+          "unit": "m<sup>2</sup>"
+        },
+        {
+          "id": "sisteTall",
+          "property": "sisteTall",
+          "type": "Sum",
+          "values": ["propertyArea"],
+          "heading": "sisteTall",
+          "optional": true,
           "unit": "m<sup>2</sup>"
         }
       ],
@@ -872,7 +880,7 @@
           "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
           "heading": "SUM",
           "optional": true,
-          "text": "Dette er en sum av noe slag",
+          "heading": "Dette er en sum av noe slag",
           "unit": "m<sup>2</sup>"
         }
       ]
