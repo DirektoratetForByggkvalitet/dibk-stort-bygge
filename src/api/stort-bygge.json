@@ -501,8 +501,33 @@
       "branches": [
         {
           "test": {
-            "field": "utilizationArea",
-            "operator": "required"
+            "type": "and",
+            "clauses": [
+              {
+                "field": "utilizationArea",
+                "operator": "required"
+              },
+              {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "pbya"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "pbra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "ptu"
+                  }
+                ]
+              }
+            ]
           },
           "children": [
             {
