@@ -673,18 +673,23 @@
                       "heading": "Areal for annen frittstående konstruksjon",
                       "unit": "m<sup>2</sup>",
                       "minimum": 0
+                    },
+                    {
+                      "id": "alreadyBuilt",
+                      "property": "alreadyBuilt",
+                      "type": "Sum",
+                      "values": [
+                        "builtResidence",
+                        "builtGarage",
+                        "builtSmallBuilding",
+                        "builtOther"
+                      ],
+                      "minimum": 0,
+                      "optional": true,
+                      "heading": "Totalt bebygd areal",
+                      "unit": "m<sup>2</sup>"
                     }
                   ]
-                },
-                {
-                  "id": "alreadyBuilt",
-                  "property": "alreadyBuilt",
-                  "type": "Sum",
-                  "values": ["builtResidence", "builtGarage", "builtSmallBuilding", "builtOther"],
-                  "minimum": 0,
-                  "optional": true,
-                  "heading": "Totalt bebygd areal",
-                  "unit": "m<sup>2</sup>"
                 }
               ]
             }
@@ -822,8 +827,7 @@
                           "id": "parkingPlaceArea",
                           "property": "parkingPlaceArea",
                           "type": "Number",
-                          "heading":
-                            "Hvor stor må hver parkeringsplass være?",
+                          "heading": "Hvor stor må hver parkeringsplass være?",
                           "text":
                             "<p>Sier parkeringsreglene for din eiendom noe om hvor stor hver parkeringsplass må være? Hvis det ikke står noe, er det 18 m2.</p>",
                           "minumum": 0,
@@ -1071,6 +1075,7 @@
                       "values": ["propertyArea"],
                       "heading": "Tillatt utnyttingsgrad",
                       "optional": true,
+                      "final": true,
                       "unit": "m<sup>2</sup>"
                     },
                     {
@@ -1080,6 +1085,7 @@
                       "values": ["propertyArea"],
                       "heading": "Planlagt utnyttingsgrad",
                       "optional": true,
+                      "final": true,
                       "unit": "m<sup>2</sup>"
                     },
                     {
@@ -1089,6 +1095,7 @@
                       "values": ["propertyArea"],
                       "heading": "Gjenstående areal",
                       "optional": true,
+                      "final": true,
                       "unit": "m<sup>2</sup>"
                     }
                   ]
