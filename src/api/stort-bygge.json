@@ -625,6 +625,9 @@
                   "property": "areaToBeDemolished",
                   "type": "Group",
                   "simple": true,
+                  "heading": "Hvor mye av eiendommen din er allerede bebygd?",
+                  "text":
+                    "<p>Hvis det ikke er noe bebyggelse på eiendommen din, kryss av for \"ingen bebyggelse\" under. Da fylles feltene automatisk ut med 0.</p>",
                   "children": [
                     {
                       "id": "tempBYA",
@@ -687,7 +690,7 @@
                   "heading": "Areal som skal rives",
                   "unit": "m<sup>2</sup>",
                   "text":
-                    "Du skal måle areal som skal rives i TODO VARIABEL HER BRA. Det betyr bruksareal.",
+                    "<p>Du skal måle areal som skal rives i TODO VARIABEL HER BRA. Det betyr bruksareal.</p>",
                   "validator": {
                     "test": {
                       "field": "arealBebyggelseSomSkalRives",
@@ -702,7 +705,7 @@
                   "property": "tempebygd",
                   "type": "Number",
                   "heading": "Hvor stort blir det nye du skal bygge?",
-                  "text": "Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.",
+                  "text": "<p>Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.</p>",
                   "unit": "m<sup>2</sup>",
                   "minimum": 0
                 }
@@ -775,6 +778,7 @@
                           "property": "requiredParkingSpotsTerrain",
                           "type": "Number",
                           "heading": "Hvor mange parkeringsplasser på terreng kreves?",
+                          "unit": "stk",
                           "minumum": 0
                         }
                       ]
@@ -1030,15 +1034,15 @@
                   "type": "Group",
                   "simple": true,
                   "optional": true,
-                  "summary": "Tillat grad av utnytting",
-                  "details": "Tillat grad av utnytting",
+                  "summary": "Vis detaljer",
+                  "details": "<h2>Hvis % i steg 1</h2><p><strong>Tillatt grad av utnytting</strong> er produktet av størrelsen på eiendommen din minus arealet som er regulert til noe annet enn bebyggelse, og den tillatte graden av utnyttelse. Hvis størrelsen på eiendommen din er 100m2, arealet som er regulert til noe annet enn bebyggelse er 10m2 og den tillatte graden av utnyttelse er 60%, vil den arealet du kan utnytte være (100-10)*0,60 = 54m2</p><p><strong>Planlagt graden av utnytting</strong> er summen av arealet som er bebygd i dag, størrelsen av det nye du skal bygge og eventuelt parkeringsareal du må ha på tomten, minus arealet som skal rives.</p><h2>Hvis m2 i steg 1</h2><p><strong>Tillatt grad av utnytting</strong> er arealet som er definert i reguleringsplanen eller kommuneplanen.</p><p><strong>Planlagte graden av utnytting</strong> er summen av arealet som er bebygd i dag, størrelsen av det nye du skal bygge og eventuelt parkeringsareal du må ha på tomten, minus arealet som skal rives.</p>",
                   "children": [
                     {
                       "id": "utnyttingsgrad",
                       "property": "utnyttingsgrad",
                       "type": "Sum",
                       "values": ["propertyArea"],
-                      "heading": "Tillat utnyttingsgrad",
+                      "heading": "Tillatt utnyttingsgrad",
                       "optional": true,
                       "unit": "m<sup>2</sup>"
                     },
@@ -1047,7 +1051,7 @@
                       "property": "bruktAreal",
                       "type": "Sum",
                       "values": ["propertyArea"],
-                      "heading": "bruktAreal",
+                      "heading": "Planlagt utnyttingsgrad",
                       "optional": true,
                       "unit": "m<sup>2</sup>"
                     },
@@ -1056,7 +1060,7 @@
                       "property": "sisteTall",
                       "type": "Sum",
                       "values": ["propertyArea"],
-                      "heading": "sisteTall",
+                      "heading": "Gjenstående areal",
                       "optional": true,
                       "unit": "m<sup>2</sup>"
                     }
