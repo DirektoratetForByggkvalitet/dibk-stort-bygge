@@ -371,6 +371,11 @@
                   {
                     "field": "kommuneplanen",
                     "operator": "required"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "neq",
+                    "value": "none"
                   }
                 ]
               },
@@ -419,6 +424,11 @@
                   {
                     "field": "reguleringsplanen",
                     "operator": "required"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "neq",
+                    "value": "none"
                   }
                 ]
               },
@@ -452,8 +462,19 @@
           "branches": [
             {
               "test": {
-                "field": "kommuneplanen",
-                "operator": "required"
+                "type": "and",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "neq",
+                    "value": "none"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "neq",
+                    "value": "none"
+                  }
+                ]
               },
               "children": [
                 {
@@ -474,8 +495,19 @@
           "branches": [
             {
               "test": {
-                "field": "reguleringsplanen",
-                "operator": "required"
+                "type": "and",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "neq",
+                    "value": "none"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "neq",
+                    "value": "none"
+                  }
+                ]
               },
               "children": [
                 {
@@ -484,6 +516,44 @@
                   "type": "Number",
                   "heading": "Hva er tillatt grad av utnytting i reguleringsplanen?",
                   "minimum": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "none"
+                  },
+                  {
+                    "field": "reguleringsplanen",
+                    "operator": "eq",
+                    "value": "none"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "insufficientreguleringsplanblock",
+                  "type": "Error",
+                  "simple": true,
+                  "children": [
+                    {
+                      "id": "insufficientreguleringsplan",
+                      "type": "Text",
+                      "warning": true,
+                      "heading":
+                        "Beklager, da kan du ikke bruke denne veiviseren. Ta kontakt med kommunen din, så hjelper de deg videre."
+                    }
+                  ]
                 }
               ]
             }
