@@ -887,33 +887,41 @@
       "exporter": "dataExport",
       "beforeResult": [
         {
-          "id": "utnyttingsgrad",
-          "property": "utnyttingsgrad",
-          "type": "Sum",
-          "values": ["propertyArea"],
-          "heading": "Tillat utnyttingsgrad",
-          "optional": true,
-          "unit": "m<sup>2</sup>",
+          "id": "resultGroup",
+          "property": "resultGroupe",
+          "type": "Group",
+          "simple": true,
           "summary": "Tillat grad av utnytting",
-          "details": "Tillat grad av utnytting"
-        },
-        {
-          "id": "bruktAreal",
-          "property": "bruktAreal",
-          "type": "Sum",
-          "values": ["propertyArea"],
-          "heading": "bruktAreal",
-          "optional": true,
-          "unit": "m<sup>2</sup>"
-        },
-        {
-          "id": "sisteTall",
-          "property": "sisteTall",
-          "type": "Sum",
-          "values": ["propertyArea"],
-          "heading": "sisteTall",
-          "optional": true,
-          "unit": "m<sup>2</sup>"
+          "details": "Tillat grad av utnytting",
+          "children": [
+            {
+              "id": "utnyttingsgrad",
+              "property": "utnyttingsgrad",
+              "type": "Sum",
+              "values": ["propertyArea"],
+              "heading": "Tillat utnyttingsgrad",
+              "optional": true,
+              "unit": "m<sup>2</sup>"
+            },
+            {
+              "id": "bruktAreal",
+              "property": "bruktAreal",
+              "type": "Sum",
+              "values": ["propertyArea"],
+              "heading": "bruktAreal",
+              "optional": true,
+              "unit": "m<sup>2</sup>"
+            },
+            {
+              "id": "sisteTall",
+              "property": "sisteTall",
+              "type": "Sum",
+              "values": ["propertyArea"],
+              "heading": "sisteTall",
+              "optional": true,
+              "unit": "m<sup>2</sup>"
+            }
+          ]
         }
       ],
       "children": [
