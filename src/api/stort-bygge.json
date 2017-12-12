@@ -344,12 +344,6 @@
                       "warning": true,
                       "heading":
                         "Beklager, da kan du ikke bruke denne veilederen. Ta kontakt med kommunen din, så hjelper de deg videre."
-                    },
-                    {
-                      "id": "failedButCanGoOn",
-                      "type": "Text",
-                      "text":
-                        "Hvordan burde denne feilmeldingen fungere? Det må vi få avklart. Skal vi skru av veien videre når man får den?"
                     }
                   ]
                 }
@@ -728,7 +722,48 @@
                       "warning": true,
                       "variables": true,
                       "text":
-                        "Det totale  parkeringskravet er ikke dekket. Det er lagt manglende parkeringsplasser for å oppfylle minstekravet på din eiendom."
+                        "Det totale parkeringskravet er ikke dekket. Det er lagt manglende parkeringsplasser for å oppfylle minstekravet på din eiendom."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "and",
+                "clauses": [
+                  {
+                    "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                    "operator": "eq",
+                    "value": "yes"
+                  },
+                  {
+                    "field": "numberOfParkinglotsInCarport",
+                    "operator": "lt",
+                    "value": {
+                      "fields": ["requiredParkingSpots", "requiredParkingSpotsTerrain"]
+                    }
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "numberOfParkinglotsInCarportToFew",
+                  "type": "Error",
+                  "simple": true,
+                  "children": [
+                    {
+                      "id": "numberOfParkinglotsInCarportToFewText",
+                      "type": "Text",
+                      "warning": true,
+                      "variables": true,
+                      "text":
+                        "Det totale parkeringskravet er ikke dekket. Det er lagt manglende parkeringsplasser for å oppfylle minstekravet på din eiendom."
                     }
                   ]
                 }
