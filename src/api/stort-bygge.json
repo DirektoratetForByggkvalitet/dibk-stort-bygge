@@ -799,7 +799,9 @@
                           "property": "parkingPlaceArea",
                           "type": "Number",
                           "heading":
-                            "Sier parkeringsreglene for din eiendom noe om hvor stor hver parkeringsplass må være? Hvis det ikke står noe, er det 18 m2.",
+                            "Hvor stor må hver parkeringsplass være?",
+                          "text":
+                            "<p>Sier parkeringsreglene for din eiendom noe om hvor stor hver parkeringsplass må være? Hvis det ikke står noe, er det 18 m2.</p>",
                           "minumum": 0,
                           "unit": "m<sup>2</sup>"
                         }
