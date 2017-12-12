@@ -517,6 +517,7 @@
           "type": "Number",
           "heading": "Hvor stor del av eiendommen er regulert til noe annet enn bebyggelse?",
           "minimum": 0,
+          "unit": "m<sup>2</sup>",
           "summary": "Hva er byggeområde?",
           "details":
             "<p>Når du skal beregne grad av utnytting, skal du bare bruke arealet som er regulert til byggeområde. Du skal ikke ta med deler av eiendommen som er regulert til for eksempel:</p><ul><li>felles adkomstvei</li><li>gang- og sykkelvei</li><li>friområde</li><li>grøntareal</li><li>fellesområder</li></ul><img src=\"/img/figur_01.png\" alt=\"Utsnitt av kart\"><h3>Dette kartet er bare et eksempel!</h3><ul><li>BLÅ: Eiendommens grenser</li><li>GRÅ: Vei og felles adkomst</li><li>GRØNN: Friområde</li><li>GUL: Byggeområde</li></ul><p>Du skal altså måle alt bortsett fra det gule området.</p><p>Sjekk din eiendom i reguleringsplan eller kommuneplan. Mål <strong>alle</strong> areal som <strong>ikke</strong> er regulert til byggeområde.</p>"
@@ -541,6 +542,7 @@
               "property": "tempBYA",
               "type": "Number",
               "heading": "Areal bolig i BYA?",
+              "unit": "m<sup>2</sup>",
               "minimum": 0
             },
             {
@@ -548,6 +550,7 @@
               "property": "tempgarasje",
               "type": "Number",
               "heading": "Areal frittstående garasje",
+              "unit": "m<sup>2</sup>",
               "minimum": 0
             },
             {
@@ -555,6 +558,7 @@
               "property": "tempfrittstaaend",
               "type": "Number",
               "heading": "Areal frittstående bod/uthus/dukkehus",
+              "unit": "m<sup>2</sup>",
               "minimum": 0
             },
             {
@@ -562,6 +566,7 @@
               "property": "tempkonstruksjon",
               "type": "Number",
               "heading": "Areal for annen frittstående konstruksjon",
+              "unit": "m<sup>2</sup>",
               "minimum": 0
             }
           ]
@@ -578,6 +583,7 @@
           "property": "arealBebyggelseSomSkalRives",
           "type": "Number",
           "heading": "Areal som skal rives",
+          "unit": "m<sup>2</sup>",
           "text":
             "Du skal måle areal som skal rives i TODO VARIABEL HER BRA. Det betyr bruksareal.",
           "validator": {
@@ -595,6 +601,7 @@
           "type": "Number",
           "heading": "Hvor stort blir det nye du skal bygge?",
           "text": "Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.",
+          "unit": "m<sup>2</sup>",
           "minimum": 0
         }
       ]
