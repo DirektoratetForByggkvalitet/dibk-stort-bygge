@@ -1047,9 +1047,9 @@
             {
               "id": "hooray",
               "type": "Result",
-              "heading": "Resultatsiden heading",
+              "heading": "Du er innenfor det som er tillatt å bygge på eiendommen din",
               "errorheading": "Du har ikke svart på alle spørsmålene",
-              "lead": "Fancy result lead",
+              "lead": "Husk at det er ditt ansvar at du oppgir riktig informasjon og bygger lovlig. Dersom bygningen er oppført ulovlig kan den i verste fall rives. Hvis du ønsker å endre noe, kan du klikke deg inn på hvert spørsmål i oppsummeringen nedenfor.",
               "errorlead":
                 "Vi kan ikke gi deg et ordentlig resultat før du har svart på alle spørsmålene i veiviseren. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.",
               "exporter": "dataExport",
