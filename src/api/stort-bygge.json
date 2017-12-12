@@ -513,8 +513,7 @@
           "heading": "Hvor stor del av eiendommen er regulert til noe annet enn bebyggelse?",
           "minimum": 0,
           "unit": "m<sup>2</sup>",
-          "text":
-            "<p>Hvis ikke du skal rive noe skriver du tallet 0 i feltet under.</p>",
+          "text": "<p>Hvis ikke du skal rive noe skriver du tallet 0 i feltet under.</p>",
           "summary": "Hva er byggeområde?",
           "details":
             "<p>Når du skal beregne grad av utnytting, skal du bare bruke arealet som er regulert til byggeområde. Du skal ikke ta med deler av eiendommen som er regulert til for eksempel:</p><ul><li>felles adkomstvei</li><li>gang- og sykkelvei</li><li>friområde</li><li>grøntareal</li><li>fellesområder</li></ul><img src=\"/img/figur_01.png\" alt=\"Utsnitt av kart\"><h3>Dette kartet er bare et eksempel!</h3><ul><li>BLÅ: Eiendommens grenser</li><li>GRÅ: Vei og felles adkomst</li><li>GRØNN: Friområde</li><li>GUL: Byggeområde</li></ul><p>Du skal altså måle alt bortsett fra det gule området.</p><p>Sjekk din eiendom i reguleringsplan eller kommuneplan. Mål <strong>alle</strong> areal som <strong>ikke</strong> er regulert til byggeområde.</p>"
@@ -757,7 +756,7 @@
               "children": [
                 {
                   "id": "numberOfParkinglotsInCarportToFew",
-                  "type": "Error",
+                  "type": "ErrorOk",
                   "simple": true,
                   "children": [
                     {
@@ -766,7 +765,7 @@
                       "warning": true,
                       "variables": true,
                       "text":
-                        "Det totale parkeringskravet er ikke dekket. Det er lagt manglende parkeringsplasser for å oppfylle minstekravet på din eiendom."
+                        "Det totale parkeringskravet er ikke dekket. Det er lagt til manglende parkeringsplasser for å oppfylle minstekravet på din eiendom."
                     }
                   ]
                 }
@@ -894,6 +893,7 @@
           "property": "resultGroupe",
           "type": "Group",
           "simple": true,
+          "optional": true,
           "summary": "Tillat grad av utnytting",
           "details": "Tillat grad av utnytting",
           "children": [
@@ -925,18 +925,6 @@
               "unit": "m<sup>2</sup>"
             }
           ]
-        }
-      ],
-      "children": [
-        {
-          "id": "somesum",
-          "property": "somesum",
-          "type": "Sum",
-          "values": ["arealBebyggelseSomSkalRives", "propertyArea", "nonSettlementArea"],
-          "heading": "SUM",
-          "optional": true,
-          "heading": "Dette er en sum av noe slag",
-          "unit": "m<sup>2</sup>"
         }
       ]
     }
