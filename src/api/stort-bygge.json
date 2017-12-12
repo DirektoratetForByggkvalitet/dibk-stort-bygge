@@ -1120,8 +1120,33 @@
       "branches": [
         {
           "test": {
-            "field": "utilizationArea",
-            "operator": "required"
+            "type": "and",
+            "clauses": [
+              {
+                "field": "utilizationArea",
+                "operator": "required"
+              },
+              {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "pbya"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "pbra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "ptu"
+                  }
+                ]
+              }
+            ]
           },
           "children": [
             {
@@ -1143,7 +1168,100 @@
                   "optional": true,
                   "summary": "Vis detaljer",
                   "details":
-                    "<h2>Hvis % i steg 1</h2><p><strong>Tillatt grad av utnytting</strong> er produktet av størrelsen på eiendommen din minus arealet som er regulert til noe annet enn bebyggelse, og den tillatte graden av utnyttelse. Hvis størrelsen på eiendommen din er 100m2, arealet som er regulert til noe annet enn bebyggelse er 10m2 og den tillatte graden av utnyttelse er 60%, vil den arealet du kan utnytte være (100-10)*0,60 = 54m2</p><p><strong>Planlagt graden av utnytting</strong> er summen av arealet som er bebygd i dag, størrelsen av det nye du skal bygge og eventuelt parkeringsareal du må ha på tomten, minus arealet som skal rives.</p><h2>Hvis m2 i steg 1</h2><p><strong>Tillatt grad av utnytting</strong> er arealet som er definert i reguleringsplanen eller kommuneplanen.</p><p><strong>Planlagte graden av utnytting</strong> er summen av arealet som er bebygd i dag, størrelsen av det nye du skal bygge og eventuelt parkeringsareal du må ha på tomten, minus arealet som skal rives.</p>",
+                    "<p><strong>Tillatt grad av utnytting</strong> er produktet av størrelsen på eiendommen din minus arealet som er regulert til noe annet enn bebyggelse, og den tillatte graden av utnyttelse. Hvis størrelsen på eiendommen din er 100m2, arealet som er regulert til noe annet enn bebyggelse er 10m2 og den tillatte graden av utnyttelse er 60%, vil den arealet du kan utnytte være (100-10)*0,60 = 54m2</p><p><strong>Planlagt graden av utnytting</strong> er summen av arealet som er bebygd i dag, størrelsen av det nye du skal bygge og eventuelt parkeringsareal du må ha på tomten, minus arealet som skal rives.</p>",
+                  "children": [
+                    {
+                      "id": "utnyttingsgrad",
+                      "property": "utnyttingsgrad",
+                      "type": "Sum",
+                      "values": ["builtResidence"],
+                      "heading": "Tillatt utnyttingsgrad",
+                      "optional": true,
+                      "final": true,
+                      "unit": "m<sup>2</sup>"
+                    },
+                    {
+                      "id": "bruktAreal",
+                      "property": "bruktAreal",
+                      "type": "Sum",
+                      "values": ["builtResidence"],
+                      "heading": "Planlagt utnyttingsgrad",
+                      "optional": true,
+                      "final": true,
+                      "unit": "m<sup>2</sup>"
+                    },
+                    {
+                      "id": "sisteTall",
+                      "property": "sisteTall",
+                      "type": "Sum",
+                      "values": ["builtResidence"],
+                      "heading": "Gjenstående areal",
+                      "optional": true,
+                      "final": true,
+                      "unit": "m<sup>2</sup>"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Branch",
+      "branches": [
+        {
+          "test": {
+            "type": "and",
+            "clauses": [
+              {
+                "field": "utilizationArea",
+                "operator": "required"
+              },
+              {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "bya"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "bra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "tu"
+                  }
+                ]
+              }
+            ]
+          },
+          "children": [
+            {
+              "id": "hooray",
+              "type": "Result",
+              "heading": "Du er innenfor det som er tillatt å bygge på eiendommen din",
+              "errorheading": "Du har ikke svart på alle spørsmålene",
+              "lead":
+                "Husk at det er ditt ansvar at du oppgir riktig informasjon og bygger lovlig. Dersom bygningen er oppført ulovlig kan den i verste fall rives. Hvis du ønsker å endre noe, kan du klikke deg inn på hvert spørsmål i oppsummeringen nedenfor.",
+              "errorlead":
+                "Vi kan ikke gi deg et ordentlig resultat før du har svart på alle spørsmålene i veiviseren. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.",
+              "exporter": "dataExport",
+              "beforeResult": [
+                {
+                  "id": "resultGroup",
+                  "property": "resultGroupe",
+                  "type": "Group",
+                  "simple": true,
+                  "optional": true,
+                  "summary": "Vis detaljer",
+                  "details":
+                    "<p><strong>Tillatt grad av utnytting</strong> er arealet som er definert i reguleringsplanen eller kommuneplanen.</p><p><strong>Planlagte graden av utnytting</strong> er summen av arealet som er bebygd i dag, størrelsen av det nye du skal bygge og eventuelt parkeringsareal du må ha på tomten, minus arealet som skal rives.</p>",
                   "children": [
                     {
                       "id": "utnyttingsgrad",
