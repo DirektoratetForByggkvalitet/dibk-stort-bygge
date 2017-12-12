@@ -371,17 +371,37 @@
           "branches": [
             {
               "test": {
-                "type": "or",
+                "type": "and",
                 "clauses": [
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "bra"
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "yes"
+                      },
+                      {
+                        "field": "finneskommuneplanen",
+                        "operator": "eq",
+                        "value": "yes"
+                      }
+                    ]
                   },
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "ptu"
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "bra"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "ptu"
+                      }
+                    ]
                   }
                 ]
               },
@@ -415,17 +435,37 @@
           "branches": [
             {
               "test": {
-                "type": "or",
+                "type": "and",
                 "clauses": [
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "bya"
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "yes"
+                      },
+                      {
+                        "field": "finneskommuneplanen",
+                        "operator": "eq",
+                        "value": "yes"
+                      }
+                    ]
                   },
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "pbya"
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "bya"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "pbya"
+                      }
+                    ]
                   }
                 ]
               },
