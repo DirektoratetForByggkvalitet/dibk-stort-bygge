@@ -1905,7 +1905,7 @@
                   "optional": true,
                   "summary": "Vis detaljer",
                   "details":
-                    "<p><strong>Tillatt grad av utnytting</strong> er arealet som er definert i reguleringsplanen eller kommuneplanen.</p><p><strong>Planlagte graden av utnytting</strong> er summen av arealet som er bebygd i dag, størrelsen av det nye du skal bygge og eventuelt parkeringsareal du må ha på tomten, minus arealet som skal rives.</p>",
+                    "<h2>Hvis % i steg 1</h2><p><strong>Tillatt utnyttingsgrad</strong> er produktet av størrelsen på eiendommen din minus arealet som er regulert til noe annet enn bebyggelse, og den tillatte graden av utnyttelse. Hvis størrelsen på eiendommen din er 100m2, arealet som er regulert til noe annet enn bebyggelse er 10m2 og den tillatte graden av utnyttelse er 60%, vil den arealet du kan utnytte være (100-10)*0,60 = 54m2</p><p><strong>Planlagt utnyttingsgrad</strong> er summen av arealet som er bebygd i dag, størrelsen av det nye du skal bygge og eventuelt parkeringsareal du må ha på tomten, minus arealet som skal rives.</p><h2>Hvis m2 i steg 1</h2><p><strong>Tillatt utnyttingsgrad</strong> er arealet som er definert i reguleringsplanen eller kommuneplanen.</p><p><strong>Planlagt utnyttingsgrad</strong> er summen av arealet som er bebygd i dag, størrelsen av det nye du skal bygge og eventuelt parkeringsareal du må ha på tomten, minus arealet som skal rives.</p>",
                   "children": [
                     {
                       "id": "utnyttingsgrad",
