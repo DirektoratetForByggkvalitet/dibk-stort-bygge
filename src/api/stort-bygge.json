@@ -495,184 +495,26 @@
       "type": "Branch",
       "branches": [
         {
-          "id": "propertyArea",
-          "property": "propertyArea",
-          "type": "Number",
-          "heading": "Hvor stor er eiendommen?",
-          "unit": "m<sup>2</sup>",
-          "minimum": 0,
-          "text":
-            "<p>Arealet på eiendommen finner du i et matrikkelbrev (tidligere ble dette kalt målebrev). Matrikkelbrev får du fra kommunen. Du kan også se eiendommens areal på <a href=\"http://www.seeiendom.no/\">Kartverkets nettsted seeiendom.no</a></p>"
-        },
-        {
-          "id": "nonSettlementArea",
-          "property": "nonSettlementArea",
-          "type": "Number",
-          "heading": "Hvor stor del av eiendommen er regulert til noe annet enn bebyggelse?",
-          "minimum": 0,
-          "unit": "m<sup>2</sup>",
-          "text":
-            "<p>Hvis ikke du skal rive noe skriver du tallet 0 i feltet under.</p>",
-          "summary": "Hva er byggeområde?",
-          "details":
-            "<p>Når du skal beregne grad av utnytting, skal du bare bruke arealet som er regulert til byggeområde. Du skal ikke ta med deler av eiendommen som er regulert til for eksempel:</p><ul><li>felles adkomstvei</li><li>gang- og sykkelvei</li><li>friområde</li><li>grøntareal</li><li>fellesområder</li></ul><img src=\"/img/figur_01.png\" alt=\"Utsnitt av kart\"><h3>Dette kartet er bare et eksempel!</h3><ul><li>BLÅ: Eiendommens grenser</li><li>GRÅ: Vei og felles adkomst</li><li>GRØNN: Friområde</li><li>GUL: Byggeområde</li></ul><p>Du skal altså måle alt bortsett fra det gule området.</p><p>Sjekk din eiendom i reguleringsplan eller kommuneplan. Mål <strong>alle</strong> areal som <strong>ikke</strong> er regulert til byggeområde.</p>"
-        }
-      ]
-    },
-    {
-      "id": "Page2",
-      "type": "Page",
-      "heading": "Bebyggelse på eiendommen",
-      "lead":
-        "Du skal måle areal i BYA. Det betyr bebygd areal.<p>Vi må finne en løsning for \"Hva er bebygd areal?\" lenken. Skal vi lage en egen side?",
-      "children": [
-        {
-          "id": "areaToBeDemolished",
-          "property": "areaToBeDemolished",
-          "type": "Group",
-          "simple": true,
-          "heading": "Hvor mye av eiendommen din er allerede bebygd?",
-          "text":
-            "<p>Hvis det ikke er noe bebyggelse på eiendommen din, kryss av for \"ingen bebyggelse\" under. Da fylles feltene automatisk ut med 0.</p>",
+          "test": {
+            "field": "utilizationArea",
+            "operator": "required"
+          },
           "children": [
             {
-              "id": "tempBYA",
-              "property": "tempBYA",
-              "type": "Number",
-              "heading": "Areal bolig i BYA",
-              "unit": "m<sup>2</sup>",
-              "minimum": 0
-            },
-            {
-              "id": "tempgarasje",
-              "property": "tempgarasje",
-              "type": "Number",
-              "heading": "Areal frittstående garasje",
-              "unit": "m<sup>2</sup>",
-              "minimum": 0
-            },
-            {
-              "id": "tempfrittstaaend",
-              "property": "tempfrittstaaend",
-              "type": "Number",
-              "heading": "Areal frittstående bod/uthus/dukkehus",
-              "unit": "m<sup>2</sup>",
-              "minimum": 0
-            },
-            {
-              "id": "tempkonstruksjon",
-              "property": "tempkonstruksjon",
-              "type": "Number",
-              "heading": "Areal for annen frittstående konstruksjon",
-              "unit": "m<sup>2</sup>",
-              "minimum": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Page3",
-      "type": "Page",
-      "heading": "Planlagte endringer på eiendommen",
-      "children": [
-        {
-          "id": "arealBebyggelseSomSkalRives",
-          "property": "arealBebyggelseSomSkalRives",
-          "type": "Number",
-          "heading": "Areal som skal rives",
-          "unit": "m<sup>2</sup>",
-          "text":
-            "<p>Du skal måle areal som skal rives i TODO VARIABEL HER BRA. Det betyr bruksareal.</p>",
-          "validator": {
-            "test": {
-              "field": "arealBebyggelseSomSkalRives",
-              "operator": "lte",
-              "value": { "field": "propertyArea" }
-            },
-            "error": "Areal som skal rives må være mindre enn bebygget areal"
-          }
-        },
-        {
-          "id": "tempebygd",
-          "property": "tempebygd",
-          "type": "Number",
-          "heading": "Hvor stort blir det nye du skal bygge?",
-          "text": "<p>Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.</p>",
-          "unit": "m<sup>2</sup>",
-          "minimum": 0
-        }
-      ]
-    },
-    {
-      "id": "Page5",
-      "type": "Page",
-      "heading": "Krav til parkeringsplasser",
-      "lead":
-        "Parkeringsplasser som ligger på terreng (altså ikke i garasje) blir tatt med i grad av utnytting.<p>Du finner som regel kravene som gjelder for din eiendom i planbestemmelsen du har funnet fram tidligere: Enten reguleringsplanen eller kommuneplanen. Du kan også sjekke om kommunen har en parkeringsnorm.</p>",
-      "summary": "Viktig info om krav til parkering",
-      "details":
-        "<p>Det er varierende hvilke krav det er til minimum parkeringsplass på en eiendom. Det er derfor viktig at du sjekker bestemmelsene i din kommune nøye.</p><p>Noen kommuner har spesialbestemmelser om parkering som sier at ikke all parkering på terreng skal regnes med, eller at noe parkering bestandig må regnes med.</p><p>Du finner som regel kravene som gjelder for din eiendom i planbestemmelsen du har funnet fram tidligere: Enten reguleringsplanen eller kommuneplanen. Du kan også sjekke om kommunen har en parkeringsnorm som er gjeldende om du ikke finner noe her.</p><p>Det er veldig viktig at du leser dokumentene svært nøye. Kommunen din kan ha helt spesielle bestemmelser du selv må fortelle denne veiviseren om for å få riktig resultat.</p><p>Typisk kreves det to biloppstillingsplasser per boenhet for eneboliger og tomannsboliger. Disse er ofte definert til 18 m<sup>2</sup>. Det er dog så store variasjoner at du må sjekke nøye med din kommune før du bruker disse verdiene.</p>",
-      "children": [
-        {
-          "id": "requiredParkingSpots",
-          "property": "requiredParkingSpots",
-          "type": "Number",
-          "heading": "Hvor mange parkeringsplasser kreves totalt på eiendommen?",
-          "minimum": 0,
-          "unit": "stk"
-        },
-        {
-          "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
-          "property": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
-          "type": "Radio",
-          "heading": "Har reguleringsplanen krav til minimum antall parkeringsplasser på terreng?",
-          "options": [
-            {
-              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.yes",
-              "type": "Answer",
-              "heading": "Ja",
-              "value": "yes"
-            },
-            {
-              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.no",
-              "type": "Answer",
-              "heading": "Nei",
-              "value": "no"
-            }
-          ]
-        },
-        {
-          "type": "Branch",
-          "branches": [
-            {
-              "test": {
-                "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
-                "operator": "eq",
-                "value": "yes"
-              },
+              "id": "page1",
+              "type": "Page",
+              "heading": "Størrelse på eiendommen",
               "children": [
                 {
                   "id": "propertyArea",
                   "property": "propertyArea",
                   "type": "Number",
-                  "heading": "Hvor mange parkeringsplasser på terreng kreves?",
-                  "minumum": 0,
-                  "unit": "stk"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "Branch",
-          "branches": [
-            {
-              "test": {
-                "field": "requiredParkingSpots",
-                "operator": "required"
-              },
-              "children": [
+                  "heading": "Hvor stor er eiendommen?",
+                  "unit": "m<sup>2</sup>",
+                  "minimum": 0,
+                  "text":
+                    "<p>Arealet på eiendommen finner du i et matrikkelbrev (tidligere ble dette kalt målebrev). Matrikkelbrev får du fra kommunen. Du kan også se eiendommens areal på <a href=\"http://www.seeiendom.no/\">Kartverkets nettsted seeiendom.no</a></p>"
+                },
                 {
                   "id": "nonSettlementArea",
                   "property": "nonSettlementArea",
