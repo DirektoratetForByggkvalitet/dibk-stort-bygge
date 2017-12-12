@@ -371,26 +371,17 @@
           "branches": [
             {
               "test": {
-                "type": "and",
+                "type": "or",
                 "clauses": [
                   {
                     "field": "kommuneplanen",
-                    "operator": "neq",
+                    "operator": "eq",
                     "value": "bra"
                   },
                   {
                     "field": "kommuneplanen",
-                    "operator": "neq",
-                    "value": "pbra"
-                  },
-                  {
-                    "field": "kommuneplanen",
-                    "operator": "required"
-                  },
-                  {
-                    "field": "kommuneplanen",
-                    "operator": "neq",
-                    "value": "none"
+                    "operator": "eq",
+                    "value": "ptu"
                   }
                 ]
               },
@@ -399,7 +390,7 @@
                   "id": "regulationTime",
                   "property": "regulationTime",
                   "type": "Radio",
-                  "heading": "Når er kommuneplanen vedtatt?",
+                  "heading": "Når er planen vedtatt?",
                   "options": [
                     {
                       "id": "regulationTime.before",
@@ -429,17 +420,196 @@
                   {
                     "field": "kommuneplanen",
                     "operator": "eq",
+                    "value": "bya"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
                     "value": "pbya"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "regulationTime",
+                  "property": "regulationTime",
+                  "type": "Radio",
+                  "heading": "Når er planen vedtatt?",
+                  "options": [
+                    {
+                      "id": "regulationTime.before",
+                      "type": "Answer",
+                      "heading": "Før 1.7.2007",
+                      "value": "before"
+                    },
+                    {
+                      "id": "regulationTime.after",
+                      "type": "Answer",
+                      "heading": "Etter 1.7.2007",
+                      "value": "after"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "and",
+                "clauses": [
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "yes"
+                      },
+                      {
+                        "field": "isreguleringsplanen",
+                        "operator": "eq",
+                        "value": "no"
+                      }
+                    ]
                   },
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "pbra"
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "pbya"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "pbra"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "ptu"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "utilizationArea",
+                  "property": "utilizationArea",
+                  "type": "Number",
+                  "heading": "Hva er tillatt grad av utnytting i reguleringsplanen?",
+                  "unit": "%",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "and",
+                "clauses": [
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "yes"
+                      },
+                      {
+                        "field": "isreguleringsplanen",
+                        "operator": "eq",
+                        "value": "no"
+                      }
+                    ]
                   },
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "ptu"
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "bya"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "bra"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "tbra"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "utilizationArea",
+                  "property": "utilizationArea",
+                  "type": "Number",
+                  "heading": "Hva er tillatt grad av utnytting i reguleringsplanen?",
+                  "unit": "m<sup>2</sup>",
+                  "minimum": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "and",
+                "clauses": [
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "yes"
+                      },
+                      {
+                        "field": "isreguleringsplanen",
+                        "operator": "eq",
+                        "value": "yes"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "pbya"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "pbra"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "ptu"
+                      }
+                    ]
                   }
                 ]
               },
@@ -462,22 +632,157 @@
           "branches": [
             {
               "test": {
-                "type": "or",
+                "type": "and",
                 "clauses": [
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "bya"
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "yes"
+                      },
+                      {
+                        "field": "isreguleringsplanen",
+                        "operator": "eq",
+                        "value": "yes"
+                      }
+                    ]
                   },
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "bra"
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "bya"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "bra"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "tbra"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "utilizationArea",
+                  "property": "utilizationArea",
+                  "type": "Number",
+                  "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
+                  "unit": "m<sup>2</sup>",
+                  "minimum": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "and",
+                "clauses": [
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "no"
+                      },
+                      {
+                        "field": "finneskommuneplanen",
+                        "operator": "eq",
+                        "value": "yes"
+                      }
+                    ]
                   },
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "tbra"
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "pbya"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "pbra"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "ptu"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "utilizationArea",
+                  "property": "utilizationArea",
+                  "type": "Number",
+                  "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
+                  "unit": "%",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "and",
+                "clauses": [
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "no"
+                      },
+                      {
+                        "field": "finneskommuneplanen",
+                        "operator": "eq",
+                        "value": "yes"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "bya"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "bra"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "tbra"
+                      }
+                    ]
                   }
                 ]
               },
