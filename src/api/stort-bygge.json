@@ -939,6 +939,7 @@
                       "id": "noResidence",
                       "property": "noResidence",
                       "type": "Checkbox",
+                      "optional": true,
                       "options": [
                         {
                           "id": "noResidence.yes",
@@ -981,19 +982,49 @@
                       "minimum": 0
                     },
                     {
-                      "id": "alreadyBuilt",
-                      "property": "alreadyBuilt",
-                      "type": "Sum",
-                      "values": [
-                        "builtResidence",
-                        "builtGarage",
-                        "builtSmallBuilding",
-                        "builtOther"
-                      ],
-                      "minimum": 0,
-                      "optional": true,
-                      "heading": "Totalt bebygd areal",
-                      "unit": "m<sup>2</sup>"
+                      "type": "Branch",
+                      "branches": [
+                        {
+                          "test": {
+                            "type": "and",
+                            "clauses": [
+                              {
+                                "field": "builtResidence",
+                                "operator": "required"
+                              },
+                              {
+                                "field": "builtGarage",
+                                "operator": "required"
+                              },
+                              {
+                                "field": "builtSmallBuilding",
+                                "operator": "required"
+                              },
+                              {
+                                "field": "builtOther",
+                                "operator": "required"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "id": "alreadyBuilt",
+                              "property": "alreadyBuilt",
+                              "type": "Sum",
+                              "values": [
+                                "builtResidence",
+                                "builtGarage",
+                                "builtSmallBuilding",
+                                "builtOther"
+                              ],
+                              "minimum": 0,
+                              "optional": true,
+                              "heading": "Totalt bebygd areal",
+                              "unit": "m<sup>2</sup>"
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
@@ -1029,14 +1060,21 @@
                     "test": {
                       "field": "arealBebyggelseSomSkalRives",
                       "operator": "lte",
-                      "value": { "field": "propertyArea" }
+                      "value": {
+                        "fields": [
+                          "builtResidence",
+                          "builtGarage",
+                          "builtSmallBuilding",
+                          "builtOther"
+                        ]
+                      }
                     },
                     "error": "Areal som skal rives må være mindre enn bebygget areal"
                   }
                 },
                 {
-                  "id": "tempebygd",
-                  "property": "tempebygd",
+                  "id": "newBuiltArea",
+                  "property": "newBuiltArea",
                   "type": "Number",
                   "heading": "Hvor stort blir det nye du skal bygge?",
                   "text":
@@ -1248,6 +1286,10 @@
                             "value": {
                               "field": "requiredParkingSpots"
                             }
+                          },
+                          {
+                            "field": "parkingPlaceArea",
+                            "operator": "required"
                           }
                         ]
                       },
@@ -1677,6 +1719,15 @@
               "exporter": "dataExport",
               "beforeResult": [
                 {
+                  "id": "evalish",
+                  "property": "evalish",
+                  "type": "Evaluation",
+                  "testing": "sum-sisteTall",
+                  "sad": "Du planlegger å bygge mer enn det som er tillatt på eiendommen din",
+                  "happy": "Du er innenfor det som er tillatt å bygge på eiendommen din.",
+                  "optional": true
+                },
+                {
                   "id": "resultGroup",
                   "property": "resultGroupe",
                   "type": "Group",
@@ -1690,7 +1741,7 @@
                       "id": "utnyttingsgrad",
                       "property": "utnyttingsgrad",
                       "type": "Sum",
-                      "values": ["builtResidence"],
+                      "values": ["utilizationArea"],
                       "heading": "Tillatt utnyttingsgrad",
                       "optional": true,
                       "final": true,
@@ -1700,7 +1751,16 @@
                       "id": "bruktAreal",
                       "property": "bruktAreal",
                       "type": "Sum",
-                      "values": ["builtResidence"],
+                      "values": [
+                        "builtResidence",
+                        "builtGarage",
+                        "builtSmallBuilding",
+                        "builtOther",
+                        "arealBebyggelseSomSkalRives",
+                        "newBuiltArea",
+                        "sum-parkeringssum"
+                      ],
+                      "operations": ["+", "+", "+", "+", "-", "+", "+"],
                       "heading": "Planlagt utnyttingsgrad",
                       "optional": true,
                       "final": true,
@@ -1710,7 +1770,8 @@
                       "id": "sisteTall",
                       "property": "sisteTall",
                       "type": "Sum",
-                      "values": ["builtResidence"],
+                      "values": ["sum-utnyttingsgrad", "sum-bruktAreal"],
+                      "operations": ["+", "-"],
                       "heading": "Gjenstående areal",
                       "optional": true,
                       "final": true,
