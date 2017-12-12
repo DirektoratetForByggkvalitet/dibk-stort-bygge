@@ -486,7 +486,7 @@
                   "id": "utilizationArea",
                   "property": "utilizationArea",
                   "type": "Number",
-                  "heading": "Hva er tillatt grad av utnytting i reguleringsplanen?",
+                  "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "m<sup>2</sup>",
                   "minimum": 0
                 }
