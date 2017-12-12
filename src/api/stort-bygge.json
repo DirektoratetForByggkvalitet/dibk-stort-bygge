@@ -1078,23 +1078,76 @@
                   "unit": "stk"
                 },
                 {
-                  "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
-                  "property": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
-                  "type": "Radio",
-                  "heading":
-                    "Har reguleringsplanen krav til minimum antall parkeringsplasser på terreng?",
-                  "options": [
+                  "type": "Branch",
+                  "branches": [
                     {
-                      "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.yes",
-                      "type": "Answer",
-                      "heading": "Ja",
-                      "value": "yes"
+                      "test": {
+                        "type": "and",
+                        "clauses": [
+                          {
+                            "field": "regulation",
+                            "operator": "eq",
+                            "value": "yes"
+                          },
+                          {
+                            "field": "isreguleringsplanen",
+                            "operator": "eq",
+                            "value": "no"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                          "property": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                          "type": "Radio",
+                          "heading":
+                            "Har reguleringsplanen krav til minimum antall parkeringsplasser på terreng?",
+                          "options": [
+                            {
+                              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.yes",
+                              "type": "Answer",
+                              "heading": "Ja",
+                              "value": "yes"
+                            },
+                            {
+                              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.no",
+                              "type": "Answer",
+                              "heading": "Nei",
+                              "value": "no"
+                            }
+                          ]
+                        }
+                      ]
                     },
                     {
-                      "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.no",
-                      "type": "Answer",
-                      "heading": "Nei",
-                      "value": "no"
+                      "test": {
+                        "field": "requiredParkingSpots",
+                        "operator": "required"
+                      },
+                      "children": [
+                        {
+                          "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                          "property": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                          "type": "Radio",
+                          "heading":
+                            "Har kommuneplanen krav til minimum antall parkeringsplasser på terreng?",
+                          "options": [
+                            {
+                              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.yes",
+                              "type": "Answer",
+                              "heading": "Ja",
+                              "value": "yes"
+                            },
+                            {
+                              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.no",
+                              "type": "Answer",
+                              "heading": "Nei",
+                              "value": "no"
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 },
