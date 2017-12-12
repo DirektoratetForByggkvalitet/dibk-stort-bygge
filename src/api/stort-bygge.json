@@ -743,10 +743,10 @@
                     "value": "yes"
                   },
                   {
-                    "field": "numberOfParkinglotsInCarport",
-                    "operator": "lt",
+                    "field": "requiredParkingSpots",
+                    "operator": "gt",
                     "value": {
-                      "fields": ["requiredParkingSpots", "requiredParkingSpotsTerrain"]
+                      "fields": ["numberOfParkinglotsInCarport", "requiredParkingSpotsTerrain"]
                     }
                   }
                 ]
