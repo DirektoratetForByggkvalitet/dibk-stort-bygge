@@ -891,6 +891,78 @@
               "heading": "Størrelse på eiendommen",
               "children": [
                 {
+                  "type": "Branch",
+                  "branches": [
+                    {
+                      "test": {
+                        "type": "or",
+                        "clauses": [
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "bya"
+                          },
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "pbya"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "id": "byatext",
+                          "property": "byatext",
+                          "type": "Text",
+                          "text":
+                            "<p>Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.</p>"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Branch",
+                  "branches": [
+                    {
+                      "test": {
+                        "type": "or",
+                        "clauses": [
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "bra"
+                          },
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "pbra"
+                          },
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "tbra"
+                          },
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "ptu"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "id": "bratext",
+                          "property": "bratext",
+                          "type": "Text",
+                          "text":
+                            "<p>Du skal måle areal som skal bygges i BRA. Det betyr bruksareal.</p>"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
                   "id": "propertyArea",
                   "property": "propertyArea",
                   "type": "Number",
@@ -933,8 +1005,6 @@
               "id": "Page2",
               "type": "Page",
               "heading": "Bebyggelse på eiendommen",
-              "lead":
-                "Du skal måle areal i BYA. Det betyr bebygd areal.<p>Vi må finne en løsning for \"Hva er bebygd areal?\" lenken. Skal vi lage en egen side?",
               "children": [
                 {
                   "id": "areaToBeDemolished",
@@ -950,7 +1020,12 @@
                       "property": "noResidenceToggle",
                       "type": "Switch",
                       "optional": true,
-                      "update": ["builtResidence", "builtGarage", "builtSmallBuilding", "builtOther"],
+                      "update": [
+                        "builtResidence",
+                        "builtGarage",
+                        "builtSmallBuilding",
+                        "builtOther"
+                      ],
                       "options": [
                         {
                           "id": "noResidenceToggle.yes",
@@ -1064,13 +1139,85 @@
               "heading": "Planlagte endringer på eiendommen",
               "children": [
                 {
+                  "type": "Branch",
+                  "branches": [
+                    {
+                      "test": {
+                        "type": "or",
+                        "clauses": [
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "bya"
+                          },
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "pbya"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "id": "byatext",
+                          "property": "byatext",
+                          "type": "Text",
+                          "text":
+                            "<p>Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.</p>"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Branch",
+                  "branches": [
+                    {
+                      "test": {
+                        "type": "or",
+                        "clauses": [
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "bra"
+                          },
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "pbra"
+                          },
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "tbra"
+                          },
+                          {
+                            "field": "kommuneplanen",
+                            "operator": "eq",
+                            "value": "ptu"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "id": "bratext",
+                          "property": "bratext",
+                          "type": "Text",
+                          "text":
+                            "<p>Du skal måle areal som skal bygges i BRA. Det betyr bruksareal.</p>"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
                   "id": "arealBebyggelseSomSkalRives",
                   "property": "arealBebyggelseSomSkalRives",
                   "type": "Number",
                   "heading": "Areal som skal rives",
                   "unit": "m<sup>2</sup>",
                   "text":
-                    "<p>Hvis du ikke skal rive noe skriver du inn tallet 0.</p><p>Du skal måle areal som skal rives i TODO VARIABEL HER BRA. Det betyr bruksareal.</p>",
+                    "<p>Hvis du ikke skal rive noe skriver du inn tallet 0.</p>",
                   "validator": {
                     "test": {
                       "field": "arealBebyggelseSomSkalRives",
@@ -1093,8 +1240,6 @@
                   "property": "newBuiltArea",
                   "type": "Number",
                   "heading": "Hvor stort blir det nye du skal bygge?",
-                  "text":
-                    "<p>Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.</p>",
                   "unit": "m<sup>2</sup>",
                   "minimum": 0
                 }
