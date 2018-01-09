@@ -1812,6 +1812,17 @@
               "exporter": "dataExport",
               "beforeResult": [
                 {
+                  "id": "evalish",
+                  "property": "evalish",
+                  "type": "Evaluation",
+                  "testing": ["utilizationArea", "sum-planlagtUtnytting"],
+                  "sad":
+                    "Du planlegger å bygge mer enn det som er tillatt på eiendommen din",
+                  "happy":
+                    "Du er innenfor det som er tillatt å bygge på eiendommen din.",
+                  "optional": true
+                },
+                {
                   "id": "resultGroup",
                   "property": "resultGroupe",
                   "type": "Group",
@@ -1825,28 +1836,40 @@
                       "id": "utnyttingsgrad",
                       "property": "utnyttingsgrad",
                       "type": "Sum",
-                      "values": ["builtResidence"],
-                      "heading": "Tillatt utnyttingsgrad",
+                      "values": ["propertyArea", "nonSettlementArea", "utilizationArea", 0.01],
+                      "operations": ["+","-","*","%"],
+                      "secondary": "utilizationArea",
+                      "heading": "Tillat grad av utnytting",
                       "optional": true,
                       "final": true,
                       "unit": "m<sup>2</sup>"
+                    },
+                    {
+                      "id": "planlagtUtnytting",
+                      "property": "planlagtUtnytting",
+                      "type": "Sum",
+                      "values": ["propertyArea", "nonSettlementArea", "sum-bruktAreal", 100],
+                      "operations": ["+", "-", "-/", "%"],
+                      "heading": "Din planlagte grad av utnytting",
+                      "optional": true,
+                      "final": true,
+                      "unit": "%"
                     },
                     {
                       "id": "bruktAreal",
                       "property": "bruktAreal",
                       "type": "Sum",
-                      "values": ["builtResidence"],
-                      "heading": "Planlagt utnyttingsgrad",
-                      "optional": true,
-                      "final": true,
-                      "unit": "m<sup>2</sup>"
-                    },
-                    {
-                      "id": "sisteTall",
-                      "property": "sisteTall",
-                      "type": "Sum",
-                      "values": ["builtResidence"],
-                      "heading": "Gjenstående areal",
+                      "values": [
+                        "builtResidence",
+                        "builtGarage",
+                        "builtSmallBuilding",
+                        "builtOther",
+                        "arealBebyggelseSomSkalRives",
+                        "newBuiltArea",
+                        "sum-parkeringssum"
+                      ],
+                      "operations": ["+", "+", "+", "+", "-", "+", "+"],
+                      "heading": "Ditt planglagte area",
                       "optional": true,
                       "final": true,
                       "unit": "m<sup>2</sup>"
