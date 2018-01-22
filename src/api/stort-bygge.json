@@ -13,8 +13,7 @@
           "property": "regulation",
           "type": "Radio",
           "heading": "Er eiendommen regulert?",
-          "text":
-            "Hvis du fant du en reguleringsplan hos kommunen, er eiendommen regulert.",
+          "text": "Hvis du fant du en reguleringsplan hos kommunen, er eiendommen regulert.",
           "options": [
             {
               "id": "regulation.yes",
@@ -121,8 +120,7 @@
                   "id": "kommuneplanen",
                   "property": "kommuneplanen",
                   "type": "Radio",
-                  "heading":
-                    "Hvordan defineres grad av utnytting i kommuneplanen?",
+                  "heading": "Hvordan defineres grad av utnytting i kommuneplanen?",
                   "options": [
                     {
                       "id": "kommuneplanen.bya",
@@ -196,8 +194,7 @@
                   "id": "kommuneplanen",
                   "property": "kommuneplanen",
                   "type": "Radio",
-                  "heading":
-                    "Hvordan defineres grad av utnytting i kommuneplanen?",
+                  "heading": "Hvordan defineres grad av utnytting i kommuneplanen?",
                   "options": [
                     {
                       "id": "kommuneplanen.bya",
@@ -271,8 +268,7 @@
                   "id": "kommuneplanen",
                   "property": "kommuneplanen",
                   "type": "Radio",
-                  "heading":
-                    "Hvordan defineres grad av utnytting i reguleringsplanen?",
+                  "heading": "Hvordan defineres grad av utnytting i reguleringsplanen?",
                   "options": [
                     {
                       "id": "kommuneplanen.bya",
@@ -547,8 +543,7 @@
                   "id": "utilizationArea",
                   "property": "utilizationArea",
                   "type": "Number",
-                  "heading":
-                    "Hva er tillatt grad av utnytting i reguleringsplanen?",
+                  "heading": "Hva er tillatt grad av utnytting i reguleringsplanen?",
                   "unit": "%",
                   "minimum": 0,
                   "maximum": 100
@@ -606,8 +601,7 @@
                   "id": "utilizationArea",
                   "property": "utilizationArea",
                   "type": "Number",
-                  "heading":
-                    "Hva er tillatt grad av utnytting i reguleringsplanen?",
+                  "heading": "Hva er tillatt grad av utnytting i reguleringsplanen?",
                   "unit": "m<sup>2</sup>",
                   "minimum": 0
                 }
@@ -664,8 +658,7 @@
                   "id": "utilizationArea",
                   "property": "utilizationArea",
                   "type": "Number",
-                  "heading":
-                    "Hva er tillatt grad av utnytting i kommuneplanen?",
+                  "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "%",
                   "minimum": 0,
                   "maximum": 100
@@ -723,8 +716,7 @@
                   "id": "utilizationArea",
                   "property": "utilizationArea",
                   "type": "Number",
-                  "heading":
-                    "Hva er tillatt grad av utnytting i kommuneplanen?",
+                  "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "m<sup>2</sup>",
                   "minimum": 0
                 }
@@ -781,8 +773,7 @@
                   "id": "utilizationArea",
                   "property": "utilizationArea",
                   "type": "Number",
-                  "heading":
-                    "Hva er tillatt grad av utnytting i kommuneplanen?",
+                  "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "%",
                   "minimum": 0,
                   "maximum": 100
@@ -840,8 +831,7 @@
                   "id": "utilizationArea",
                   "property": "utilizationArea",
                   "type": "Number",
-                  "heading":
-                    "Hva er tillatt grad av utnytting i kommuneplanen?",
+                  "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "m<sup>2</sup>",
                   "minimum": 0
                 }
@@ -1216,8 +1206,7 @@
                   "type": "Number",
                   "heading": "Areal som skal rives",
                   "unit": "m<sup>2</sup>",
-                  "text":
-                    "<p>Hvis du ikke skal rive noe skriver du inn tallet 0.</p>",
+                  "text": "<p>Hvis du ikke skal rive noe skriver du inn tallet 0.</p>",
                   "validator": {
                     "test": {
                       "field": "arealBebyggelseSomSkalRives",
@@ -1231,8 +1220,7 @@
                         ]
                       }
                     },
-                    "error":
-                      "Areal som skal rives må være mindre enn bebygget areal"
+                    "error": "Areal som skal rives må være mindre enn bebygget areal"
                   }
                 },
                 {
@@ -1272,8 +1260,7 @@
                   "id": "requiredParkingSpots",
                   "property": "requiredParkingSpots",
                   "type": "Number",
-                  "heading":
-                    "Hvor mange parkeringsplasser kreves totalt på eiendommen?",
+                  "heading": "Hvor mange parkeringsplasser kreves totalt på eiendommen?",
                   "minimum": 0,
                   "unit": "stk"
                 },
@@ -1299,22 +1286,19 @@
                       "children": [
                         {
                           "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
-                          "property":
-                            "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                          "property": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                           "type": "Radio",
                           "heading":
                             "Har reguleringsplanen krav til minimum antall parkeringsplasser på terreng?",
                           "options": [
                             {
-                              "id":
-                                "hasRequiredExtraTerrainParkingPlacesInRegPlan.yes",
+                              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.yes",
                               "type": "Answer",
                               "heading": "Ja",
                               "value": "yes"
                             },
                             {
-                              "id":
-                                "hasRequiredExtraTerrainParkingPlacesInRegPlan.no",
+                              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.no",
                               "type": "Answer",
                               "heading": "Nei",
                               "value": "no"
@@ -1331,22 +1315,19 @@
                       "children": [
                         {
                           "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
-                          "property":
-                            "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                          "property": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                           "type": "Radio",
                           "heading":
                             "Har kommuneplanen krav til minimum antall parkeringsplasser på terreng?",
                           "options": [
                             {
-                              "id":
-                                "hasRequiredExtraTerrainParkingPlacesInRegPlan.yes",
+                              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.yes",
                               "type": "Answer",
                               "heading": "Ja",
                               "value": "yes"
                             },
                             {
-                              "id":
-                                "hasRequiredExtraTerrainParkingPlacesInRegPlan.no",
+                              "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.no",
                               "type": "Answer",
                               "heading": "Nei",
                               "value": "no"
@@ -1362,8 +1343,7 @@
                   "branches": [
                     {
                       "test": {
-                        "field":
-                          "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                        "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                         "operator": "eq",
                         "value": "yes"
                       },
@@ -1372,8 +1352,7 @@
                           "id": "requiredParkingSpotsTerrain",
                           "property": "requiredParkingSpotsTerrain",
                           "type": "Number",
-                          "heading":
-                            "Hvor mange parkeringsplasser på terreng kreves?",
+                          "heading": "Hvor mange parkeringsplasser på terreng kreves?",
                           "unit": "stk",
                           "minumum": 0
                         }
@@ -1409,8 +1388,7 @@
                             ]
                           },
                           {
-                            "field":
-                              "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                            "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                             "operator": "eq",
                             "value": "yes"
                           }
@@ -1447,8 +1425,7 @@
                         "type": "and",
                         "clauses": [
                           {
-                            "field":
-                              "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                            "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                             "operator": "eq",
                             "value": "no"
                           },
@@ -1474,8 +1451,7 @@
                           "children": [
                             {
                               "id": "numberOfParkinglotsInCarportToFewText",
-                              "property":
-                                "numberOfParkinglotsInCarportToFewText",
+                              "property": "numberOfParkinglotsInCarportToFewText",
                               "type": "Text",
                               "warning": true,
                               "variables": true,
@@ -1538,8 +1514,7 @@
                         "type": "and",
                         "clauses": [
                           {
-                            "field":
-                              "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                            "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                             "operator": "eq",
                             "value": "yes"
                           },
@@ -1593,8 +1568,7 @@
                                   "operations": ["+", "-", "-", "+", "*"],
                                   "minimum": 0,
                                   "optional": true,
-                                  "heading":
-                                    "Nødvendig parkeringsplassareal på terreng:",
+                                  "heading": "Nødvendig parkeringsplassareal på terreng:",
                                   "unit": "m<sup>2</sup>"
                                 },
                                 {
@@ -1628,8 +1602,7 @@
                         "type": "and",
                         "clauses": [
                           {
-                            "field":
-                              "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                            "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                             "operator": "eq",
                             "value": "no"
                           },
@@ -1669,15 +1642,11 @@
                               "id": "parkeringssum",
                               "property": "parkeringssum",
                               "type": "Sum",
-                              "values": [
-                                "requiredParkingSpots",
-                                "numberOfParkinglotsInCarport"
-                              ],
+                              "values": ["requiredParkingSpots", "numberOfParkinglotsInCarport"],
                               "operations": ["+", "-"],
                               "minimum": 0,
                               "optional": true,
-                              "heading":
-                                "Du har nok parkeringsplasser i garasje/carport",
+                              "heading": "Du har nok parkeringsplasser i garasje/carport",
                               "unit": "m<sup>2</sup>"
                             }
                           ]
@@ -1694,8 +1663,7 @@
                         "type": "and",
                         "clauses": [
                           {
-                            "field":
-                              "hasRequiredExtraTerrainParkingPlacesInRegPlan",
+                            "field": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                             "operator": "eq",
                             "value": "yes"
                           },
@@ -1742,15 +1710,11 @@
                               "id": "parkeringssum",
                               "property": "parkeringssum",
                               "type": "Sum",
-                              "values": [
-                                "requiredParkingSpotsTerrain",
-                                "parkingPlaceArea"
-                              ],
+                              "values": ["requiredParkingSpotsTerrain", "parkingPlaceArea"],
                               "operations": ["+", "*"],
                               "minimum": 0,
                               "optional": true,
-                              "heading":
-                                "Nødvendig parkeringsplassareal på terreng på terreng:",
+                              "heading": "Nødvendig parkeringsplassareal på terreng på terreng:",
                               "unit": "m<sup>2</sup>"
                             }
                           ]
@@ -1802,8 +1766,7 @@
             {
               "id": "hooray",
               "type": "Result",
-              "heading":
-                "Du er innenfor det som er tillatt å bygge på eiendommen din",
+              "heading": "Ditt resultat",
               "errorheading": "Du har ikke svart på alle spørsmålene",
               "lead":
                 "Husk at det er ditt ansvar at du oppgir riktig informasjon og bygger lovlig. Dersom bygningen er oppført ulovlig kan den i verste fall rives. Hvis du ønsker å endre noe, kan du klikke deg inn på hvert spørsmål i oppsummeringen nedenfor.",
@@ -1816,10 +1779,8 @@
                   "property": "evalish",
                   "type": "Evaluation",
                   "testing": ["utilizationArea", "sum-planlagtUtnytting"],
-                  "sad":
-                    "Du planlegger å bygge mer enn det som er tillatt på eiendommen din",
-                  "happy":
-                    "Du er innenfor det som er tillatt å bygge på eiendommen din.",
+                  "sad": "Du planlegger å bygge mer enn det som er tillatt på eiendommen din",
+                  "happy": "Du er innenfor det som er tillatt å bygge på eiendommen din.",
                   "optional": true
                 },
                 {
@@ -1837,7 +1798,7 @@
                       "property": "utnyttingsgrad",
                       "type": "Sum",
                       "values": ["propertyArea", "nonSettlementArea", "utilizationArea", 0.01],
-                      "operations": ["+","-","*","%"],
+                      "operations": ["+", "-", "*", "%"],
                       "secondary": "utilizationArea",
                       "heading": "Tillat grad av utnytting",
                       "optional": true,
@@ -1919,8 +1880,7 @@
             {
               "id": "hooray",
               "type": "Result",
-              "heading":
-                "Du er innenfor det som er tillatt å bygge på eiendommen din",
+              "heading": "Ditt resultat",
               "errorheading": "Du har ikke svart på alle spørsmålene",
               "lead":
                 "Husk at det er ditt ansvar at du oppgir riktig informasjon og bygger lovlig. Dersom bygningen er oppført ulovlig kan den i verste fall rives. Hvis du ønsker å endre noe, kan du klikke deg inn på hvert spørsmål i oppsummeringen nedenfor.",
@@ -1933,10 +1893,8 @@
                   "property": "evalish",
                   "type": "Evaluation",
                   "testing": "sum-sisteTall",
-                  "sad":
-                    "Du planlegger å bygge mer enn det som er tillatt på eiendommen din",
-                  "happy":
-                    "Du er innenfor det som er tillatt å bygge på eiendommen din.",
+                  "sad": "Du planlegger å bygge mer enn det som er tillatt på eiendommen din",
+                  "happy": "Du er innenfor det som er tillatt å bygge på eiendommen din.",
                   "optional": true
                 },
                 {
