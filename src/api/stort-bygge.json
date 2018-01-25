@@ -983,18 +983,288 @@
       ]
     },
     {
-      "type": "Branch",
-      "branches": [
+      "id": "Page2",
+      "type": "Page",
+      "heading": "Bebyggelse på eiendommen",
+      "hidden": {
+        "field": "utilizationArea",
+        "operator": "not"
+      },
+      "children": [
         {
-          "test": {
-            "field": "utilizationArea",
-            "operator": "required"
-          },
-          "children": [
+          "type": "Branch",
+          "branches": [
             {
-              "id": "Page2",
-              "type": "Page",
-              "heading": "Bebyggelse på eiendommen",
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "bra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "pbra"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "infoLinkBox",
+                  "property": "infoLinkBox",
+                  "type": "Group",
+                  "simple": true,
+                  "children": [
+                    {
+                      "id": "linkText",
+                      "property": "linkText",
+                      "type": "Text",
+                      "text":
+                        "Her kommer den en kul lenke som forklarer noen regler for bra og %bra"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "bya"
+                      },
+                      {
+                        "field": "regulationTime",
+                        "operator": "eq",
+                        "value": "before"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "pbya"
+                      },
+                      {
+                        "field": "regulationTime",
+                        "operator": "eq",
+                        "value": "before"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "infoLinkBox",
+                  "property": "infoLinkBox",
+                  "type": "Group",
+                  "simple": true,
+                  "children": [
+                    {
+                      "id": "linkText",
+                      "property": "linkText",
+                      "type": "Text",
+                      "text":
+                        "Her kommer den en kul lenke som forklarer noen regler for bya og %bya før dato"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "bya"
+                      },
+                      {
+                        "field": "regulationTime",
+                        "operator": "eq",
+                        "value": "after"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "pbya"
+                      },
+                      {
+                        "field": "regulationTime",
+                        "operator": "eq",
+                        "value": "after"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "infoLinkBox",
+                  "property": "infoLinkBox",
+                  "type": "Group",
+                  "simple": true,
+                  "children": [
+                    {
+                      "id": "linkText",
+                      "property": "linkText",
+                      "type": "Text",
+                      "text":
+                        "Her kommer den en kul lenke som forklarer noen regler for bya og %bya etter dato"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "tbra"
+                      },
+                      {
+                        "field": "regulationTime",
+                        "operator": "eq",
+                        "value": "before"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "ptu"
+                      },
+                      {
+                        "field": "regulationTime",
+                        "operator": "eq",
+                        "value": "before"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "infoLinkBox",
+                  "property": "infoLinkBox",
+                  "type": "Group",
+                  "simple": true,
+                  "children": [
+                    {
+                      "id": "linkText",
+                      "property": "linkText",
+                      "type": "Text",
+                      "text":
+                        "Her kommer den en kul lenke som forklarer noen regler for tbra og tu før dato"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "tbra"
+                      },
+                      {
+                        "field": "regulationTime",
+                        "operator": "eq",
+                        "value": "after"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "ptu"
+                      },
+                      {
+                        "field": "regulationTime",
+                        "operator": "eq",
+                        "value": "after"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "infoLinkBox",
+                  "property": "infoLinkBox",
+                  "type": "Group",
+                  "simple": true,
+                  "children": [
+                    {
+                      "id": "linkText",
+                      "property": "linkText",
+                      "type": "Text",
+                      "text":
+                        "Her kommer den en kul lenke som forklarer noen regler for tbra og %tu etter dato"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Branch",
+          "branches": [
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "bya"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "pbya"
+                  }
+                ]
+              },
               "children": [
                 {
                   "id": "areaToBeDemolished",
@@ -1057,6 +1327,147 @@
                       "property": "builtOther",
                       "type": "Number",
                       "heading": "Areal for annen frittstående konstruksjon målt i BYA",
+                      "unit": "m<sup>2</sup>",
+                      "toggle": ["noResidenceToggle"],
+                      "minimum": 0
+                    },
+                    {
+                      "type": "Branch",
+                      "branches": [
+                        {
+                          "test": {
+                            "type": "and",
+                            "clauses": [
+                              {
+                                "field": "builtResidence",
+                                "operator": "required"
+                              },
+                              {
+                                "field": "builtGarage",
+                                "operator": "required"
+                              },
+                              {
+                                "field": "builtSmallBuilding",
+                                "operator": "required"
+                              },
+                              {
+                                "field": "builtOther",
+                                "operator": "required"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "id": "alreadyBuilt",
+                              "property": "alreadyBuilt",
+                              "type": "Sum",
+                              "values": [
+                                "builtResidence",
+                                "builtGarage",
+                                "builtSmallBuilding",
+                                "builtOther"
+                              ],
+                              "minimum": 0,
+                              "optional": true,
+                              "heading": "Totalt bebygd areal",
+                              "unit": "m<sup>2</sup>"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "test": {
+                "type": "or",
+                "clauses": [
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "bra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "pbra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "tbra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "ptu"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "id": "areaToBeDemolished",
+                  "property": "areaToBeDemolished",
+                  "type": "Group",
+                  "simple": true,
+                  "heading": "Hvor mye av eiendommen din er allerede bebygd?",
+                  "text":
+                    "<p>Hvis det ikke er noe bebyggelse på eiendommen din, kryss av for \"ingen bebyggelse\" under. Da fylles feltene automatisk ut med 0.</p>",
+                  "children": [
+                    {
+                      "id": "noResidenceToggle",
+                      "property": "noResidenceToggle",
+                      "type": "Switch",
+                      "optional": true,
+                      "update": [
+                        "builtResidence",
+                        "builtGarage",
+                        "builtSmallBuilding",
+                        "builtOther"
+                      ],
+                      "options": [
+                        {
+                          "id": "noResidenceToggle.yes",
+                          "type": "Answer",
+                          "text": "Ingen bebyggelse",
+                          "value": "yes"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "builtResidence",
+                      "property": "builtResidence",
+                      "type": "Number",
+                      "heading": "Areal bolig målt i BRA",
+                      "unit": "m<sup>2</sup>",
+                      "toggle": ["noResidenceToggle"],
+                      "minimum": 0
+                    },
+                    {
+                      "id": "builtGarage",
+                      "property": "builtGarage",
+                      "type": "Number",
+                      "heading": "Areal frittstående garasje målt i BRA",
+                      "unit": "m<sup>2</sup>",
+                      "toggle": ["noResidenceToggle"],
+                      "minimum": 0
+                    },
+                    {
+                      "id": "builtSmallBuilding",
+                      "property": "builtSmallBuilding",
+                      "type": "Number",
+                      "heading": "Areal frittstående bod/uthus/dukkehus målt i BRA",
+                      "unit": "m<sup>2</sup>",
+                      "toggle": ["noResidenceToggle"],
+                      "minimum": 0
+                    },
+                    {
+                      "id": "builtOther",
+                      "property": "builtOther",
+                      "type": "Number",
+                      "heading": "Areal for annen frittstående konstruksjon målt i BRA",
                       "unit": "m<sup>2</sup>",
                       "toggle": ["noResidenceToggle"],
                       "minimum": 0
