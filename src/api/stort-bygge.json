@@ -2201,10 +2201,10 @@
                       "unit": "m<sup>2</sup>"
                     },
                     {
-                      "id": "planlagtUtnyttingOgAreal",
-                      "property": "planlagtUtnytting",
+                      "id": "planArea",
+                      "property": "planArea",
                       "type": "SpecialSum",
-                      "values": ["propertyArea", "nonSettlementArea", "sum-bruktAreal", 100],
+                      "values": ["propertyArea", "nonSettlementArea", "sum2-planArea", 100],
                       "operations": ["+", "-", "-/", "%"],
                       "heading": "Din planlagte grad av utnytting",
                       "optional": true,
