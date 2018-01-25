@@ -2176,7 +2176,7 @@
                   "id": "evalish",
                   "property": "evalish",
                   "type": "Evaluation",
-                  "testing": ["utilizationArea", "sum-planlagtUtnytting"],
+                  "testing": ["utilizationArea", "sum2-planlagtUtnytting"],
                   "sad": "Du planlegger å bygge mer enn det som er tillatt på eiendommen din",
                   "happy": "Du er innenfor det som er tillatt å bygge på eiendommen din.",
                   "optional": true
@@ -2290,7 +2290,7 @@
                   "id": "evalish",
                   "property": "evalish",
                   "type": "Evaluation",
-                  "testing": "sum-sisteTall",
+                  "testing": ["sum-utnyttingsgrad", "sum-bruktAreal"],
                   "sad": "Du planlegger å bygge mer enn det som er tillatt på eiendommen din",
                   "happy": "Du er innenfor det som er tillatt å bygge på eiendommen din.",
                   "optional": true
@@ -2334,10 +2334,11 @@
                     {
                       "id": "sisteTall",
                       "property": "sisteTall",
-                      "type": "Sum",
-                      "values": ["sum-utnyttingsgrad", "sum-bruktAreal"],
-                      "operations": ["+", "-"],
-                      "heading": "Gjenstående areal",
+                      "type": "Evaluation",
+                      "testing": ["sum-utnyttingsgrad", "sum-bruktAreal"],
+                      "happy": "Gjenstående areal",
+                      "sad": "Areal du må redusere",
+                      "showValue": true,
                       "optional": true,
                       "final": true,
                       "unit": "m<sup>2</sup>"
