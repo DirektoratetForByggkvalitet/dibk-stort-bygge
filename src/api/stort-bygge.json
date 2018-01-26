@@ -1,6 +1,7 @@
 {
   "meta": {
-    "title": "Hvor stort kan du bygge?"
+    "title": "Hvor stort kan du bygge?",
+    "name": "stort_bygge"
   },
   "schema": [
     {
