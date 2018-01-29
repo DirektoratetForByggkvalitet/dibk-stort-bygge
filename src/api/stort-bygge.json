@@ -661,7 +661,7 @@
                   "type": "Number",
                   "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "%",
-                  "minimum": 0,
+                  "minimum": 1,
                   "maximum": 100
                 }
               ]
@@ -719,7 +719,7 @@
                   "type": "Number",
                   "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "m<sup>2</sup>",
-                  "minimum": 0
+                  "minimum": 1
                 }
               ]
             }
@@ -776,7 +776,7 @@
                   "type": "Number",
                   "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "%",
-                  "minimum": 0,
+                  "minimum": 1,
                   "maximum": 100
                 }
               ]
@@ -834,7 +834,7 @@
                   "type": "Number",
                   "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "m<sup>2</sup>",
-                  "minimum": 0
+                  "minimum": 1
                 }
               ]
             }
@@ -959,9 +959,9 @@
                   "type": "Number",
                   "heading": "Hvor stor er eiendommen?",
                   "unit": "m<sup>2</sup>",
-                  "minimum": 0,
+                  "minimum": 1,
                   "text":
-                    "<p>Arealet på eiendommen finner du i et matrikkelbrev (tidligere ble dette kalt målebrev). Matrikkelbrev får du fra kommunen. Du kan også se eiendommens areal på <a href=\"http://www.seeiendom.no/\">Kartverkets nettsted seeiendom.no</a></p>"
+                    "<p>Arealet på eiendommen finner du i et matrikkelbrev (tidligere ble dette kalt målebrev). Matrikkelbrev får du fra kommunen. Du kan også se eiendommens areal på <a href=\"http://www.seeiendom.no/\">Kartverkets nettsted seeiendom.no</a>.</p>"
                 },
                 {
                   "id": "nonSettlementArea",
@@ -971,6 +971,17 @@
                     "Hvor stor del av eiendommen er regulert til noe annet enn bebyggelse?",
                   "minimum": 0,
                   "unit": "m<sup>2</sup>",
+                  "validator": {
+                    "test": {
+                      "field": "nonSettlementArea",
+                      "operator": "lt",
+                      "value": {
+                        "fields": ["propertyArea"]
+                      }
+                    },
+                    "error":
+                      "Størrelsen på det som er regulert til bebyggelse må være mindre enn eiendommen"
+                  },
                   "text":
                     "<p>Hvis eiendommen ikke er regulert til noe annet, skriver du inn tallet 0 i feltet under.</p>",
                   "summary": "Hva er byggeområde?",
