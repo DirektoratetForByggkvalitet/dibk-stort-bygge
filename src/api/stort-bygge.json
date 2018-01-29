@@ -1377,7 +1377,8 @@
                               "id": "information",
                               "property": "information",
                               "type": "Information",
-                              "text": "Some information"
+                              "text": "Some information",
+                              "optional": true
                             }
                           ]
                         }
@@ -1524,7 +1525,8 @@
                               "id": "information",
                               "property": "information",
                               "type": "Information",
-                              "text": "Some information"
+                              "text": "Some information",
+                              "optional": true
                             }
                           ]
                         }
@@ -2189,7 +2191,7 @@
                   "id": "evalish",
                   "property": "evalish",
                   "type": "Evaluation",
-                  "testing": ["utilizationArea", "sum2-planlagtUtnytting"],
+                  "testing": ["utilizationArea", "sum2-planArea"],
                   "sad": "Du planlegger å bygge mer enn det som er tillatt på eiendommen din",
                   "happy": "Du er innenfor det som er tillatt å bygge på eiendommen din.",
                   "optional": true
@@ -2239,7 +2241,7 @@
                       "id": "evalishLeft",
                       "property": "evalishLeft",
                       "type": "Evaluation",
-                      "testing": ["sum-utnyttingsgrad", "sum2-planlagtUtnytting"],
+                      "testing": ["sum-utnyttingsgrad", "sum2-planArea"],
                       "showValue": true,
                       "sad": "Areal du må redusere",
                       "happy": "Gjenstående areal du kan bygge på",
