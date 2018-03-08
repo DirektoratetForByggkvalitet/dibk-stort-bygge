@@ -9,5 +9,7 @@ export default function exportData(state) {
     ansvarsrett: {
       noeGreier: 'her',
     },
+    tomtearealByggeområde: get(state, 'sum-bruktAreal'),
+    // tomtearealSomTrekkesFra: get(state, '')
   };
 }

@@ -2202,7 +2202,7 @@
                   "id": "evalish",
                   "property": "evalish",
                   "type": "Evaluation",
-                  "testing": ["utilizationArea", "sum2-planArea"],
+                  "testing": ["sum-utnyttingsgrad", "sum2-planArea"],
                   "sad": "Du planlegger å bygge mer enn det som er tillatt på eiendommen din.",
                   "happy": "Du er innenfor det som er tillatt å bygge på eiendommen din.",
                   "optional": true
