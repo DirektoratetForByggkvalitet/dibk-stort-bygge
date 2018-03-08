@@ -986,7 +986,7 @@
                     "<p>Hvis eiendommen ikke er regulert til noe annet, skriver du inn tallet 0 i feltet under.</p>",
                   "summary": "Hva er byggeområde?",
                   "details":
-                    "<p>Når du skal beregne grad av utnytting, skal du bare bruke arealet som er regulert til byggeområde. Du skal ikke ta med deler av eiendommen som er regulert til for eksempel:</p><ul><li>felles adkomstvei</li><li>gang- og sykkelvei</li><li>friområde</li><li>grøntareal</li><li>fellesområder</li></ul><img src=\"/img/figur_01.png\" alt=\"Utsnitt av kart\"><h3>Dette kartet er bare et eksempel!</h3><ul><li>BLÅ: Eiendommens grenser</li><li>GRÅ: Vei og felles adkomst</li><li>GRØNN: Friområde</li><li>GUL: Byggeområde</li></ul><p>Du skal altså måle alt bortsett fra det gule området.</p><p>Sjekk din eiendom i reguleringsplan eller kommuneplan. Mål <strong>alle</strong> areal som <strong>ikke</strong> er regulert til byggeområde.</p>"
+                    "<p>Når du skal beregne grad av utnytting, skal du bare bruke arealet som er regulert til byggeområde. Du skal ikke ta med deler av eiendommen som er regulert til for eksempel:</p><ul><li>felles adkomstvei</li><li>gang- og sykkelvei</li><li>friområde</li><li>grøntareal</li><li>fellesområder</li></ul><a href=\"https://dibk.no/byggeomrade\">Les mer om hva byggeområde er på DiBKs nettsider</a></p>"
                 }
               ]
             }
@@ -1034,7 +1034,7 @@
                       "property": "linkText",
                       "type": "Text",
                       "text":
-                        "Her kommer den en kul lenke som forklarer noen regler for bra og %bra"
+                        "Du skal måle areal i <a href=\"https://dibk.no/bruksareal\">BRA</a>. Det betyr bruksareal."
                     }
                   ]
                 }
@@ -1088,7 +1088,7 @@
                       "property": "linkText",
                       "type": "Text",
                       "text":
-                        "Her kommer den en kul lenke som forklarer noen regler for bya og %bya før dato"
+                        "Du skal måle areal i <a href=\"https://dibk.no/bya\">BYA</a>. Det betyr bebygd areal."
                     }
                   ]
                 }
@@ -1142,7 +1142,7 @@
                       "property": "linkText",
                       "type": "Text",
                       "text":
-                        "Her kommer den en kul lenke som forklarer noen regler for bya og %bya etter dato"
+                        "Du skal måle areal i <a href=\"https://dibk.no/bya_etter_2007\">BYA</a>. Det betyr bebygd areal."
                     }
                   ]
                 }
@@ -1196,7 +1196,7 @@
                       "property": "linkText",
                       "type": "Text",
                       "text":
-                        "Her kommer den en kul lenke som forklarer noen regler for tbra og tu før dato"
+                        "Du skal måle areal i <a href=\"https://dibk.no/t-bra\">BRA</a>. Det betyr bruksareal."
                     }
                   ]
                 }
@@ -1250,7 +1250,7 @@
                       "property": "linkText",
                       "type": "Text",
                       "text":
-                        "Her kommer den en kul lenke som forklarer noen regler for tbra og %tu etter dato"
+                        "Du skal måle areal i <a href=\"https://dibk.no/t-bra_etter_1997\">BRA</a>. Det betyr bruksareal."
                     }
                   ]
                 }
