@@ -1024,19 +1024,11 @@
               },
               "children": [
                 {
-                  "id": "infoLinkBox",
-                  "property": "infoLinkBox",
-                  "type": "Group",
-                  "simple": true,
-                  "children": [
-                    {
-                      "id": "linkText",
-                      "property": "linkText",
-                      "type": "Text",
-                      "text":
-                        "Her kommer den en kul lenke som forklarer noen regler for bra og %bra"
-                    }
-                  ]
+                  "id": "linkText",
+                  "property": "linkText",
+                  "type": "Text",
+                  "text":
+                    "Her kommer den en kul lenke som forklarer noen regler for bra og %bra"
                 }
               ]
             },
@@ -1078,19 +1070,11 @@
               },
               "children": [
                 {
-                  "id": "infoLinkBox",
-                  "property": "infoLinkBox",
-                  "type": "Group",
-                  "simple": true,
-                  "children": [
-                    {
-                      "id": "linkText",
-                      "property": "linkText",
-                      "type": "Text",
-                      "text":
-                        "Her kommer den en kul lenke som forklarer noen regler for bya og %bya før dato"
-                    }
-                  ]
+                  "id": "linkText",
+                  "property": "linkText",
+                  "type": "Text",
+                  "text":
+                    "Her kommer den en kul lenke som forklarer noen regler for bya og %bya før dato"
                 }
               ]
             },
@@ -1132,19 +1116,11 @@
               },
               "children": [
                 {
-                  "id": "infoLinkBox",
-                  "property": "infoLinkBox",
-                  "type": "Group",
-                  "simple": true,
-                  "children": [
-                    {
-                      "id": "linkText",
-                      "property": "linkText",
-                      "type": "Text",
-                      "text":
-                        "Her kommer den en kul lenke som forklarer noen regler for bya og %bya etter dato"
-                    }
-                  ]
+                  "id": "linkText",
+                  "property": "linkText",
+                  "type": "Text",
+                  "text":
+                    "Her kommer den en kul lenke som forklarer noen regler for bya og %bya etter dato"
                 }
               ]
             },
@@ -1186,19 +1162,11 @@
               },
               "children": [
                 {
-                  "id": "infoLinkBox",
-                  "property": "infoLinkBox",
-                  "type": "Group",
-                  "simple": true,
-                  "children": [
-                    {
-                      "id": "linkText",
-                      "property": "linkText",
-                      "type": "Text",
-                      "text":
-                        "Her kommer den en kul lenke som forklarer noen regler for tbra og tu før dato"
-                    }
-                  ]
+                  "id": "linkText",
+                  "property": "linkText",
+                  "type": "Text",
+                  "text":
+                    "Her kommer den en kul lenke som forklarer noen regler for tbra og tu før dato"
                 }
               ]
             },
@@ -1240,19 +1208,11 @@
               },
               "children": [
                 {
-                  "id": "infoLinkBox",
-                  "property": "infoLinkBox",
-                  "type": "Group",
-                  "simple": true,
-                  "children": [
-                    {
-                      "id": "linkText",
-                      "property": "linkText",
-                      "type": "Text",
-                      "text":
-                        "Her kommer den en kul lenke som forklarer noen regler for tbra og %tu etter dato"
-                    }
-                  ]
+                  "id": "linkText",
+                  "property": "linkText",
+                  "type": "Text",
+                  "text":
+                    "Her kommer den en kul lenke som forklarer noen regler for tbra og %tu etter dato"
                 }
               ]
             }
