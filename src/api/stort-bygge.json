@@ -953,7 +953,7 @@
                   "property": "linkText",
                   "type": "Text",
                   "text":
-                    "Du skal måle areal i <a href=\"https://dibk.no/bruksareal\">BRA</a>. Det betyr bruksareal."
+                    "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/bruksareal\">Hva er bruksareal?</a>"
                 }
               ]
             },
@@ -999,7 +999,7 @@
                   "property": "linkText",
                   "type": "Text",
                   "text":
-                    "Du skal måle areal i <a href=\"https://dibk.no/bya\">BYA</a>. Det betyr bebygd areal."
+                    "Du skal måle areal i BYA. Det betyr bebygd areal. <a href=\"https://dibk.no/bya\">Hva er bebygd areal?</a>"
                 }
               ]
             },
@@ -1045,7 +1045,7 @@
                   "property": "linkText",
                   "type": "Text",
                   "text":
-                    "Du skal måle areal i <a href=\"https://dibk.no/bya_etter_2007\">BYA</a>. Det betyr bebygd areal."
+                    "Du skal måle areal i BYA. Det betyr bebygd areal. <a href=\"https://dibk.no/bya_etter_2007\">Hva er bebygd areal?</a>"
                 }
               ]
             },
@@ -1091,7 +1091,7 @@
                   "property": "linkText",
                   "type": "Text",
                   "text":
-                    "Du skal måle areal i <a href=\"https://dibk.no/t-bra\">BRA</a>. Det betyr bruksareal."
+                    "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/t-bra\">Hva er bruksareal?</a>"
                 }
               ]
             },
@@ -1137,7 +1137,7 @@
                   "property": "linkText",
                   "type": "Text",
                   "text":
-                    "Du skal måle areal i <a href=\"https://dibk.no/t-bra_etter_1997\">BRA</a>. Det betyr bruksareal."
+                    "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/t-bra_etter_1997\">Hva er bruksareal?</a>"
                 }
               ]
             }
@@ -1475,7 +1475,7 @@
                           "property": "linkText",
                           "type": "Text",
                           "text":
-                            "Du skal måle areal i <a href=\"https://dibk.no/bruksareal\">BRA</a>. Det betyr bruksareal."
+                            "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/bruksareal\">Hva er bruksareal?</a>"
                         }
                       ]
                     },
@@ -1521,7 +1521,7 @@
                           "property": "linkText",
                           "type": "Text",
                           "text":
-                            "Du skal måle areal i <a href=\"https://dibk.no/bya\">BYA</a>. Det betyr bebygd areal."
+                            "Du skal måle areal i BYA. Det betyr bebygd areal. <a href=\"https://dibk.no/bya\">Hva er bebygd areal?</a>"
                         }
                       ]
                     },
@@ -1567,7 +1567,7 @@
                           "property": "linkText",
                           "type": "Text",
                           "text":
-                            "Du skal måle areal i <a href=\"https://dibk.no/bya_etter_2007\">BYA</a>. Det betyr bebygd areal."
+                            "Du skal måle areal i BYA. Det betyr bebygd areal. <a href=\"https://dibk.no/bya_etter_2007\">Hva er bebygd areal?</a>"
                         }
                       ]
                     },
@@ -1613,7 +1613,7 @@
                           "property": "linkText",
                           "type": "Text",
                           "text":
-                            "Du skal måle areal i <a href=\"https://dibk.no/t-bra\">BRA</a>. Det betyr bruksareal."
+                            "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/t-bra\">Hva er bruksareal?</a>"
                         }
                       ]
                     },
@@ -1659,7 +1659,7 @@
                           "property": "linkText",
                           "type": "Text",
                           "text":
-                            "Du skal måle areal i <a href=\"https://dibk.no/t-bra_etter_1997\">BRA</a>. Det betyr bruksareal."
+                            "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/t-bra_etter_1997\">Hva er bruksareal?</a>"
                         }
                       ]
                     }
