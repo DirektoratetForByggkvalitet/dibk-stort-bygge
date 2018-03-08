@@ -882,78 +882,6 @@
               "heading": "Størrelse på eiendommen",
               "children": [
                 {
-                  "type": "Branch",
-                  "branches": [
-                    {
-                      "test": {
-                        "type": "or",
-                        "clauses": [
-                          {
-                            "field": "kommuneplanen",
-                            "operator": "eq",
-                            "value": "bya"
-                          },
-                          {
-                            "field": "kommuneplanen",
-                            "operator": "eq",
-                            "value": "pbya"
-                          }
-                        ]
-                      },
-                      "children": [
-                        {
-                          "id": "byatext",
-                          "property": "byatext",
-                          "type": "Text",
-                          "text":
-                            "<p>Du skal måle areal som skal bygges i BYA. Det betyr bebygd areal.</p>"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "Branch",
-                  "branches": [
-                    {
-                      "test": {
-                        "type": "or",
-                        "clauses": [
-                          {
-                            "field": "kommuneplanen",
-                            "operator": "eq",
-                            "value": "bra"
-                          },
-                          {
-                            "field": "kommuneplanen",
-                            "operator": "eq",
-                            "value": "pbra"
-                          },
-                          {
-                            "field": "kommuneplanen",
-                            "operator": "eq",
-                            "value": "tbra"
-                          },
-                          {
-                            "field": "kommuneplanen",
-                            "operator": "eq",
-                            "value": "ptu"
-                          }
-                        ]
-                      },
-                      "children": [
-                        {
-                          "id": "bratext",
-                          "property": "bratext",
-                          "type": "Text",
-                          "text":
-                            "<p>Du skal måle areal som skal bygges i BRA. Det betyr bruksareal.</p>"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
                   "id": "propertyArea",
                   "property": "propertyArea",
                   "type": "Number",
@@ -983,10 +911,7 @@
                       "Størrelsen på det som er regulert til bebyggelse må være mindre enn eiendommen"
                   },
                   "text":
-                    "<p>Hvis eiendommen ikke er regulert til noe annet, skriver du inn tallet 0 i feltet under.</p>",
-                  "summary": "Hva er byggeområde?",
-                  "details":
-                    "<p>Når du skal beregne grad av utnytting, skal du bare bruke arealet som er regulert til byggeområde. Du skal ikke ta med deler av eiendommen som er regulert til for eksempel:</p><ul><li>felles adkomstvei</li><li>gang- og sykkelvei</li><li>friområde</li><li>grøntareal</li><li>fellesområder</li></ul><a href=\"https://dibk.no/byggeomrade\">Les mer om hva byggeområde er på DiBKs nettsider</a></p>"
+                    "<p>Hvis eiendommen ikke er regulert til noe annet, skriver du inn tallet 0 i feltet under.<br /><a href=\"https://dibk.no/byggeomrade\">Hva er byggeområde?</a></p>"
                 }
               ]
             }
