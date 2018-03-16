@@ -954,7 +954,7 @@
                   "property": "linkText",
                   "type": "Text",
                   "text":
-                    "Du skal måle areal i <a href=\"https://dibk.no/bruksareal\">BRA</a>. Det betyr bruksareal."
+                    "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/bruksareal\">Hva er bruksareal?</a>"
                 }
               ]
             },
@@ -1000,7 +1000,7 @@
                   "property": "linkText",
                   "type": "Text",
                   "text":
-                    "Du skal måle areal i <a href=\"https://dibk.no/bya\">BYA</a>. Det betyr bebygd areal."
+                    "Du skal måle areal i BYA. Det betyr bebygd areal. <a href=\"https://dibk.no/bya\">Hva er bebygd areal?</a>"
                 }
               ]
             },
@@ -1046,7 +1046,7 @@
                   "property": "linkText",
                   "type": "Text",
                   "text":
-                    "Du skal måle areal i <a href=\"https://dibk.no/bya_etter_2007\">BYA</a>. Det betyr bebygd areal."
+                    "Du skal måle areal i BYA. Det betyr bebygd areal. <a href=\"https://dibk.no/bya_etter_2007\">Hva er bebygd areal?</a>"
                 }
               ]
             },
@@ -1092,7 +1092,7 @@
                   "property": "linkText",
                   "type": "Text",
                   "text":
-                    "Du skal måle areal i <a href=\"https://dibk.no/t-bra\">BRA</a>. Det betyr bruksareal."
+                    "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/t-bra\">Hva er bruksareal?</a>"
                 }
               ]
             },
@@ -1138,7 +1138,7 @@
                   "property": "linkText",
                   "type": "Text",
                   "text":
-                    "Du skal måle areal i <a href=\"https://dibk.no/t-bra_etter_1997\">BRA</a>. Det betyr bruksareal."
+                    "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/t-bra_etter_1997\">Hva er bruksareal?</a>"
                 }
               ]
             }
@@ -1461,63 +1461,206 @@
                           {
                             "field": "kommuneplanen",
                             "operator": "eq",
-                            "value": "bya"
-                          },
-                          {
-                            "field": "kommuneplanen",
-                            "operator": "eq",
-                            "value": "pbya"
-                          }
-                        ]
-                      },
-                      "children": [
-                        {
-                          "id": "byatext",
-                          "property": "byatext",
-                          "type": "Text",
-                          "text":
-                            "<p>Du skal måle areal som skal rives/bygges i BYA. Det betyr bebygd areal.</p>"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "Branch",
-                  "branches": [
-                    {
-                      "test": {
-                        "type": "or",
-                        "clauses": [
-                          {
-                            "field": "kommuneplanen",
-                            "operator": "eq",
                             "value": "bra"
                           },
                           {
                             "field": "kommuneplanen",
                             "operator": "eq",
                             "value": "pbra"
-                          },
-                          {
-                            "field": "kommuneplanen",
-                            "operator": "eq",
-                            "value": "tbra"
-                          },
-                          {
-                            "field": "kommuneplanen",
-                            "operator": "eq",
-                            "value": "ptu"
                           }
                         ]
                       },
                       "children": [
                         {
-                          "id": "bratext",
-                          "property": "bratext",
+                          "id": "linkText",
+                          "property": "linkText",
                           "type": "Text",
                           "text":
-                            "<p>Du skal måle areal som skal rives/bygges i BRA. Det betyr bruksareal.</p>"
+                            "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/bruksareal\">Hva er bruksareal?</a>"
+                        }
+                      ]
+                    },
+                    {
+                      "test": {
+                        "type": "or",
+                        "clauses": [
+                          {
+                            "type": "and",
+                            "clauses": [
+                              {
+                                "field": "kommuneplanen",
+                                "operator": "eq",
+                                "value": "bya"
+                              },
+                              {
+                                "field": "regulationTime",
+                                "operator": "eq",
+                                "value": "before"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "and",
+                            "clauses": [
+                              {
+                                "field": "kommuneplanen",
+                                "operator": "eq",
+                                "value": "pbya"
+                              },
+                              {
+                                "field": "regulationTime",
+                                "operator": "eq",
+                                "value": "before"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "id": "linkText",
+                          "property": "linkText",
+                          "type": "Text",
+                          "text":
+                            "Du skal måle areal i BYA. Det betyr bebygd areal. <a href=\"https://dibk.no/bya\">Hva er bebygd areal?</a>"
+                        }
+                      ]
+                    },
+                    {
+                      "test": {
+                        "type": "or",
+                        "clauses": [
+                          {
+                            "type": "and",
+                            "clauses": [
+                              {
+                                "field": "kommuneplanen",
+                                "operator": "eq",
+                                "value": "bya"
+                              },
+                              {
+                                "field": "regulationTime",
+                                "operator": "eq",
+                                "value": "after"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "and",
+                            "clauses": [
+                              {
+                                "field": "kommuneplanen",
+                                "operator": "eq",
+                                "value": "pbya"
+                              },
+                              {
+                                "field": "regulationTime",
+                                "operator": "eq",
+                                "value": "after"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "id": "linkText",
+                          "property": "linkText",
+                          "type": "Text",
+                          "text":
+                            "Du skal måle areal i BYA. Det betyr bebygd areal. <a href=\"https://dibk.no/bya_etter_2007\">Hva er bebygd areal?</a>"
+                        }
+                      ]
+                    },
+                    {
+                      "test": {
+                        "type": "or",
+                        "clauses": [
+                          {
+                            "type": "and",
+                            "clauses": [
+                              {
+                                "field": "kommuneplanen",
+                                "operator": "eq",
+                                "value": "tbra"
+                              },
+                              {
+                                "field": "regulationTime",
+                                "operator": "eq",
+                                "value": "before"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "and",
+                            "clauses": [
+                              {
+                                "field": "kommuneplanen",
+                                "operator": "eq",
+                                "value": "ptu"
+                              },
+                              {
+                                "field": "regulationTime",
+                                "operator": "eq",
+                                "value": "before"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "id": "linkText",
+                          "property": "linkText",
+                          "type": "Text",
+                          "text":
+                            "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/t-bra\">Hva er bruksareal?</a>"
+                        }
+                      ]
+                    },
+                    {
+                      "test": {
+                        "type": "or",
+                        "clauses": [
+                          {
+                            "type": "and",
+                            "clauses": [
+                              {
+                                "field": "kommuneplanen",
+                                "operator": "eq",
+                                "value": "tbra"
+                              },
+                              {
+                                "field": "regulationTime",
+                                "operator": "eq",
+                                "value": "after"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "and",
+                            "clauses": [
+                              {
+                                "field": "kommuneplanen",
+                                "operator": "eq",
+                                "value": "ptu"
+                              },
+                              {
+                                "field": "regulationTime",
+                                "operator": "eq",
+                                "value": "after"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "id": "linkText",
+                          "property": "linkText",
+                          "type": "Text",
+                          "text":
+                            "Du skal måle areal i BRA. Det betyr bruksareal. <a href=\"https://dibk.no/t-bra_etter_1997\">Hva er bruksareal?</a>"
                         }
                       ]
                     }
