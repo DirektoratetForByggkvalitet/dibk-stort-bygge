@@ -7,6 +7,7 @@
     {
       "id": "start",
       "type": "Page",
+      "lead": "Hvor stort kan du bygge?",
       "heading": "Regulering av eiendommen",
       "children": [
         {
@@ -2094,7 +2095,7 @@
                 },
                 {
                   "id": "resultGroup",
-                  "property": "resultGroupe",
+                  "property": "resultGroup",
                   "type": "Group",
                   "simple": true,
                   "optional": true,

@@ -1,6 +1,19 @@
 import get from 'lodash.get';
 
 export default function exportData(state) {
+  const tomtearealByggeområde = get(state, 'propertyArea');
+  const tomtearealSomTrekkesFra = get(state, 'nonSettlementArea');
+  const tomtearealBeregnet = tomtearealByggeområde - tomtearealSomTrekkesFra;
+
+  const arealBebyggelseSomSkalRives = get(state, 'arealBebyggelseSomSkalRives');
+  const arealBebyggelseNytt = get(state, 'newBuiltArea');
+  const parkeringsArealTerreng = arealBebyggelseSomSkalRives * arealBebyggelseNytt;
+
+  // if area is calculated in percentage and not m2
+  // there should be a more reliable way to do this?
+  // eslint-disable-next-line no-unused-vars
+  const isPercentage = state.kommuneplanen.substring(0, 1) === 'p';
+
   return {
     fraSluttbrukersystem: 'katteveiviser',
     eiendomByggested: {
@@ -9,9 +22,9 @@ export default function exportData(state) {
     ansvarsrett: {
       noeGreier: 'her',
     },
-    tomtearealByggeområde: get(state, 'propertyArea'),
-    tomtearealSomTrekkesFra: get(state, 'nonSettlementArea'),
-    tomtearealBeregnet: get(state, 'propertyArea') - get(state, 'nonSettlementArea'),
+    tomtearealByggeområde,
+    tomtearealSomTrekkesFra,
+    tomtearealBeregnet,
 
     arealBebyggelseEksisterende: (
       get(state, 'builtResidence')
@@ -19,11 +32,12 @@ export default function exportData(state) {
       + get(state, 'builtGarage')
       + get(state, 'builtSmallBuilding')
     ),
-    arealBebyggelseSomSkalRives: get(state, 'arealBebyggelseSomSkalRives'),
-    arealBebyggelseNytt: get(state, 'newBuiltArea'),
 
-    parkeringsArealTerreng: get(state, 'requiredParkingSpotsTerrain') * get(state, 'parkingPlaceArea'),
-    // arealSumByggesak: get(state, ersultGroup)
+    arealBebyggelseSomSkalRives,
+    arealBebyggelseNytt,
+    parkeringsArealTerreng,
 
+    arealSumByggesak: get(state, 'resultGroup'),
+    beregnetGradAvUtnytting: get(state, 'sum2-planArea'),
   };
 }

@@ -10,7 +10,7 @@
     "lint:js": "eslint . --ext .jsx,.js --ignore-pattern build",
     "deploy": "npm run build && firebase deploy",
     "eject": "react-scripts eject",
-    "validate": "losen validate src/api/ansvarsrett.json"
+    "validate": "losen validate src/api/stort-bygge.json"
   },
   "dependencies": {
     "lodash.get": "^4.4.2",
