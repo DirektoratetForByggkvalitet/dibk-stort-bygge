@@ -9,7 +9,6 @@ export default function exportData(state) {
   // there should be a more reliable way to do this?
   // eslint-disable-next-line no-unused-vars
   const isPercentage = state.kommuneplanen.substring(0, 1) === 'p';
-
   return {
     tomtearealByggeomraade,
     tomtearealSomTrekkesFra,
@@ -28,5 +27,6 @@ export default function exportData(state) {
 
     arealSumByggesak: isPercentage ? get(state, 'resultGroup') : null,
     beregnetGradAvUtnytting: get(state, 'resultGroup'),
+    beregningsregelGradAvUtnytting: state.kommuneplanen,
   };
 }
