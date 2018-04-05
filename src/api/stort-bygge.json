@@ -2400,6 +2400,16 @@
                     }
                   ]
                 }
+              ],
+              "children": [
+                {
+                  "id": "summary.export",
+                  "type": "Text",
+                  "printhide": true,
+                  "heading": "Er alt korrekt? Kopier svarene dine!",
+                  "text":
+                    "<p>Du kan enten kopiere svarene dine fra veiviseren og ta med deg inn i det aktuelle skjemaet i Altinn, eller du kan skrive ut hele oppsummeringen.</p>"
+                }
               ]
             }
           ]
