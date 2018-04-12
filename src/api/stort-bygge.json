@@ -7,7 +7,6 @@
     {
       "id": "start",
       "type": "Page",
-      "lead": "Hvor stort kan du bygge?",
       "heading": "Regulering av eiendommen",
       "children": [
         {
@@ -897,7 +896,7 @@
                   "property": "nonSettlementArea",
                   "type": "Number",
                   "heading":
-                    "Hvor stor del av eiendommen er regulert til noe annet enn bebyggelse?",
+                    "Hvor stor del av eiendommen er regulert til noe annet enn byggeområde?",
                   "minimum": 0,
                   "unit": "m<sup>2</sup>",
                   "validator": {
@@ -909,10 +908,10 @@
                       }
                     },
                     "error":
-                      "Størrelsen på det som er regulert til bebyggelse må være mindre enn eiendommen"
+                      "Størrelsen på det som er regulert til byggeområde må være mindre enn eiendommen"
                   },
                   "text":
-                    "<p>Hvis eiendommen ikke er regulert til noe annet, skriver du inn tallet 0 i feltet under.<br /><a href=\"https://dibk.no/byggeomrade\">Hva er byggeområde?</a></p>"
+                    "<p>Hvis eiendommen ikke er regulert til noe annet enn byggeområde, skriver du inn tallet 0 i feltet under.<br /><a href=\"https://dibk.no/byggeomrade\">Hva er byggeområde?</a></p>"
                 }
               ]
             }
@@ -1170,8 +1169,6 @@
                   "type": "Group",
                   "simple": true,
                   "heading": "Hvor mye av eiendommen din er allerede bebygd?",
-                  "text":
-                    "<p>Hvis det ikke er noe bebyggelse på eiendommen din, kryss av for \"ingen bebyggelse\" under.</p>",
                   "children": [
                     {
                       "id": "noResidenceToggle",
@@ -1188,7 +1185,7 @@
                         {
                           "id": "noResidenceToggle.yes",
                           "type": "Answer",
-                          "text": "Ingen bebyggelse",
+                          "text": "Det er ingen bebyggelse på eiendommen",
                           "value": "yes"
                         }
                       ]
