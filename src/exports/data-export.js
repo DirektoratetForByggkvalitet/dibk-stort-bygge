@@ -1,5 +1,16 @@
 import get from 'lodash.get';
 
+// formats letter-based prefix to it's actual prefix.
+// i.e: gets 'pbya' and returns '%bya'
+const formatPrefix = (word) => {
+  if (word === 'pbya') return '%BYA';
+  else if (word === 'pbra') return '%BRA';
+  else if (word === 'tbra') return 'T-BRA';
+  else if (word === 'ptu') return '%TU';
+
+  return word && word.toUpperCase();
+};
+
 export default function exportData(state) {
   const tomtearealByggeomraade = get(state, 'propertyArea') || 0;
   const tomtearealSomTrekkesFra = get(state, 'nonSettlementArea') || 0;
@@ -7,9 +18,7 @@ export default function exportData(state) {
 
   // if area is calculated in percentage and not m2
   // there should be a more reliable way to do this?
-  // eslint-disable-next-line no-unused-vars
   const isPercentage = state.kommuneplanen.substring(0, 1) === 'p';
-  const beregningsregelGradAvUtnytting = isPercentage ? `%${state.kommuneplanen.substring(1)}` : state.kommuneplanen;
 
   return {
     tomtearealByggeomraade,
@@ -30,6 +39,6 @@ export default function exportData(state) {
     arealSumByggesak: isPercentage ? get(state, 'resultGroup') || 0 : null,
     beregnetGradAvUtnytting: get(state, 'resultGroup') || 0,
 
-    beregningsregelGradAvUtnytting,
+    beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen),
   };
 }
