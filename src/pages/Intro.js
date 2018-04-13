@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+
 import { Primitives } from 'losen';
 import { IntroMain } from '../primitives/IntroMain';
 
-function Intro({ close, data }) {
-  if (Object.keys(data).length !== 0) {
-    close();
-  }
+export default function Intro({ close }) {
   return (
     <Primitives.Wizard>
       <IntroMain>
@@ -100,7 +97,4 @@ function Intro({ close, data }) {
 
 Intro.propTypes = {
   close: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
 };
-
-export default connect(state => ({ data: state['@WIZARD_STATE'] }))(Intro);

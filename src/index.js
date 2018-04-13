@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+import store from './store';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -18,7 +21,15 @@ translations = Object.keys(translations).reduce((res, id) => {
   };
 }, {});
 
-ReactDOM.render(<App translations={translations} />, root); /* eslint no-undef: 0 */
+ReactDOM.render(
+  (
+    <Provider store={store}>
+      <App translations={translations} />
+    </Provider>
+  ),
+  root,
+); /* eslint no-undef: 0 */
+
 if (window.location.hostname === 'localhost') {
   registerServiceWorker();
 }

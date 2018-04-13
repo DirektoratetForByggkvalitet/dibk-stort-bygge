@@ -3,6 +3,33 @@
     "title": "Hvor stort kan du bygge?",
     "name": "stort_bygge"
   },
+  "computed": {
+    "areaBuilt": {
+      "type": "or",
+      "clauses": [
+        {
+          "field": "builtResidence",
+          "operator": "gt",
+          "value": 0
+        },
+        {
+          "field": "builtGarage",
+          "operator": "gt",
+          "value": 0
+        },
+        {
+          "field": "builtSmallBuilding",
+          "operator": "gt",
+          "value": 0
+        },
+        {
+          "field": "builtOther",
+          "operator": "gt",
+          "value": 0
+        }
+      ]
+    }
+  },
   "schema": [
     {
       "id": "start",
@@ -1196,8 +1223,8 @@
                         {
                           "test": {
                             "field": "noResidenceToggle.yes",
-                            "operator": "eq",
-                            "value": false
+                            "operator": "neq",
+                            "value": true
                           },
                           "children": [
                             {
@@ -1321,8 +1348,6 @@
                   "type": "Group",
                   "simple": true,
                   "heading": "Hvor mye av eiendommen din er allerede bebygd?",
-                  "text":
-                    "<p>Hvis det ikke er noe bebyggelse på eiendommen din, kryss av for \"ingen bebyggelse\" under. Da fylles feltene automatisk ut med 0.</p>",
                   "children": [
                     {
                       "id": "noResidenceToggle",
@@ -1339,73 +1364,53 @@
                         {
                           "id": "noResidenceToggle.yes",
                           "type": "Answer",
-                          "text": "Ingen bebyggelse",
+                          "text": "Det er ingen bebyggelse på eiendommen",
                           "value": "yes"
                         }
                       ]
-                    },
-                    {
-                      "id": "builtResidence",
-                      "property": "builtResidence",
-                      "type": "Number",
-                      "heading": "Areal bolig målt i BRA",
-                      "unit": "m<sup>2</sup>",
-                      "toggle": ["noResidenceToggle"],
-                      "minimum": 0
-                    },
-                    {
-                      "id": "builtGarage",
-                      "property": "builtGarage",
-                      "type": "Number",
-                      "heading": "Areal frittstående garasje målt i BRA",
-                      "unit": "m<sup>2</sup>",
-                      "toggle": ["noResidenceToggle"],
-                      "minimum": 0
-                    },
-                    {
-                      "id": "builtSmallBuilding",
-                      "property": "builtSmallBuilding",
-                      "type": "Number",
-                      "heading": "Areal frittstående bod/uthus/dukkehus målt i BRA",
-                      "unit": "m<sup>2</sup>",
-                      "toggle": ["noResidenceToggle"],
-                      "minimum": 0
-                    },
-                    {
-                      "id": "builtOther",
-                      "property": "builtOther",
-                      "type": "Number",
-                      "heading": "Areal for annen frittstående konstruksjon målt i BRA",
-                      "unit": "m<sup>2</sup>",
-                      "toggle": ["noResidenceToggle"],
-                      "minimum": 0
                     },
                     {
                       "type": "Branch",
                       "branches": [
                         {
                           "test": {
-                            "type": "and",
-                            "clauses": [
-                              {
-                                "field": "builtResidence",
-                                "operator": "required"
-                              },
-                              {
-                                "field": "builtGarage",
-                                "operator": "required"
-                              },
-                              {
-                                "field": "builtSmallBuilding",
-                                "operator": "required"
-                              },
-                              {
-                                "field": "builtOther",
-                                "operator": "required"
-                              }
-                            ]
+                            "field": "noResidenceToggle.yes",
+                            "operator": "neq",
+                            "value": true
                           },
                           "children": [
+                            {
+                              "id": "builtResidence",
+                              "property": "builtResidence",
+                              "type": "Number",
+                              "heading": "Areal bolig målt i BRA",
+                              "unit": "m<sup>2</sup>",
+                              "minimum": 0
+                            },
+                            {
+                              "id": "builtGarage",
+                              "property": "builtGarage",
+                              "type": "Number",
+                              "heading": "Areal frittstående garasje målt i BRA",
+                              "unit": "m<sup>2</sup>",
+                              "minimum": 0
+                            },
+                            {
+                              "id": "builtSmallBuilding",
+                              "property": "builtSmallBuilding",
+                              "type": "Number",
+                              "heading": "Areal frittstående bod/uthus/dukkehus målt i BRA",
+                              "unit": "m<sup>2</sup>",
+                              "minimum": 0
+                            },
+                            {
+                              "id": "builtOther",
+                              "property": "builtOther",
+                              "type": "Number",
+                              "heading": "Areal for annen frittstående konstruksjon målt i BRA",
+                              "unit": "m<sup>2</sup>",
+                              "minimum": 0
+                            },
                             {
                               "id": "alreadyBuilt",
                               "property": "alreadyBuilt",
@@ -1677,9 +1682,19 @@
                   "unit": "m<sup>2</sup>",
                   "text": "<p>Hvis du ikke skal rive noe skriver du inn tallet 0.</p>",
                   "hidden": {
-                    "field": "noResidenceToggle.yes",
-                    "operator": "eq",
-                    "value": true
+                    "type": "or",
+                    "clauses": [
+                      {
+                        "field": "noResidenceToggle.yes",
+                        "operator": "eq",
+                        "value": true
+                      },
+                      {
+                        "field": "$computed.areaBuilt",
+                        "operator": "eq",
+                        "value": false
+                      }
+                    ]
                   },
                   "validator": {
                     "test": {

@@ -4,6 +4,7 @@ import { createStore, combineReducers, compose } from 'redux';
 import { state } from 'losen';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import stortBygge from './api/stort-bygge.json';
+
 /**
  * Create the store with middleware
  */
