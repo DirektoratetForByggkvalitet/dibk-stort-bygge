@@ -2263,11 +2263,6 @@
                   {
                     "field": "kommuneplanen",
                     "operator": "eq",
-                    "value": "tbra"
-                  },
-                  {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
                     "value": "ptu"
                   }
                 ]
@@ -2378,6 +2373,11 @@
                     "field": "kommuneplanen",
                     "operator": "eq",
                     "value": "bra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
+                    "value": "tbra"
                   },
                   {
                     "field": "kommuneplanen",
