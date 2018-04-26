@@ -369,9 +369,43 @@
                     ]
                   },
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "none"
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "no"
+                      },
+                      {
+                        "field": "finneskommuneplanen",
+                        "operator": "eq",
+                        "value": "yes"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "none"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "yes"
+                      },
+                      {
+                        "field": "isreguleringsplanen",
+                        "operator": "is"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "none"
+                      }
+                    ]
                   }
                 ]
               },
