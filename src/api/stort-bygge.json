@@ -41,7 +41,7 @@
           "property": "regulation",
           "type": "Radio",
           "heading": "Er eiendommen regulert?",
-          "text": "Hvis du fant du en reguleringsplan hos kommunen, er eiendommen regulert.",
+          "text": "Hvis du fant en reguleringsplan hos kommunen, er eiendommen regulert.",
           "options": [
             {
               "id": "regulation.yes",
