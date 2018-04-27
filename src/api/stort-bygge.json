@@ -41,7 +41,7 @@
           "property": "regulation",
           "type": "Radio",
           "heading": "Er eiendommen regulert?",
-          "text": "Hvis du fant du en reguleringsplan hos kommunen, er eiendommen regulert.",
+          "text": "Hvis du fant en reguleringsplan hos kommunen, er eiendommen regulert.",
           "options": [
             {
               "id": "regulation.yes",
@@ -369,9 +369,43 @@
                     ]
                   },
                   {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
-                    "value": "none"
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "no"
+                      },
+                      {
+                        "field": "finneskommuneplanen",
+                        "operator": "eq",
+                        "value": "yes"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "none"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "and",
+                    "clauses": [
+                      {
+                        "field": "regulation",
+                        "operator": "eq",
+                        "value": "yes"
+                      },
+                      {
+                        "field": "isreguleringsplanen",
+                        "operator": "is"
+                      },
+                      {
+                        "field": "kommuneplanen",
+                        "operator": "eq",
+                        "value": "none"
+                      }
+                    ]
                   }
                 ]
               },
@@ -2263,11 +2297,6 @@
                   {
                     "field": "kommuneplanen",
                     "operator": "eq",
-                    "value": "tbra"
-                  },
-                  {
-                    "field": "kommuneplanen",
-                    "operator": "eq",
                     "value": "ptu"
                   }
                 ]
@@ -2382,6 +2411,11 @@
                   {
                     "field": "kommuneplanen",
                     "operator": "eq",
+                    "value": "tbra"
+                  },
+                  {
+                    "field": "kommuneplanen",
+                    "operator": "eq",
                     "value": "tu"
                   }
                 ]
@@ -2465,9 +2499,9 @@
                   "id": "summary.export",
                   "type": "Text",
                   "printhide": true,
-                  "heading": "Er alt korrekt? Kopier svarene dine!",
+                  "heading": "Takk for at du gjennomførte veiviseren!",
                   "text":
-                    "<p>Du kan enten kopiere svarene dine fra veiviseren og ta med deg inn i det aktuelle skjemaet i Altinn, eller du kan skrive ut hele oppsummeringen.</p>"
+                    "<p>Du kan kopiere svarene dine, eller skrive ut resultatsiden.</p>"
                 }
               ]
             }
