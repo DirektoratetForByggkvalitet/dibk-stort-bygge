@@ -19,6 +19,22 @@ To run the tests you need to type the command `yarn test`.
 
 The data for this wizard can be found in `src/api/stort-bygge.json`.
 
+## Auto deploy
+
+A `push` to master will build with Travis CI.
+
+Each project needs a firebase:ci token (and it expires every x months).
+
+1.  `brew install travis && npm i -g firebase-tools`
+2.  `travis login`
+3.  `firebase login:ci` // du blir bedt om å logge inn og den slutte forhåpentlig med success use this token to login on osv.
+
+Så må du kryptere tokenet med travis sin greie. Tokenet er globalt og kan brukes for å lage krypterte tokens for flere repo, _men_: du må gjøre det en gang for hvert repo. Stegene per repo er som følger:
+
+1.  Gå til repo-mappen
+2.  Skriv `travis encrypt "tokenet-ditt-her" --add` // du får en feilmelding à la “WARNING: The name of the repository is now passed to the command”, men drit i den
+3.  Gå inn i .travis.yml og sørg for at den nye secreten ligger under deploy.token.secure
+
 ## Deploy
 
 The project is hosted on
