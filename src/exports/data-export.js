@@ -16,11 +16,15 @@ export default function exportstate(state) {
   // summering av utnyttingsgrad
   const valuesUtnytting = ['propertyArea', 'nonSettlementArea', 'utilizationArea', 0.01];
   const operationsUtnytting = ['+', '-', '*', '%'];
+
+  // eslint-disable-next-line no-unused-vars
   const utnyttingsgrad = sum(state, valuesUtnytting, operationsUtnytting);
 
   // summering av arealer
   const valuesplanArea = ['propertyArea', 'nonSettlementArea', 'sum2-planArea', 100];
   const operationsplanArea = ['+', '-', '-/', '%'];
+
+  // eslint-disable-next-line no-unused-vars
   const planArea = sum(state, valuesplanArea, operationsplanArea);
 
   const tomtearealByggeomraade = get(state, 'propertyArea') || 0;
