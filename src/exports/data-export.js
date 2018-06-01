@@ -18,27 +18,37 @@ export default function exportData(state) {
 
   // if area is calculated in percentage and not m2
   // there should be a more reliable way to do this?
-  const isPercentage = state.kommuneplanen.substring(0, 1) === 'p';
+  // const isPercentage = state.kommuneplanen.substring(0, 1) === 'p';
+
+  // eslint-disable-next-line no-bitwise
+  const arealSumByggesak = ~~(
+    get(state, 'sum-utnyttingsgrad') -
+    (get(state, 'sum-utnyttingsgrad') *
+      (get(state, 'sum-planArea') *
+        0.01)));
 
   return {
     tomtearealByggeomraade,
     tomtearealSomTrekkesFra,
     tomtearealBeregnet,
 
-    arealBebyggelseEksisterende:
-      get(state, 'builtResidence') || 0 +
+    arealSumByggesak,
+
+    arealBebyggelseEksisterende: get(state, 'builtResidence') || 0 +
       get(state, 'builtOther') || 0 +
       get(state, 'builtGarage') || 0 +
       get(state, 'builtSmallBuilding') || 0,
 
     arealBebyggelseSomSkalRives: get(state, 'arealBebyggelseSomSkalRives') || 0,
     arealBebyggelseNytt: get(state, 'newBuiltArea') || 0,
-    parkeringsArealTerreng:
-      get(state, 'requiredParkingSpotsTerrain') || 0 * get(state, 'parkingPlaceArea') || 0,
+    parkeringsPlasser: get(state, 'requiredParkingSpotsTerrain'),
+    parkeringsPlassAreal: get(state, 'parkingPlaceArea') || 0,
+    parkeringsArealTerreng: get(state, 'requiredParkingSpotsTerrain') * get(state, 'parkingPlaceArea'),
 
-    arealSumByggesak: isPercentage ? get(state, 'resultGroup') || 0 : null,
-    beregnetGradAvUtnytting: get(state, 'resultGroup') || 0,
-
+    // eslint-disable-next-line no-bitwise
+    tillatGradAvUtnyttingKVM: ~~get(state, 'sum-utnyttingsgrad') || 0,
+    tillatGradAvUtnyttingProsent: get(state, 'utilizationArea') || 0,
+    planlagtGradAvUtnytting: get(state, 'sum-planArea') || 0,
     beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen),
   };
 }
