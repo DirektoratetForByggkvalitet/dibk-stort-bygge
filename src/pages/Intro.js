@@ -37,7 +37,7 @@ export default function Intro({ close }) {
           </div>
           <div>
             <Primitives.Figure>
-              <img src="/img/intro_mac.png" alt="" />
+              <img src="/images/intro_mac.png" alt="" />
             </Primitives.Figure>
           </div>
         </section>
@@ -79,7 +79,7 @@ export default function Intro({ close }) {
           </div>
           <div>
             <Primitives.Figure>
-              <img src="/img/intro_documents.png" alt="" />
+              <img src="/images/intro_documents.png" alt="" />
             </Primitives.Figure>
           </div>
         </section>
