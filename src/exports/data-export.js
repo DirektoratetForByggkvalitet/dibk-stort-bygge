@@ -13,13 +13,6 @@ const formatPrefix = (word) => {
 };
 
 export default function exportstate(state) {
-  // summering av utnyttingsgrad
-  const valuesUtnytting = ['propertyArea', 'nonSettlementArea', 'utilizationArea', 0.01];
-  const operationsUtnytting = ['+', '-', '*', '%'];
-
-  // eslint-disable-next-line no-unused-vars
-  const utnyttingsgrad = sum(state, valuesUtnytting, operationsUtnytting);
-
   // summering av arealer
   const valuesplanArea = ['propertyArea', 'nonSettlementArea', 'sum2-planArea', 100];
   const operationsplanArea = ['+', '-', '-/', '%'];
@@ -31,18 +24,16 @@ export default function exportstate(state) {
   const tomtearealSomTrekkesFra = get(state, 'nonSettlementArea') || 0;
   const tomtearealBeregnet = tomtearealByggeomraade - tomtearealSomTrekkesFra;
 
-  // if area is calculated in percentage and not m2
-  // there should be a more reliable way to do this?
-  // const isPercentage = state.kommuneplanen.substring(0, 1) === 'p';
-
-  const arealSumByggesak = get(state, 'sum-utnyttingsgrad') - get(state, 'sum-bruktAreal');
+  // arealSumByggesak
+  const bruktareal = get(state, 'sum-bruktAreal') || get(state, 'sum2-planArea') || 0;
+  const utnyttingsgrad = get(state, 'sum-utnyttingsgrad') || 0;
 
   return {
     tomtearealByggeomraade,
     tomtearealSomTrekkesFra,
     tomtearealBeregnet,
 
-    arealSumByggesak,
+    arealSumByggesak: utnyttingsgrad - bruktareal,
 
     arealBebyggelseEksisterende:
       get(state, 'builtResidence') ||
