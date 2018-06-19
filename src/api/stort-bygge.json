@@ -1840,12 +1840,11 @@
                           "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                           "property": "hasRequiredExtraTerrainParkingPlacesInRegPlan",
                           "type": "Radio",
-                          "hidden": 
-                            {
-                              "field": "requiredParkingSpots",
-                              "operator": "eq",
-                              "value": 0
-                            },
+                          "hidden": {
+                            "field": "requiredParkingSpots",
+                            "operator": "eq",
+                            "value": 0
+                          },
                           "heading":
                             "Har kommuneplanen krav til minimum antall parkeringsplasser på terreng?",
                           "options": [
@@ -2314,12 +2313,12 @@
               "errorlead":
                 "Vi kan ikke gi deg et ordentlig resultat før du har svart på alle spørsmålene i veiviseren. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.",
               "exporter": "dataExport",
-              "beforeResult": [
+              "children": [
                 {
                   "id": "evalish",
                   "property": "evalish",
                   "type": "Evaluation",
-                  "testing": ["sum-utnyttingsgrad", "sum2-planArea"],
+                  "testing": ["utnyttingsgrad", "planArea2"],
                   "sad": "Du planlegger å bygge mer enn det som er tillatt på eiendommen din.",
                   "happy": "Du er innenfor det som er tillatt å bygge på eiendommen din.",
                   "optional": true
@@ -2332,13 +2331,31 @@
                   "optional": true,
                   "children": [
                     {
+                      "id": "planArea2",
+                      "type": "Sum",
+                      "property": "planArea2",
+                      "heading": "Planlagt grad av utnytting i kvm",
+                      "values": [
+                        "builtResidence",
+                        "builtGarage",
+                        "builtSmallBuilding",
+                        "builtOther",
+                        "arealBebyggelseSomSkalRives",
+                        "newBuiltArea",
+                        "parkeringssum"
+                      ],
+                      "operations": ["+", "+", "+", "+", "-", "+", "+"],
+                      "unit": "m<sup>2</sup>",
+                      "optional": true,
+                      "final": true
+                    },
+                    {
                       "id": "utnyttingsgrad",
                       "property": "utnyttingsgrad",
                       "type": "Sum",
                       "values": ["propertyArea", "nonSettlementArea", "utilizationArea", 0.01],
                       "operations": ["+", "-", "*", "%"],
-                      "secondary": "utilizationArea",
-                      "heading": "Tillat grad av utnytting",
+                      "heading": "Tillat grad av utnytting i kvm",
                       "optional": true,
                       "final": true,
                       "unit": "m<sup>2</sup>"
@@ -2346,30 +2363,30 @@
                     {
                       "id": "planArea",
                       "property": "planArea",
-                      "type": "SpecialSum",
-                      "values": ["propertyArea", "nonSettlementArea", "sum2-planArea", 100],
+                      "type": "Sum",
+                      "values": ["propertyArea", "nonSettlementArea", "planArea2", 100],
                       "operations": ["+", "-", "-/", "%"],
-                      "heading": "Din planlagte grad av utnytting",
+                      "unit": "%",
+                      "heading": "Planlagte grad av utnytting i %",
+                      "optional": true,
+                      "final": true
+                    },
+                    {
+                      "id": "utnyttingsgradProsent",
+                      "property": "utnyttingsgradProsent",
+                      "type": "Sum",
+                      "values": ["utilizationArea"],
+                      "operations": [true],
+                      "heading": "Tillat grad av utnytting i %",
                       "optional": true,
                       "final": true,
-                      "unit": "%",
-                      "values2": [
-                        "builtResidence",
-                        "builtGarage",
-                        "builtSmallBuilding",
-                        "builtOther",
-                        "arealBebyggelseSomSkalRives",
-                        "newBuiltArea",
-                        "sum-parkeringssum"
-                      ],
-                      "operations2": ["+", "+", "+", "+", "-", "+", "+"],
-                      "unit2": "m<sup>2</sup>"
+                      "unit": "%"
                     },
                     {
                       "id": "evalishLeft",
                       "property": "evalishLeft",
                       "type": "Evaluation",
-                      "testing": ["sum-utnyttingsgrad", "sum2-planArea"],
+                      "testing": ["utnyttingsgrad", "planArea2"],
                       "showValue": true,
                       "sad": "Areal du må redusere",
                       "happy": "Gjenstående areal",
@@ -2433,12 +2450,12 @@
               "errorlead":
                 "Vi kan ikke gi deg et ordentlig resultat før du har svart på alle spørsmålene i veiviseren. Du kan se hvilke spørsmål du ikke har svart på i oppsummeringen under. Der kan du også klikke deg inn på hvert steg i veiviseren for å legge til og endre dine svar.",
               "exporter": "dataExport",
-              "beforeResult": [
+              "children": [
                 {
                   "id": "evalish",
                   "property": "evalish",
                   "type": "Evaluation",
-                  "testing": ["sum-utnyttingsgrad", "sum-bruktAreal"],
+                  "testing": ["utnyttingsgrad", "bruktAreal"],
                   "sad": "Du planlegger å bygge mer enn det som er tillatt på eiendommen din.",
                   "happy": "Du er innenfor det som er tillatt å bygge på eiendommen din.",
                   "optional": true
@@ -2471,7 +2488,7 @@
                         "builtOther",
                         "arealBebyggelseSomSkalRives",
                         "newBuiltArea",
-                        "sum-parkeringssum"
+                        "parkeringssum"
                       ],
                       "operations": ["+", "+", "+", "+", "-", "+", "+"],
                       "heading": "Planlagt utnyttingsgrad",
@@ -2483,7 +2500,7 @@
                       "id": "sisteTall",
                       "property": "sisteTall",
                       "type": "Evaluation",
-                      "testing": ["sum-utnyttingsgrad", "sum-bruktAreal"],
+                      "testing": ["utnyttingsgrad", "bruktAreal"],
                       "happy": "Gjenstående areal",
                       "sad": "Areal du må redusere",
                       "showValue": true,
@@ -2492,16 +2509,6 @@
                       "unit": "m<sup>2</sup>"
                     }
                   ]
-                }
-              ],
-              "children": [
-                {
-                  "id": "summary.export",
-                  "type": "Text",
-                  "printhide": true,
-                  "heading": "Takk for at du gjennomførte veiviseren!",
-                  "text":
-                    "<p>Du kan kopiere svarene dine, eller skrive ut resultatsiden.</p>"
                 }
               ]
             }
