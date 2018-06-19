@@ -14,7 +14,7 @@ const formatPrefix = (word) => {
 
 export default function exportstate(state) {
   // summering av arealer
-  const valuesplanArea = ['propertyArea', 'nonSettlementArea', 'sum2-planArea', 100];
+  const valuesplanArea = ['propertyArea', 'nonSettlementArea', 'planArea2', 100];
   const operationsplanArea = ['+', '-', '-/', '%'];
 
   // eslint-disable-next-line no-unused-vars
@@ -25,8 +25,8 @@ export default function exportstate(state) {
   const tomtearealBeregnet = tomtearealByggeomraade - tomtearealSomTrekkesFra;
 
   // arealSumByggesak
-  const bruktareal = get(state, 'sum-bruktAreal') || get(state, 'sum2-planArea') || 0;
-  const utnyttingsgrad = get(state, 'sum-utnyttingsgrad') || 0;
+  const bruktareal = get(state, 'bruktAreal') || get(state, 'planArea2') || 0;
+  const utnyttingsgrad = get(state, 'utnyttingsgrad') || 0;
 
   return {
     tomtearealByggeomraade,
@@ -50,9 +50,9 @@ export default function exportstate(state) {
       get(state, 'requiredParkingSpotsTerrain') * get(state, 'parkingPlaceArea'),
 
     // eslint-disable-next-line no-bitwise
-    tillatGradAvUtnyttingKVM: ~~get(state, 'sum-utnyttingsgrad') || 0,
+    tillatGradAvUtnyttingKVM: ~~get(state, 'utnyttingsgrad') || 0,
     tillatGradAvUtnyttingProsent: get(state, 'utilizationArea') || 0,
-    planlagtGradAvUtnytting: get(state, 'sum-planArea') || 0,
+    planlagtGradAvUtnytting: get(state, 'planArea') || 0,
     beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen),
   };
 }
