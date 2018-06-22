@@ -1,5 +1,4 @@
 import get from 'lodash.get';
-import sum from './sum';
 
 // formats letter-based prefix to it's actual prefix.
 // i.e: gets 'pbya' and returns '%bya'
@@ -13,27 +12,17 @@ const formatPrefix = (word) => {
 };
 
 export default function exportstate(state) {
-  // summering av arealer
-  const valuesplanArea = ['propertyArea', 'nonSettlementArea', 'planArea2', 100];
-  const operationsplanArea = ['+', '-', '-/', '%'];
-
-  // eslint-disable-next-line no-unused-vars
-  const planArea = sum(state, valuesplanArea, operationsplanArea);
-
   const tomtearealByggeomraade = get(state, 'propertyArea') || 0;
   const tomtearealSomTrekkesFra = get(state, 'nonSettlementArea') || 0;
   const tomtearealBeregnet = tomtearealByggeomraade - tomtearealSomTrekkesFra;
 
-  // arealSumByggesak
-  const bruktareal = get(state, 'bruktAreal') || get(state, 'planArea2') || 0;
-  const utnyttingsgrad = get(state, 'utnyttingsgrad') || 0;
+  // is area based on percentage based values?
+  const isPercentage = state.kommuneplanen.substring(0, 1) === 'p';
 
-  return {
+  const jsonExport = {
     tomtearealByggeomraade,
     tomtearealSomTrekkesFra,
     tomtearealBeregnet,
-
-    arealSumByggesak: utnyttingsgrad - bruktareal,
 
     arealBebyggelseEksisterende:
       get(state, 'builtResidence') ||
@@ -51,8 +40,19 @@ export default function exportstate(state) {
 
     // eslint-disable-next-line no-bitwise
     tillatGradAvUtnyttingKVM: ~~get(state, 'utnyttingsgrad') || 0,
-    tillatGradAvUtnyttingProsent: get(state, 'utilizationArea') || 0,
-    planlagtGradAvUtnytting: get(state, 'planArea') || 0,
+
+    planlagtGradAvUtnyttingKVM: get(state, 'planArea2') || 0,
     beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen),
   };
+
+  // don't include percentage based value if user has chosen a non-percentage value
+  if (isPercentage && get(state, 'utilizationArea')) {
+    jsonExport.tillatGradAvUtnyttingProsent = get(state, 'utilizationArea') || null;
+  }
+
+  if (get(state, 'planArea')) {
+    jsonExport.planlagtGradAvUtnytting = get(state, 'planArea') || null;
+  }
+
+  return jsonExport;
 }
