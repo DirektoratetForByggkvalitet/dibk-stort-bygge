@@ -12,8 +12,8 @@ const formatPrefix = (word) => {
 };
 
 export default function exportstate(state) {
-  const tomtearealByggeomraade = get(state, 'propertyArea') || 0;
-  const tomtearealSomTrekkesFra = get(state, 'nonSettlementArea') || 0;
+  const tomtearealByggeomraade = get(state, 'propertyArea') || null;
+  const tomtearealSomTrekkesFra = get(state, 'nonSettlementArea') || null;
   const tomtearealBeregnet = tomtearealByggeomraade - tomtearealSomTrekkesFra;
 
   // is area based on percentage based values?
@@ -29,19 +29,19 @@ export default function exportstate(state) {
       0 + get(state, 'builtOther') ||
       0 + get(state, 'builtGarage') ||
       0 + get(state, 'builtSmallBuilding') ||
-      0,
+      null,
 
-    arealBebyggelseSomSkalRives: get(state, 'arealBebyggelseSomSkalRives') || 0,
-    arealBebyggelseNytt: get(state, 'newBuiltArea') || 0,
+    arealBebyggelseSomSkalRives: get(state, 'arealBebyggelseSomSkalRives') || null,
+    arealBebyggelseNytt: get(state, 'newBuiltArea') || null,
     parkeringsPlasser: get(state, 'requiredParkingSpotsTerrain'),
-    parkeringsPlassAreal: get(state, 'parkingPlaceArea') || 0,
+    parkeringsPlassAreal: get(state, 'parkingPlaceArea') || null,
     parkeringsArealTerreng:
       get(state, 'requiredParkingSpotsTerrain') * get(state, 'parkingPlaceArea'),
 
     // eslint-disable-next-line no-bitwise
-    tillatGradAvUtnyttingKVM: ~~get(state, 'utnyttingsgrad') || 0,
+    tillatGradAvUtnyttingKVM: ~~get(state, 'utnyttingsgrad') || null,
 
-    planlagtGradAvUtnyttingKVM: get(state, 'planArea2') || 0,
+    planlagtGradAvUtnyttingKVM: get(state, 'planArea2') || null,
     beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen),
   };
 
