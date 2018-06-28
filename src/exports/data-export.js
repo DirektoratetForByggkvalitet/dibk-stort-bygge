@@ -12,8 +12,8 @@ const formatPrefix = (word) => {
 };
 
 export default function exportstate(state) {
-  const tomtearealByggeomraade = get(state, 'propertyArea') || null;
-  const tomtearealSomTrekkesFra = get(state, 'nonSettlementArea') || null;
+  const tomtearealByggeomraade = get(state, 'propertyArea') || undefined;
+  const tomtearealSomTrekkesFra = get(state, 'nonSettlementArea') || undefined;
   const tomtearealBeregnet = tomtearealByggeomraade - tomtearealSomTrekkesFra;
 
   // is area based on percentage based values?
@@ -29,29 +29,29 @@ export default function exportstate(state) {
       0 + get(state, 'builtOther') ||
       0 + get(state, 'builtGarage') ||
       0 + get(state, 'builtSmallBuilding') ||
-      null,
+      undefined,
 
-    arealBebyggelseSomSkalRives: get(state, 'arealBebyggelseSomSkalRives') || null,
-    arealBebyggelseNytt: get(state, 'newBuiltArea') || null,
+    arealBebyggelseSomSkalRives: get(state, 'arealBebyggelseSomSkalRives') || undefined,
+    arealBebyggelseNytt: get(state, 'newBuiltArea') || undefined,
     parkeringsPlasser: get(state, 'requiredParkingSpotsTerrain'),
-    parkeringsPlassAreal: get(state, 'parkingPlaceArea') || null,
+    parkeringsPlassAreal: get(state, 'parkingPlaceArea') || undefined,
     parkeringsArealTerreng:
       get(state, 'requiredParkingSpotsTerrain') * get(state, 'parkingPlaceArea'),
 
     // eslint-disable-next-line no-bitwise
-    tillatGradAvUtnyttingKVM: ~~get(state, 'utnyttingsgrad') || null,
+    tillatGradAvUtnyttingKVM: ~~get(state, 'utnyttingsgrad') || undefined,
 
-    planlagtGradAvUtnyttingKVM: get(state, 'planArea2') || null,
+    planlagtGradAvUtnyttingKVM: get(state, 'planArea2') || undefined,
     beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen),
   };
 
   // don't include percentage based value if user has chosen a non-percentage value
   if (isPercentage && get(state, 'utilizationArea')) {
-    jsonExport.tillatGradAvUtnyttingProsent = get(state, 'utilizationArea') || null;
+    jsonExport.tillatGradAvUtnyttingProsent = get(state, 'utilizationArea') || undefined;
   }
 
   if (get(state, 'planArea')) {
-    jsonExport.planlagtGradAvUtnytting = get(state, 'planArea') || null;
+    jsonExport.planlagtGradAvUtnytting = get(state, 'planArea') || undefined;
   }
 
   return jsonExport;
