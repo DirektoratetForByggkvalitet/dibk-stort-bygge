@@ -1329,13 +1329,6 @@
                                       "optional": true,
                                       "heading": "Totalt bebygd areal",
                                       "unit": "m<sup>2</sup>"
-                                    },
-                                    {
-                                      "id": "information",
-                                      "property": "information",
-                                      "type": "Information",
-                                      "text": "Husk å fylle ut alle feltene!",
-                                      "optional": true
                                     }
                                   ]
                                 }
