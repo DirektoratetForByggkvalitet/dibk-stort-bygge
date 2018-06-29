@@ -224,6 +224,7 @@
                   "property": "kommuneplanen",
                   "type": "Radio",
                   "heading": "Hvordan defineres grad av utnytting i kommuneplanen?",
+                  "clear": ["utilizationArea", "regulationTime"],
                   "options": [
                     {
                       "id": "kommuneplanen.bya",
@@ -298,6 +299,7 @@
                   "property": "kommuneplanen",
                   "type": "Radio",
                   "heading": "Hvordan defineres grad av utnytting i reguleringsplanen?",
+                  "clear": ["utilizationArea", "regulationTime"],
                   "options": [
                     {
                       "id": "kommuneplanen.bya",
