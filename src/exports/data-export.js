@@ -32,11 +32,10 @@ export default function exportstate(state) {
     tomtearealBeregnet,
 
     arealBebyggelseEksisterende:
-      checkNumber(state, 'builtResidence') ||
-      0 + checkNumber(state, 'builtOther') ||
-      0 + checkNumber(state, 'builtGarage') ||
-      0 + checkNumber(state, 'builtSmallBuilding') ||
-      0,
+      (checkNumber(state, 'builtResidence') || 0) +
+      (checkNumber(state, 'builtOther') || 0) +
+      (checkNumber(state, 'builtGarage') || 0) +
+      (checkNumber(state, 'builtSmallBuilding') || 0),
 
     arealBebyggelseSomSkalRives: checkNumber(state, 'arealBebyggelseSomSkalRives'),
     arealBebyggelseNytt: checkNumber(state, 'newBuiltArea'),
