@@ -11,9 +11,16 @@ const formatPrefix = (word) => {
   return word && word.toUpperCase();
 };
 
+const checkNumber = (state, prop) => {
+  const value = get(state, prop);
+  // https://github.com/uandi/eslint-config/wiki/29-Standard-Library
+  if (Number.isNaN(Number(value))) return undefined;
+  return value;
+};
+
 export default function exportstate(state) {
-  const tomtearealByggeomraade = get(state, 'propertyArea') || undefined;
-  const tomtearealSomTrekkesFra = get(state, 'nonSettlementArea') || undefined;
+  const tomtearealByggeomraade = checkNumber(state, 'propertyArea');
+  const tomtearealSomTrekkesFra = checkNumber(state, 'nonSettlementArea');
   const tomtearealBeregnet = tomtearealByggeomraade - tomtearealSomTrekkesFra;
 
   // is area based on percentage based values?
@@ -25,33 +32,32 @@ export default function exportstate(state) {
     tomtearealBeregnet,
 
     arealBebyggelseEksisterende:
-      get(state, 'builtResidence') ||
-      0 + get(state, 'builtOther') ||
-      0 + get(state, 'builtGarage') ||
-      0 + get(state, 'builtSmallBuilding') ||
-      undefined,
+      checkNumber(state, 'builtResidence') ||
+      0 + checkNumber(state, 'builtOther') ||
+      0 + checkNumber(state, 'builtGarage') ||
+      0 + checkNumber(state, 'builtSmallBuilding') ||
+      0,
 
-    arealBebyggelseSomSkalRives: get(state, 'arealBebyggelseSomSkalRives') || undefined,
-    arealBebyggelseNytt: get(state, 'newBuiltArea') || undefined,
-    parkeringsPlasser: get(state, 'requiredParkingSpotsTerrain'),
-    parkeringsPlassAreal: get(state, 'parkingPlaceArea') || undefined,
+    arealBebyggelseSomSkalRives: checkNumber(state, 'arealBebyggelseSomSkalRives'),
+    arealBebyggelseNytt: checkNumber(state, 'newBuiltArea'),
+    parkeringsPlasser: checkNumber(state, 'requiredParkingSpotsTerrain'),
+    parkeringsPlassAreal: checkNumber(state, 'parkingPlaceArea'),
     parkeringsArealTerreng:
       get(state, 'requiredParkingSpotsTerrain') * get(state, 'parkingPlaceArea'),
 
-    // eslint-disable-next-line no-bitwise
-    tillatGradAvUtnyttingKVM: ~~get(state, 'utnyttingsgrad') || undefined,
+    tillatGradAvUtnyttingKVM: checkNumber(state, 'utnyttingsgrad'),
 
-    planlagtGradAvUtnyttingKVM: get(state, 'planArea2') || undefined,
+    planlagtGradAvUtnyttingKVM: checkNumber(state, 'planArea2'),
     beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen),
   };
 
   // don't include percentage based value if user has chosen a non-percentage value
   if (isPercentage && get(state, 'utilizationArea')) {
-    jsonExport.tillatGradAvUtnyttingProsent = get(state, 'utilizationArea') || undefined;
+    jsonExport.tillatGradAvUtnyttingProsent = checkNumber(state, 'utilizationArea');
   }
 
   if (get(state, 'planArea')) {
-    jsonExport.planlagtGradAvUtnytting = get(state, 'planArea') || undefined;
+    jsonExport.planlagtGradAvUtnytting = checkNumber(state, 'planArea');
   }
 
   return jsonExport;
