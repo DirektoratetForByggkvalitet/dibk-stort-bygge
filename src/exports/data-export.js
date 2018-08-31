@@ -1,16 +1,5 @@
 import get from 'lodash.get';
 
-// formats letter-based prefix to it's actual prefix.
-// i.e: gets 'pbya' and returns '%bya'
-const formatPrefix = (word) => {
-  if (word === 'pbya') return '%BYA';
-  else if (word === 'pbra') return '%BRA';
-  else if (word === 'tbra') return 'T-BRA';
-  else if (word === 'ptu') return '%TU';
-
-  return word && word.toUpperCase();
-};
-
 const checkNumber = (state, prop) => {
   const value = get(state, prop);
   // https://github.com/uandi/eslint-config/wiki/29-Standard-Library
@@ -18,13 +7,10 @@ const checkNumber = (state, prop) => {
   return value;
 };
 
-export default function exportstate(state) {
+export function exportStatePercentageRule(state) {
   const tomtearealByggeomraade = checkNumber(state, 'propertyArea');
   const tomtearealSomTrekkesFra = checkNumber(state, 'nonSettlementArea');
   const tomtearealBeregnet = tomtearealByggeomraade - tomtearealSomTrekkesFra;
-
-  // is area based on percentage based values?
-  const isPercentage = state.kommuneplanen.substring(0, 1) === 'p';
 
   const jsonExport = {
     tomtearealByggeomraade,
@@ -39,25 +25,63 @@ export default function exportstate(state) {
 
     arealBebyggelseSomSkalRives: checkNumber(state, 'arealBebyggelseSomSkalRives'),
     arealBebyggelseNytt: checkNumber(state, 'newBuiltArea'),
-    parkeringsPlasser: checkNumber(state, 'requiredParkingSpotsTerrain'),
-    parkeringsPlassAreal: checkNumber(state, 'parkingPlaceArea'),
-    parkeringsArealTerreng:
+    parkeringsarealTerreng:
       get(state, 'requiredParkingSpotsTerrain') * get(state, 'parkingPlaceArea'),
 
-    tillatGradAvUtnyttingKVM: checkNumber(state, 'utnyttingsgrad'),
+    beregnetMaksByggeareal: checkNumber(state, 'utnyttingsgrad'),
 
-    planlagtGradAvUtnyttingKVM: checkNumber(state, 'planArea2'),
-    beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen),
+    arealSumByggesak: checkNumber(state, 'planArea2'),
   };
 
-  // don't include percentage based value if user has chosen a non-percentage value
-  if (isPercentage && get(state, 'utilizationArea')) {
-    jsonExport.tillatGradAvUtnyttingProsent = checkNumber(state, 'utilizationArea');
-  }
-
   if (get(state, 'planArea')) {
-    jsonExport.planlagtGradAvUtnytting = checkNumber(state, 'planArea');
+    jsonExport.beregnetGradAvUtnytting = checkNumber(state, 'planArea');
   }
 
   return jsonExport;
+}
+
+export function exportstateM2Rule(state) {
+  const jsonExport = {
+    // will always be null since we're not asking for the size of the plot
+    tomtearealBeregnet: null,
+
+    arealBebyggelseEksisterende:
+      (checkNumber(state, 'builtResidence') || 0) +
+      (checkNumber(state, 'builtOther') || 0) +
+      (checkNumber(state, 'builtGarage') || 0) +
+      (checkNumber(state, 'builtSmallBuilding') || 0),
+
+    arealBebyggelseSomSkalRives: checkNumber(state, 'arealBebyggelseSomSkalRives'),
+    arealBebyggelseNytt: checkNumber(state, 'newBuiltArea'),
+    parkeringsarealTerreng:
+      get(state, 'requiredParkingSpotsTerrain') * get(state, 'parkingPlaceArea'),
+
+    beregnetMaksByggeareal: checkNumber(state, 'utnyttingsgrad'),
+
+    beregnetGradAvUtnytting:
+      (
+        (
+          (checkNumber(state, 'builtResidence') || 0) +
+          (checkNumber(state, 'builtGarage') || 0) +
+          (checkNumber(state, 'builtSmallBuilding') || 0) +
+          (checkNumber(state, 'builtOther') || 0)
+        )
+        - (checkNumber(state, 'arealBebyggelseSomSkalRives') || 0)
+      ) +
+      (checkNumber(state, 'newBuiltArea') || 0) +
+      (checkNumber(state, 'parkeringssum') || 0),
+  };
+
+  return jsonExport;
+}
+
+export default function exportstate(state) {
+  // is area based on percentage based values?
+  const isPercentage = state.kommuneplanen.substring(0, 1) === 'p';
+
+  if (isPercentage) {
+    return exportStatePercentageRule(state);
+  }
+
+  return exportstateM2Rule(state);
 }
