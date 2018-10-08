@@ -7,6 +7,14 @@ const checkNumber = (state, prop) => {
   return value;
 };
 
+const formatPrefix = (word) => {
+  if (word === 'pbya') return '%BYA';
+  else if (word === 'pbra') return '%BRA';
+  else if (word === 'tbra') return 'T-BRA';
+  else if (word === 'ptu') return '%TU';
+   return word && word.toUpperCase();
+};
+
 export function exportStatePercentageRule(state) {
   const tomtearealByggeomraade = checkNumber(state, 'propertyArea');
   const tomtearealSomTrekkesFra = checkNumber(state, 'nonSettlementArea');
@@ -22,6 +30,11 @@ export function exportStatePercentageRule(state) {
       (checkNumber(state, 'builtOther') || 0) +
       (checkNumber(state, 'builtGarage') || 0) +
       (checkNumber(state, 'builtSmallBuilding') || 0),
+
+    gjeldendePlan: {
+      utnyttingsgrad: checkNumber(state, 'utnyttingsgradProsent'),
+      beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen)
+    },
 
     arealBebyggelseSomSkalRives: checkNumber(state, 'arealBebyggelseSomSkalRives'),
     arealBebyggelseNytt: checkNumber(state, 'newBuiltArea'),
@@ -82,6 +95,6 @@ export default function exportstate(state) {
   if (isPercentage) {
     return exportStatePercentageRule(state);
   }
-
+  
   return exportstateM2Rule(state);
 }
