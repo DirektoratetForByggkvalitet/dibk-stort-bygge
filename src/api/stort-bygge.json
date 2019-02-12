@@ -611,7 +611,17 @@
                   "heading": "Hva er tillatt grad av utnytting i reguleringsplanen?",
                   "unit": "%",
                   "minimum": 0,
-                  "maximum": 100
+                  "show": { "field": "kommuneplanen", "operator": "eq", "value": "pbra" }
+                },
+                {
+                  "id": "utilizationArea",
+                  "property": "utilizationArea",
+                  "type": "Number",
+                  "heading": "Hva er tillatt grad av utnytting i reguleringsplanen?",
+                  "unit": "%",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "hide": { "field": "kommuneplanen", "operator": "eq", "value": "pbra" }
                 }
               ]
             }
@@ -726,7 +736,17 @@
                   "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "%",
                   "minimum": 1,
-                  "maximum": 100
+                  "maximum": 100,
+                  "hide": { "field": "kommuneplanen", "operator": "eq", "value": "pbra" }
+                },
+                {
+                  "id": "utilizationArea",
+                  "property": "utilizationArea",
+                  "type": "Number",
+                  "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
+                  "unit": "%",
+                  "minimum": 1,
+                  "show": { "field": "kommuneplanen", "operator": "eq", "value": "pbra" }
                 }
               ]
             }
@@ -841,7 +861,17 @@
                   "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
                   "unit": "%",
                   "minimum": 1,
-                  "maximum": 100
+                  "show": { "field": "kommuneplanen", "operator": "eq", "value": "pbra" }
+                },
+                {
+                  "id": "utilizationArea",
+                  "property": "utilizationArea",
+                  "type": "Number",
+                  "heading": "Hva er tillatt grad av utnytting i kommuneplanen?",
+                  "unit": "%",
+                  "minimum": 1,
+                  "maximum": 100,
+                  "hide": { "field": "kommuneplanen", "operator": "eq", "value": "pbra" }
                 }
               ]
             }
