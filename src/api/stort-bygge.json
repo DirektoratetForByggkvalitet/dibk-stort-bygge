@@ -1873,6 +1873,8 @@
                           },
                           "heading":
                             "Har kommuneplanen krav til minimum antall parkeringsplasser på terreng?",
+                            "text":
+                            "<p>Hvis dette er et krav, skal det stå i enten kommuneplan eller i reguleringsplan.</p>",
                           "options": [
                             {
                               "id": "hasRequiredExtraTerrainParkingPlacesInRegPlan.yes",
