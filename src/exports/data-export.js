@@ -38,9 +38,7 @@ export function exportStatePercentageRule(state) {
 
     arealBebyggelseSomSkalRives: checkNumber(state, 'arealBebyggelseSomSkalRives'),
     arealBebyggelseNytt: checkNumber(state, 'newBuiltArea'),
-    parkeringsarealTerreng:
-      get(state, 'requiredParkingSpotsTerrain') * get(state, 'parkingPlaceArea'),
-
+    parkeringsarealTerreng: checkNumber(state, 'parkeringssum'),
     beregnetMaksByggeareal: checkNumber(state, 'utnyttingsgrad'),
 
     arealSumByggesak: checkNumber(state, 'planArea2'),
