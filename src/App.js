@@ -9,6 +9,9 @@ import dataExport from './exports/data-export';
 import Intro from './pages/Intro';
 
 class App extends Component {
+  static trackIntro() {
+    track(data.meta.name, 'intro', 'Hvor stort kan du bygge?');
+  }
   static propTypes = {
     translations: PropTypes.object,
     hasData: PropTypes.bool.isRequired,
@@ -18,9 +21,6 @@ class App extends Component {
     translations: {},
   };
 
-  static trackIntro() {
-    track(data.meta.name, 'intro', 'Hvor stort kan du bygge?');
-  }
 
   constructor(props) {
     super(props);

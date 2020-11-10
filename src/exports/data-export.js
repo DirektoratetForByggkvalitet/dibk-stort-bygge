@@ -12,7 +12,7 @@ const formatPrefix = (word) => {
   else if (word === 'pbra') return '%BRA';
   else if (word === 'tbra') return 'T-BRA';
   else if (word === 'ptu') return '%TU';
-   return word && word.toUpperCase();
+  return word && word.toUpperCase();
 };
 
 export function exportStatePercentageRule(state) {
@@ -33,14 +33,12 @@ export function exportStatePercentageRule(state) {
 
     gjeldendePlan: {
       utnyttingsgrad: checkNumber(state, 'utnyttingsgradProsent'),
-      beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen)
+      beregningsregelGradAvUtnytting: formatPrefix(state.kommuneplanen),
     },
-
     arealBebyggelseSomSkalRives: checkNumber(state, 'arealBebyggelseSomSkalRives'),
     arealBebyggelseNytt: checkNumber(state, 'newBuiltArea'),
     parkeringsarealTerreng: checkNumber(state, 'parkeringssum'),
     beregnetMaksByggeareal: checkNumber(state, 'utnyttingsgrad'),
-
     arealSumByggesak: checkNumber(state, 'planArea2'),
   };
 
@@ -93,6 +91,6 @@ export default function exportstate(state) {
   if (isPercentage) {
     return exportStatePercentageRule(state);
   }
-  
+
   return exportstateM2Rule(state);
 }
