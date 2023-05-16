@@ -34,7 +34,7 @@ class App extends Component {
   closeIntro = () => {
     this.setState({ intro: false });
     window.scrollTo(0, 0);
-    trackEvent('close-intro');
+    trackEvent('Close intro');
   }
 
   showIntro = () => {
