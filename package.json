@@ -2,6 +2,7 @@
   "name": "dibk-stort-bygge",
   "version": "0.1.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "vite",
     "build": "vite build",
@@ -25,20 +26,20 @@
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.1.1",
-    "vite": "^5.0.5",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite": "^5.0.10",
+    "vite-tsconfig-paths": "^4.2.3"
   },
   "devDependencies": {
-    "@types/node": "^20.10.3",
-    "@types/react": "^18.2.42",
-    "@types/react-dom": "^18.2.17",
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
     "babel-eslint": "^10.1.0",
-    "eslint": "^8.55.0",
+    "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
