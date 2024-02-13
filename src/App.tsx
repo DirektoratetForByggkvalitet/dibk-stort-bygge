@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect, useSelector } from 'react-redux';
+
+import { connect, useSelector, Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import { Wizard, StyleProvider, trackEvent, track, state } from 'losen';
+import { store, persistor } from './store';
 
 import data from './api/stort-bygge';
 import dataExport from './exports/data-export';
@@ -40,17 +44,21 @@ const App = ({ translations = {} }) => {
   }
 
   return (
-    <Wizard
-      wizard={data}
-      exports={{ dataExport }}
-      translations={translations}
-      showIntro={showIntro}
-    />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Wizard
+          wizard={data}
+          exports={{ dataExport }}
+          translations={translations}
+          showIntro={showIntro}
+        />
+      </PersistGate>
+    </Provider>
   );
 };
 
-App.propTypes = {
-  translations: PropTypes.object,
-};
+const mapStateToProps = ({ [state.NAME]: { $computed, ...wizardData } }) => ({
+  hasData: !!Object.keys(wizardData).length,
+});
 
-export default App;
+export default connect(mapStateToProps)(App);
